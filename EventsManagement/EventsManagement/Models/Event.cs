@@ -38,10 +38,10 @@ namespace EventsManagement.Models
         public string? Description { get => description; set => description = value; }
         public DateTime EventDate { get => eventDate; set => eventDate = value; }
 
-        private Event? GetEvent(int eventId)
+        private Event? GetEventById(int eventId)
         {
-            var getQuery = $"SELECT EventId, UserId, Name, Description, EventDate FROM Event " +
-                                    $"WHERE EventId = {eventId} ORDER BY Name";
+            var getQuery = $"SELECT EventId, UserId, Name, Description, Event_Date FROM Event " +
+                                    $"WHERE EventId = @EventId ORDER BY Name";
             
             SqlParameter[] eventIdParam = [
                 new SqlParameter("@EventId", eventId)
@@ -59,10 +59,31 @@ namespace EventsManagement.Models
                 return null;
             }
         }
+        private List<Event>? GetEventByName(string eventName)
+        {
+            var getQuery = $"SELECT EventId, UserId, Name, Description, Event_Date FROM Event " +
+                                    $"WHERE Name = @EventName ORDER BY Name";
+
+            SqlParameter[] eventIdParam = [
+                new SqlParameter("@EventName", eventName)
+                ];
+
+            List<Event> events = DataAccess.GetEvents(getQuery, eventIdParam);
+
+            if (events.Count > 0)
+            {
+                return events;
+            }
+            else
+            {
+                Console.WriteLine($"No event found with ID: {eventId}");
+                return null;
+            }
+        }
         private List<Event>? GetEventByDate(DateTime selectedDate)
         {
-            var getQuery = $"SELECT EventId, UserId, Name, Description, EventDate FROM Event " +
-                                    $"WHERE EventDate = {selectedDate} ORDER BY Name";
+            var getQuery = $"SELECT EventId, UserId, Name, Description, Event_Date FROM Event " +
+                                    $"WHERE EventDate = @EventDate ORDER BY Name";
 
             SqlParameter[] eventIdParam = [
                 new SqlParameter("@EventDate", selectedDate)
@@ -89,7 +110,7 @@ namespace EventsManagement.Models
             SqlParameter[] insertParams = [
             new SqlParameter("@Name", newEvent.Name),
             new SqlParameter("@Description", newEvent.Description),
-            new SqlParameter("@EventDate", newEvent.EventDate)
+            new SqlParameter("@EventDate", newEvent.EventDate.Date)
             ];
 
             int rowsInserted = DataAccess.ManageData(insertQuery, insertParams);
@@ -153,7 +174,7 @@ namespace EventsManagement.Models
             }
             else
             {
-                Console.WriteLine("Error: Failed to create event.");
+                Console.WriteLine("Error: Failed to delete event.");
                 return false;
             }
         }

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Compile Update="Views\frmArtists.cs">
+    <Compile Update="Views\frmBands.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\frmEvents.cs">
@@ -16,7 +16,7 @@
     <Compile Update="Views\frmPresentations.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Views\frmSearchArtist.cs">
+    <Compile Update="Views\frmSearchBand.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\frmSearchEvent.cs">

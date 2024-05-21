@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace EventsManagement
 {
-    public partial class frmArtists : Form
+    public partial class frmSearchBand : Form
     {
-        public frmArtists()
+        public frmSearchBand()
         {
             InitializeComponent();
         }
