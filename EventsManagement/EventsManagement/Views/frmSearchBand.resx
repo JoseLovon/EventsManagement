@@ -120,34 +120,4 @@
   <metadata name="Genre.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="btnEdit.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="btnDelete.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Genre.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="btnEdit.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="btnDelete.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnDelete.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1
-        MAAA6mAAADqYAAAXcJy6UTwAAAAJcEhZcwAADsEAAA7BAbiRa+0AAAAHdElNRQfoBRUAAQMZ9ntpAAAA
-        GXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAY5JREFUOE+V1L8rRXEYx/Gjrh+LiaIk
-        k7LoLjaTiSyyWE0G12/ZLSYZlEnJ5g8w+fEXWFAolLJQFmWQ4rp4f9znezz3dE7neup19X3O9/l07v2e
-        I0qrz6hRxlHBd4J6uma7E6ULGUZxiasE9XQtbaYmsAkd6LS/PejPoGt+r2ZrApuxgVvcONcZ/B7NaFYZ
-        cWA3HpD8veqlWWXEgW1Yxw62/0kzmlVGFH3xUUG5GlzECIbrpL3FD8tQVrhDacAu9Fi8m7LJWmuv7jDO
-        ST46W/C/zSnO3frMen7PJv7CVKGBNfjNc1h26yXMu7Wsgq9bsDRKDbMCv7mERbdW2IxbywJ+5+MKDUzB
-        b04LnHVrmQSH4u5QpSYm4N/fvEAd0BgsxZWa0GOg0wsDeYFvGIKluFITg3hFGMgLfMEALMWVmtCD/Yww
-        kBf4hD5Yiis10YtHhIFp6BTDWo+RP+V7VN/hZKmJLtwhDBzg2K2PcOjW+v/YDktxpSb0gl8gDOQ5QSss
-        xZWaaME+0obT7KEAS4miHxheJH4/L4z5AAAAAElFTkSuQmCC
-</value>
-  </data>
 </root>

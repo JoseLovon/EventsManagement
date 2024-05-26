@@ -34,3 +34,14 @@ C:\src\Spring Term 2024\Database Programming\Projects\Project\EventsManagement\E
 C:\src\Spring Term 2024\Database Programming\Projects\Project\EventsManagement\EventsManagement\obj\Debug\net8.0-windows\EventsManagement.pdb
 C:\src\Spring Term 2024\Database Programming\Projects\Project\EventsManagement\EventsManagement\obj\Debug\net8.0-windows\EventsManagement.genruntimeconfig.cache
 C:\src\Spring Term 2024\Database Programming\Projects\Project\EventsManagement\EventsManagement\obj\Debug\net8.0-windows\ref\EventsManagement.dll
+C:\src\Spring Term 2024\Database Programming\Projects\Project\EventsManagement\EventsManagement\bin\Debug\net8.0-windows\Images\back_button.png
+C:\src\Spring Term 2024\Database Programming\Projects\Project\EventsManagement\EventsManagement\bin\Debug\net8.0-windows\Images\band_wallpaper.png
+C:\src\Spring Term 2024\Database Programming\Projects\Project\EventsManagement\EventsManagement\bin\Debug\net8.0-windows\Images\delete_icon.bmp
+C:\src\Spring Term 2024\Database Programming\Projects\Project\EventsManagement\EventsManagement\bin\Debug\net8.0-windows\Images\delete_icon.png
+C:\src\Spring Term 2024\Database Programming\Projects\Project\EventsManagement\EventsManagement\bin\Debug\net8.0-windows\Images\delete_iconn.png
+C:\src\Spring Term 2024\Database Programming\Projects\Project\EventsManagement\EventsManagement\bin\Debug\net8.0-windows\Images\edit_icon.bmp
+C:\src\Spring Term 2024\Database Programming\Projects\Project\EventsManagement\EventsManagement\bin\Debug\net8.0-windows\Images\edit_icon.png
+C:\src\Spring Term 2024\Database Programming\Projects\Project\EventsManagement\EventsManagement\bin\Debug\net8.0-windows\Images\edit_iconn.png
+C:\src\Spring Term 2024\Database Programming\Projects\Project\EventsManagement\EventsManagement\bin\Debug\net8.0-windows\Images\event_wallpaper.png
+C:\src\Spring Term 2024\Database Programming\Projects\Project\EventsManagement\EventsManagement\bin\Debug\net8.0-windows\Images\login_wallpaper.png
+C:\src\Spring Term 2024\Database Programming\Projects\Project\EventsManagement\EventsManagement\bin\Debug\net8.0-windows\Images\presentation_wallpaper.png

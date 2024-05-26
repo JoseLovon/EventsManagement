@@ -28,33 +28,66 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSearchBand));
-            dataGridView1 = new DataGridView();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            dgvBands = new DataGridView();
+            Artist = new DataGridViewTextBoxColumn();
+            Genre = new DataGridViewTextBoxColumn();
             pbxBack = new PictureBox();
             pictureBox2 = new PictureBox();
             label5 = new Label();
             label1 = new Label();
             txtName = new TextBox();
-            Artist = new DataGridViewTextBoxColumn();
-            Genre = new DataGridViewTextBoxColumn();
-            btnEdit = new DataGridViewImageColumn();
-            btnDelete = new DataGridViewImageColumn();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            btnDelete = new Button();
+            btnUpdate = new Button();
+            ((System.ComponentModel.ISupportInitialize)dgvBands).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbxBack).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
-            // dataGridView1
+            // dgvBands
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Artist, Genre, btnEdit, btnDelete });
-            dataGridView1.Location = new Point(122, 210);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(590, 195);
-            dataGridView1.TabIndex = 40;
+            dgvBands.BackgroundColor = Color.White;
+            dgvBands.BorderStyle = BorderStyle.None;
+            dgvBands.CellBorderStyle = DataGridViewCellBorderStyle.Raised;
+            dgvBands.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvBands.Columns.AddRange(new DataGridViewColumn[] { Artist, Genre });
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = SystemColors.Window;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle6.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = Color.BlanchedAlmond;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            dgvBands.DefaultCellStyle = dataGridViewCellStyle6;
+            dgvBands.GridColor = SystemColors.HighlightText;
+            dgvBands.Location = new Point(114, 202);
+            dgvBands.Name = "dgvBands";
+            dgvBands.RowHeadersWidth = 51;
+            dgvBands.Size = new Size(639, 163);
+            dgvBands.TabIndex = 40;
+            // 
+            // Artist
+            // 
+            Artist.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            Artist.DefaultCellStyle = dataGridViewCellStyle4;
+            Artist.HeaderText = "Artist";
+            Artist.MinimumWidth = 6;
+            Artist.Name = "Artist";
+            Artist.ReadOnly = true;
+            // 
+            // Genre
+            // 
+            Genre.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            Genre.DefaultCellStyle = dataGridViewCellStyle5;
+            Genre.HeaderText = "Genre";
+            Genre.MinimumWidth = 6;
+            Genre.Name = "Genre";
+            Genre.ReadOnly = true;
             // 
             // pbxBack
             // 
@@ -115,58 +148,57 @@
             txtName.Size = new Size(283, 31);
             txtName.TabIndex = 52;
             // 
-            // Artist
-            // 
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            Artist.DefaultCellStyle = dataGridViewCellStyle5;
-            Artist.HeaderText = "Artist";
-            Artist.MinimumWidth = 6;
-            Artist.Name = "Artist";
-            Artist.ReadOnly = true;
-            Artist.Width = 166;
-            // 
-            // Genre
-            // 
-            Genre.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            Genre.DefaultCellStyle = dataGridViewCellStyle6;
-            Genre.HeaderText = "Genre";
-            Genre.MinimumWidth = 6;
-            Genre.Name = "Genre";
-            Genre.ReadOnly = true;
-            // 
-            // btnEdit
-            // 
-            btnEdit.HeaderText = "";
-            btnEdit.Image = Properties.Resources.edit_iconn;
-            btnEdit.MinimumWidth = 6;
-            btnEdit.Name = "btnEdit";
-            btnEdit.Width = 40;
-            // 
             // btnDelete
             // 
-            btnDelete.HeaderText = "";
-            btnDelete.Image = (Image)resources.GetObject("btnDelete.Image");
-            btnDelete.MinimumWidth = 6;
+            btnDelete.BackColor = Color.FromArgb(0, 192, 192);
+            btnDelete.Cursor = Cursors.Hand;
+            btnDelete.FlatAppearance.BorderColor = Color.Black;
+            btnDelete.FlatAppearance.BorderSize = 0;
+            btnDelete.FlatStyle = FlatStyle.Flat;
+            btnDelete.Font = new Font("Segoe UI Symbol", 9F);
+            btnDelete.ForeColor = Color.White;
+            btnDelete.ImeMode = ImeMode.NoControl;
+            btnDelete.Location = new Point(461, 383);
             btnDelete.Name = "btnDelete";
-            btnDelete.Width = 40;
+            btnDelete.Size = new Size(135, 53);
+            btnDelete.TabIndex = 54;
+            btnDelete.Text = "Delete";
+            btnDelete.UseVisualStyleBackColor = false;
+            // 
+            // btnUpdate
+            // 
+            btnUpdate.BackColor = Color.FromArgb(192, 0, 0);
+            btnUpdate.Cursor = Cursors.Hand;
+            btnUpdate.FlatAppearance.BorderSize = 0;
+            btnUpdate.FlatStyle = FlatStyle.Flat;
+            btnUpdate.Font = new Font("Segoe UI Symbol", 9F);
+            btnUpdate.ForeColor = Color.White;
+            btnUpdate.ImeMode = ImeMode.NoControl;
+            btnUpdate.Location = new Point(287, 383);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(135, 53);
+            btnUpdate.TabIndex = 53;
+            btnUpdate.Text = "Update";
+            btnUpdate.UseVisualStyleBackColor = false;
             // 
             // frmSearchBand
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 477);
+            Controls.Add(btnDelete);
+            Controls.Add(btnUpdate);
             Controls.Add(txtName);
             Controls.Add(pbxBack);
             Controls.Add(label1);
             Controls.Add(pictureBox2);
-            Controls.Add(dataGridView1);
+            Controls.Add(dgvBands);
             Controls.Add(label5);
             FormBorderStyle = FormBorderStyle.None;
             Name = "frmSearchBand";
             Text = "Searchband";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvBands).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbxBack).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
@@ -174,7 +206,7 @@
         }
 
         #endregion
-        private DataGridView dataGridView1;
+        private DataGridView dgvBands;
         private PictureBox pbxBack;
         private PictureBox pictureBox2;
         private Label label5;
@@ -182,7 +214,7 @@
         private TextBox txtName;
         private DataGridViewTextBoxColumn Artist;
         private DataGridViewTextBoxColumn Genre;
-        private DataGridViewImageColumn btnEdit;
-        private DataGridViewImageColumn btnDelete;
+        private Button btnDelete;
+        private Button btnUpdate;
     }
 }

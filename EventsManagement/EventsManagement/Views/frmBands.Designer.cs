@@ -47,7 +47,7 @@
             comboBox1.FlatStyle = FlatStyle.System;
             comboBox1.Font = new Font("Segoe UI Symbol", 9F);
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(321, 257);
+            comboBox1.Location = new Point(325, 319);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(283, 28);
             comboBox1.Sorted = true;
@@ -58,7 +58,7 @@
             // 
             label5.AutoSize = true;
             label5.ImeMode = ImeMode.NoControl;
-            label5.Location = new Point(212, 265);
+            label5.Location = new Point(216, 327);
             label5.Name = "label5";
             label5.Size = new Size(51, 20);
             label5.TabIndex = 49;
@@ -68,7 +68,7 @@
             // 
             label3.AutoSize = true;
             label3.ImeMode = ImeMode.NoControl;
-            label3.Location = new Point(212, 195);
+            label3.Location = new Point(216, 250);
             label3.Name = "label3";
             label3.Size = new Size(46, 20);
             label3.TabIndex = 47;
@@ -82,7 +82,7 @@
             btnClear.FlatStyle = FlatStyle.Flat;
             btnClear.Font = new Font("Segoe UI Symbol", 9F);
             btnClear.ImeMode = ImeMode.NoControl;
-            btnClear.Location = new Point(421, 351);
+            btnClear.Location = new Point(425, 413);
             btnClear.Name = "btnClear";
             btnClear.Size = new Size(135, 53);
             btnClear.TabIndex = 45;
@@ -98,7 +98,7 @@
             btnRegister.Font = new Font("Segoe UI Symbol", 9F);
             btnRegister.ForeColor = Color.White;
             btnRegister.ImeMode = ImeMode.NoControl;
-            btnRegister.Location = new Point(254, 351);
+            btnRegister.Location = new Point(258, 413);
             btnRegister.Name = "btnRegister";
             btnRegister.Size = new Size(135, 53);
             btnRegister.TabIndex = 44;
@@ -139,7 +139,7 @@
             pictureBox2.ImeMode = ImeMode.NoControl;
             pictureBox2.Location = new Point(-3, -1);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(807, 148);
+            pictureBox2.Size = new Size(807, 143);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 41;
             pictureBox2.TabStop = false;
@@ -148,7 +148,7 @@
             // 
             txtName.BackColor = SystemColors.ButtonHighlight;
             txtName.Font = new Font("Segoe UI Symbol", 9F);
-            txtName.Location = new Point(321, 184);
+            txtName.Location = new Point(325, 239);
             txtName.Multiline = true;
             txtName.Name = "txtName";
             txtName.Size = new Size(283, 31);
@@ -158,8 +158,9 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             BackColor = Color.White;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 591);
             Controls.Add(txtName);
             Controls.Add(comboBox1);
             Controls.Add(label5);
@@ -171,6 +172,8 @@
             Controls.Add(pictureBox2);
             FormBorderStyle = FormBorderStyle.None;
             Name = "frmBands";
+            StartPosition = FormStartPosition.CenterParent;
+            WindowState = FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)pbxBack).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);

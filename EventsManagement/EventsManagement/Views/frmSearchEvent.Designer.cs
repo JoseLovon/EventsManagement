@@ -28,50 +28,40 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSearchEvent));
             txtName = new TextBox();
-            dataGridView1 = new DataGridView();
             label5 = new Label();
             pbxBack = new PictureBox();
             label1 = new Label();
             pictureBox2 = new PictureBox();
-            Artist = new DataGridViewTextBoxColumn();
-            Genre = new DataGridViewTextBoxColumn();
-            EventDate = new DataGridViewTextBoxColumn();
-            btnEdit = new DataGridViewImageColumn();
-            btnDelete = new DataGridViewImageColumn();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            button1 = new Button();
+            btnUpdate = new Button();
+            dgvEvents = new DataGridView();
+            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            From = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)pbxBack).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvEvents).BeginInit();
             SuspendLayout();
             // 
             // txtName
             // 
             txtName.BackColor = SystemColors.ButtonHighlight;
             txtName.Font = new Font("Segoe UI Symbol", 9F);
-            txtName.Location = new Point(354, 159);
+            txtName.Location = new Point(338, 171);
             txtName.Multiline = true;
             txtName.Name = "txtName";
             txtName.Size = new Size(283, 31);
             txtName.TabIndex = 58;
             // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Artist, Genre, EventDate, btnEdit, btnDelete });
-            dataGridView1.Location = new Point(25, 223);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(748, 195);
-            dataGridView1.TabIndex = 54;
-            // 
             // label5
             // 
             label5.AutoSize = true;
             label5.ImeMode = ImeMode.NoControl;
-            label5.Location = new Point(191, 170);
+            label5.Location = new Point(175, 182);
             label5.Name = "label5";
             label5.Size = new Size(120, 20);
             label5.TabIndex = 53;
@@ -113,67 +103,110 @@
             pictureBox2.TabIndex = 59;
             pictureBox2.TabStop = false;
             // 
-            // Artist
+            // button1
             // 
+            button1.BackColor = Color.FromArgb(0, 192, 192);
+            button1.Cursor = Cursors.Hand;
+            button1.FlatAppearance.BorderColor = Color.Black;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI Symbol", 9F);
+            button1.ForeColor = Color.White;
+            button1.ImeMode = ImeMode.NoControl;
+            button1.Location = new Point(418, 441);
+            button1.Name = "button1";
+            button1.Size = new Size(135, 53);
+            button1.TabIndex = 63;
+            button1.Text = "Delete";
+            button1.UseVisualStyleBackColor = false;
+            // 
+            // btnUpdate
+            // 
+            btnUpdate.BackColor = Color.FromArgb(192, 0, 0);
+            btnUpdate.Cursor = Cursors.Hand;
+            btnUpdate.FlatAppearance.BorderSize = 0;
+            btnUpdate.FlatStyle = FlatStyle.Flat;
+            btnUpdate.Font = new Font("Segoe UI Symbol", 9F);
+            btnUpdate.ForeColor = Color.White;
+            btnUpdate.ImeMode = ImeMode.NoControl;
+            btnUpdate.Location = new Point(242, 441);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(135, 53);
+            btnUpdate.TabIndex = 62;
+            btnUpdate.Text = "Update";
+            btnUpdate.UseVisualStyleBackColor = false;
+            // 
+            // dgvEvents
+            // 
+            dgvEvents.BackgroundColor = Color.White;
+            dgvEvents.BorderStyle = BorderStyle.None;
+            dgvEvents.CellBorderStyle = DataGridViewCellBorderStyle.Raised;
+            dgvEvents.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvEvents.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn1, From });
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Window;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = Color.BlanchedAlmond;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvEvents.DefaultCellStyle = dataGridViewCellStyle3;
+            dgvEvents.GridColor = SystemColors.HighlightText;
+            dgvEvents.Location = new Point(66, 241);
+            dgvEvents.Name = "dgvEvents";
+            dgvEvents.RowHeadersWidth = 51;
+            dgvEvents.Size = new Size(659, 163);
+            dgvEvents.TabIndex = 64;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            dataGridViewTextBoxColumn2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            Artist.DefaultCellStyle = dataGridViewCellStyle1;
-            Artist.HeaderText = "Event";
-            Artist.MinimumWidth = 6;
-            Artist.Name = "Artist";
-            Artist.ReadOnly = true;
-            Artist.Width = 166;
+            dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewTextBoxColumn2.HeaderText = "Event";
+            dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
-            // Genre
+            // dataGridViewTextBoxColumn1
             // 
-            Genre.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewTextBoxColumn1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            Genre.DefaultCellStyle = dataGridViewCellStyle2;
-            Genre.HeaderText = "Description";
-            Genre.MinimumWidth = 6;
-            Genre.Name = "Genre";
-            Genre.ReadOnly = true;
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewTextBoxColumn1.HeaderText = "Description";
+            dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // EventDate
+            // From
             // 
-            EventDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            EventDate.HeaderText = "Date";
-            EventDate.MinimumWidth = 6;
-            EventDate.Name = "EventDate";
-            // 
-            // btnEdit
-            // 
-            btnEdit.HeaderText = "";
-            btnEdit.Image = Properties.Resources.edit_iconn;
-            btnEdit.MinimumWidth = 6;
-            btnEdit.Name = "btnEdit";
-            btnEdit.Width = 40;
-            // 
-            // btnDelete
-            // 
-            btnDelete.HeaderText = "";
-            btnDelete.Image = (Image)resources.GetObject("btnDelete.Image");
-            btnDelete.MinimumWidth = 6;
-            btnDelete.Name = "btnDelete";
-            btnDelete.Width = 40;
+            From.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            From.HeaderText = "Date";
+            From.MinimumWidth = 6;
+            From.Name = "From";
+            From.Width = 70;
             // 
             // frmSearchEvent
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 524);
+            Controls.Add(dgvEvents);
+            Controls.Add(button1);
+            Controls.Add(btnUpdate);
             Controls.Add(pbxBack);
             Controls.Add(label1);
             Controls.Add(pictureBox2);
             Controls.Add(txtName);
-            Controls.Add(dataGridView1);
             Controls.Add(label5);
             FormBorderStyle = FormBorderStyle.None;
             Name = "frmSearchEvent";
             Text = "SearchEvent";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbxBack).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvEvents).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -181,15 +214,15 @@
         #endregion
 
         private TextBox txtName;
-        private DataGridView dataGridView1;
         private Label label5;
         private PictureBox pbxBack;
         private Label label1;
         private PictureBox pictureBox2;
-        private DataGridViewTextBoxColumn Artist;
-        private DataGridViewTextBoxColumn Genre;
-        private DataGridViewTextBoxColumn EventDate;
-        private DataGridViewImageColumn btnEdit;
-        private DataGridViewImageColumn btnDelete;
+        private Button button1;
+        private Button btnUpdate;
+        private DataGridView dgvEvents;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn From;
     }
 }

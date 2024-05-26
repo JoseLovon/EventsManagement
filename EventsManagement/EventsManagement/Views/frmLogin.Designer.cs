@@ -28,26 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            pictureBox1 = new PictureBox();
             panel1 = new Panel();
             lblError = new Label();
             label5 = new Label();
             btnLogin = new Button();
             txtUsername = new TextBox();
             txtPassword = new TextBox();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = Properties.Resources.login_wallpaper;
-            pictureBox1.Location = new Point(0, -1);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(868, 513);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
             // 
             // panel1
             // 
@@ -57,7 +45,7 @@
             panel1.Controls.Add(btnLogin);
             panel1.Controls.Add(txtUsername);
             panel1.Controls.Add(txtPassword);
-            panel1.Location = new Point(280, 98);
+            panel1.Location = new Point(271, 145);
             panel1.Name = "panel1";
             panel1.Size = new Size(336, 314);
             panel1.TabIndex = 1;
@@ -97,7 +85,7 @@
             btnLogin.Location = new Point(60, 229);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(223, 48);
-            btnLogin.TabIndex = 30;
+            btnLogin.TabIndex = 0;
             btnLogin.Text = "Login";
             btnLogin.UseVisualStyleBackColor = false;
             // 
@@ -111,7 +99,7 @@
             txtUsername.Name = "txtUsername";
             txtUsername.PlaceholderText = "Username";
             txtUsername.Size = new Size(223, 36);
-            txtUsername.TabIndex = 20;
+            txtUsername.TabIndex = 0;
             // 
             // txtPassword
             // 
@@ -123,28 +111,24 @@
             txtPassword.Name = "txtPassword";
             txtPassword.PlaceholderText = "Password";
             txtPassword.Size = new Size(223, 35);
-            txtPassword.TabIndex = 18;
+            txtPassword.TabIndex = 0;
             // 
             // frmLogin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(862, 505);
+            BackgroundImage = Properties.Resources.login_wallpaper;
+            ClientSize = new Size(852, 635);
             Controls.Add(panel1);
-            Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "frmLogin";
-            StartPosition = FormStartPosition.CenterParent;
             Text = "Login";
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
-
-        private PictureBox pictureBox1;
         private Panel panel1;
         private TextBox txtUsername;
         private TextBox txtPassword;
