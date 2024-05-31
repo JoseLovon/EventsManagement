@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -10,38 +11,55 @@ namespace FootballContractsHistory.Models
     public class Player
     {
         private int playerId;
-        private string? name;
-        private int? genreId;
-        private string? genreName;
+        private string? playerName;
+        private int? positionId;
+        private string? positionName;
+        public Player()
+        {
 
+        }
         public Player(int playerId, string? name, int? positionId, string? positionName)
         {
             PlayerId = playerId;
-            Name = name;
+            PlayerName = name;
             PositionId = positionId;
             PositionName = positionName;
         }
         public Player(string? name, int? playerId, string? playerName)
         {
-            Name = name;
+            PlayerName = name;
             PositionId = playerId;
             PositionName = playerName;
         }
-        public Player(string? name, int? genreId)
+        public Player(int playerId, string? name, int? positionId)
         {
-            Name = name;
-            PositionId = genreId;
+            PlayerId = playerId;
+            PlayerName = name;
+            PositionId = positionId;
+        }
+        public Player(string? name, int? positionId)
+        {
+            PlayerName = name;
+            PositionId = positionId;
         }
         public int PlayerId { get => playerId; set => playerId = value; }
-        public string? Name { get => name; set => name = value; }
-        public int? PositionId { get => genreId; set => genreId = value; }
-        public string? PositionName { get => genreName; set => genreName = value; }
+        public string? PlayerName { get => playerName; set => playerName = value; }
+        public int? PositionId { get => positionId; set => positionId = value; }
+        public string? PositionName { get => positionName; set => positionName = value; }
+        public DataTable? GetPlayers()
+        {
+            var getQuery = $"SELECT Player_ID, Name FROM Player ORDER BY Name";
 
+            DataTable players = DataAccess.GetData(getQuery);
+
+            return players;
+
+        }
         public Player? GetPlayerById(int playerId)
         {
-            var getQuery = $"SELECT P.Player_ID, P.Name, PS.Position_ID, PS.Name AS " +
-                $"Position FROM Player P INNER JOIN Position PS ON PS.Position_ID = P.Player_ID " +
-                $"WHERE P.Player_ID = @PlayerId";
+            var getQuery = @$"SELECT P.Player_ID, P.Name, PS.Position_ID, PS.Name AS 
+            Position FROM Player P INNER JOIN Position PS ON PS.Position_ID = P.Player_ID
+            WHERE P.Player_ID = @PlayerId";
 
             SqlParameter[] playerIdParam = [
                 new SqlParameter("@PlayerId", playerId)
@@ -61,15 +79,17 @@ namespace FootballContractsHistory.Models
         }
         public List<Player>? GetPlayerByName(string playerName)
         {
-            var getQuery = $"SELECT P.Player_ID, P.Name, PS.Position_ID, PS.Name AS " +
-                $"Position FROM Player P INNER JOIN Position PS ON PS.Position_ID = P.Player_ID " +
-                $"WHERE P.Name LIKE %@PlayerName%";
+            var getQuery = @"SELECT P.Player_ID, P.Name AS Player, PS.Position_ID, PS.Name AS
+            Position FROM Player P INNER JOIN Position PS ON PS.Position_ID = P.Position_ID 
+            WHERE P.Name LIKE @PlayerName";
 
             SqlParameter[] playerNameParam = [
-                new SqlParameter("@PlayerName", playerName)
+                new SqlParameter("@PlayerName", SqlDbType.NVarChar, 255){
+                    Value = "%" + playerName + "%"
+                }
                 ];
 
-            List<Player> players = DataAccess.GetPlayers(getQuery, playerNameParam);
+            List<Player>? players = DataAccess.GetPlayers(getQuery, playerNameParam);
 
             if (players.Count > 0)
             {
@@ -77,7 +97,7 @@ namespace FootballContractsHistory.Models
             }
             else
             {
-                Console.WriteLine($"No players found");
+                Console.WriteLine($"No player found with Full PlayerName: {playerName}");
                 return null;
             }
         }
@@ -99,7 +119,7 @@ namespace FootballContractsHistory.Models
             }
             else
             {
-                Console.WriteLine($"No players found");
+                Console.WriteLine($"No contracts found");
                 return null;
             }
         }
@@ -107,10 +127,10 @@ namespace FootballContractsHistory.Models
         public bool CreatePlayer(Player newPlayer)
         {
             string insertQuery = "INSERT INTO Player (Name, Position_ID) " +
-                "VALUES (@Name, @PositionId)";
+                "VALUES (@PlayerName, @PositionId)";
 
             SqlParameter[] insertParams = [
-            new SqlParameter("@Name", newPlayer.Name),
+            new SqlParameter("@PlayerName", newPlayer.PlayerName),
             new SqlParameter("@PositionId", newPlayer.PositionId)
             ];
 
@@ -129,21 +149,17 @@ namespace FootballContractsHistory.Models
         }
         public bool UpdatePlayer(Player playerToUpdate)
         {
-            // Construct the SQL UPDATE statement
-            string updateSql = "UPDATE Player SET Name = @Name, " +
+            string updateSql = "UPDATE Player SET Name = @PlayerName, " +
                 "Position_ID = @PositionId WHERE Player_ID = @PlayerId";
 
-            // Create the SqlParameter array
             SqlParameter[] updateParams = [
-            new SqlParameter("@PlayerId", playerToUpdate.PlayerId),
-            new SqlParameter("@Name", playerToUpdate.Name),
-            new SqlParameter("@PositionId", playerToUpdate.PositionId)
+                new SqlParameter("@PlayerName", playerToUpdate.PlayerName),
+                new SqlParameter("@PositionId", playerToUpdate.PositionId),
+                new SqlParameter("@PlayerId", playerToUpdate.PlayerId)
             ];
 
-            // Call the UpdateData method
             int rowsUpdated = DataAccess.ManageData(updateSql, updateParams);
 
-            // Check the number of rows updated
             if (rowsUpdated > 0)
             {
                 Console.WriteLine("Player updated successfully.");

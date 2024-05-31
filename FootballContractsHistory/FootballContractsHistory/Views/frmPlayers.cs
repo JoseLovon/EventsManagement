@@ -1,20 +1,15 @@
 ﻿using FootballContractsHistory.Models;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace FootballContractsHistory
 {
     public partial class frmPlayers : Form
     {
         private frmMDI mdiParentForm;
+        private frmSearchPlayers searchPlayersForm;
+        private Player playerToUpdate;
+        private FormState currentState;
 
         public frmPlayers()
         {
@@ -22,12 +17,48 @@ namespace FootballContractsHistory
             InitializeComponent();
         }
 
-        private void frmBands_Load(object sender, EventArgs e)
+        private void frmPlayers_Load(object sender, EventArgs e)
         {
+            currentState = FormState.Register;
             Task.Factory.StartNew(() => LoadPositions());
             mdiParentForm.SetToolStrip("Ready...", true);
         }
-
+        private void LoadState(FormState state)
+        {
+            if (state == FormState.Register)
+            {
+                btnRegister.Text = "Register";
+                ClearControls(groupBox1.Controls);
+            }
+            else if (state == FormState.Update)
+            {
+                btnRegister.Text = "Update";
+            }
+        }
+        private void ClearControls(Control.ControlCollection parentControl)
+        {
+            Invoke((MethodInvoker)delegate
+            {
+                foreach (Control control in parentControl)
+                {
+                    switch (control)
+                    {
+                        case TextBox textBox:
+                            textBox.Text = string.Empty;
+                            break;
+                        case CheckBox checkBox:
+                            checkBox.Checked = false;
+                            break;
+                        case ComboBox combo:
+                            combo.SelectedIndex = 0;
+                            break;
+                        case GroupBox groupBox:
+                            ClearControls(groupBox.Controls);
+                            break;
+                    }
+                }
+            });
+        }
         private void LoadPositions()
         {
             Position p = new Position();
@@ -40,52 +71,79 @@ namespace FootballContractsHistory
             });
         }
 
-        private void btnRegister_Click(object sender, EventArgs e)
+        private void btnRegisterUpdate_Click(object sender, EventArgs e)
         {
             try
             {
                 if (!string.IsNullOrEmpty(txtPlayer.Text) && cbxPosition.SelectedIndex != 0)
                 {
-                    Player p = new Player(txtPlayer.Text, Convert.ToInt32(cbxPosition.SelectedValue));
-                    var response = p.CreatePlayer(p);
-                    if (response)
+                    if (currentState == FormState.Register)
                     {
-                        txtPlayer.Text = string.Empty;
-                        cbxPosition.SelectedIndex = -1;
-                        mdiParentForm.SetToolStrip("Enter Player Name and Position to register a player.", true);
-                        MessageBox.Show("Player registered successfully.");
-                    }
-                    else
+                        Player p = new Player(txtPlayer.Text, Convert.ToInt32(cbxPosition.SelectedValue));
+                        var response = p.CreatePlayer(p);
+                        if (response)
+                        {
+                            txtPlayer.Text = string.Empty;
+                            cbxPosition.SelectedIndex = 0;
+                            mdiParentForm.SetToolStrip("Player registered successfully.", true);
+                        }
+                        else
+                        {
+                            mdiParentForm.SetToolStrip("Error creating player.", true);
+                        }
+                    } else if (currentState == FormState.Update)
                     {
-                        mdiParentForm.SetToolStrip("Error creating player.", true);
+                        Player p = new Player(playerToUpdate.PlayerId, txtPlayer.Text, Convert.ToInt32(cbxPosition.SelectedValue));
+                        var response = p.UpdatePlayer(p);
+                        if (response)
+                        {
+                            //SetState(FormState.Register);
+                            mdiParentForm.SetToolStrip("Player updated successfully.", true);
+                        }
+                        else
+                        {
+                            mdiParentForm.SetToolStrip("Error updating player.", false);
+                        }
                     }
                 } else
                 {
-                    mdiParentForm.SetToolStrip("Please complete the Player Name and Position.", false);
+                    mdiParentForm.SetToolStrip("Please complete the Player Full Name and Position.", false);
 
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                MessageBox.Show("Something went wrong. Please try again later.");
             }
         }
-
+        private void ShowFrmSearchPlayers()
+        {
+            searchPlayersForm = new frmSearchPlayers
+            {
+                MdiParent = mdiParentForm,
+                WindowState = FormWindowState.Normal,
+                Bounds = mdiParentForm.Bounds
+            };
+            searchPlayersForm.FormClosed += frmSearchPlayers_FormClosed!;
+            searchPlayersForm.Show();
+            
+        }
         private void pbxSearch_Click(object sender, EventArgs e)
         {
-            frmSearchPlayers searchPlayersForm = new frmSearchPlayers();
-            searchPlayersForm.WindowState = FormWindowState.Normal;
-            searchPlayersForm.Show();
+            ShowFrmSearchPlayers();
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            txtPlayer.Text = string.Empty;
-            cbxPosition.SelectedIndex = -1;
+            ClearControls(groupBox1.Controls);
+            mdiParentForm.SetToolStrip("Ready...", true);
+            SetState(FormState.Register);
         }
         private void pbxBack_Click(object sender, EventArgs e)
         {
+            if(searchPlayersForm != null)
+                searchPlayersForm.Close();
+
             this.Close();
         }
         private void txt_Validating(object sender, CancelEventArgs e)
@@ -113,6 +171,23 @@ namespace FootballContractsHistory
             }
 
             errorProvider1.SetError(combobox, errorMessage);
+        }
+        private void frmSearchPlayers_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Show();
+            if (searchPlayersForm.playerSearched != null)
+            {
+                playerToUpdate = searchPlayersForm.playerSearched;
+                txtPlayer.Text = playerToUpdate.PlayerName;
+                cbxPosition.SelectedValue = playerToUpdate.PositionId;
+                SetState(FormState.Update);
+                
+            }
+        }
+        private void SetState(FormState state)
+        {
+            currentState = state;
+            LoadState(state);
         }
     }
 }

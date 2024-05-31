@@ -10,7 +10,7 @@
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param playerName="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -76,7 +76,7 @@
             btnLogin.Location = new Point(60, 215);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(223, 48);
-            btnLogin.TabIndex = 0;
+            btnLogin.TabIndex = 3;
             btnLogin.Text = "Login";
             btnLogin.UseVisualStyleBackColor = false;
             btnLogin.Click += btnLogin_Click;
@@ -90,7 +90,7 @@
             txtUsername.Name = "txtUsername";
             txtUsername.PlaceholderText = "Username";
             txtUsername.Size = new Size(223, 36);
-            txtUsername.TabIndex = 0;
+            txtUsername.TabIndex = 1;
             txtUsername.Tag = "Username";
             txtUsername.TextChanged += txt_TextChanged;
             txtUsername.Validating += txt_Validating;
@@ -104,7 +104,7 @@
             txtPassword.Name = "txtPassword";
             txtPassword.PlaceholderText = "Password";
             txtPassword.Size = new Size(223, 35);
-            txtPassword.TabIndex = 0;
+            txtPassword.TabIndex = 2;
             txtPassword.Tag = "Password";
             txtPassword.TextChanged += txt_TextChanged;
             txtPassword.Validating += txt_Validating;

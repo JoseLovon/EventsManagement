@@ -24,7 +24,6 @@ CREATE TABLE Login (
 );
 GO
 
--- Crear la tabla Club
 CREATE TABLE Club (
     Club_ID INT IDENTITY(1,1) PRIMARY KEY,
     Userr_ID INT NOT NULL,
@@ -35,7 +34,6 @@ CREATE TABLE Club (
 );
 GO
 
--- Crear la tabla Genre
 CREATE TABLE Position (
     Position_ID INT IDENTITY(1,1) PRIMARY KEY,
     Name NVARCHAR(50) NOT NULL,
@@ -43,7 +41,6 @@ CREATE TABLE Position (
 );
 GO
 
--- Crear la tabla Band
 CREATE TABLE Player (
     Player_ID INT IDENTITY(1,1) PRIMARY KEY,
 	Position_ID INT NOT NULL,
@@ -53,7 +50,6 @@ CREATE TABLE Player (
 );
 GO
 
--- Crear la tabla Presentation
 CREATE TABLE Contract (
     Contract_ID INT IDENTITY(1,1) PRIMARY KEY,
     Club_ID INT NOT NULL,

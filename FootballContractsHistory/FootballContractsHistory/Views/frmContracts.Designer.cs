@@ -10,7 +10,7 @@
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param playerName="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -28,156 +28,242 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmContracts));
-            label4 = new Label();
-            btnClear = new Button();
-            btnRegister = new Button();
             pbxBack = new PictureBox();
-            label1 = new Label();
+            lblPlayers = new Label();
             pictureBox2 = new PictureBox();
-            cbxGenres = new ComboBox();
-            label3 = new Label();
-            comboBox1 = new ComboBox();
-            label5 = new Label();
-            comboBox2 = new ComboBox();
-            comboBox3 = new ComboBox();
+            groupBox1 = new GroupBox();
+            dtpEndDate = new DateTimePicker();
+            dtpStartDate = new DateTimePicker();
+            pbxSearch = new PictureBox();
+            btnClear = new Button();
+            cbxPlayers = new ComboBox();
+            cbxClubs = new ComboBox();
             label2 = new Label();
+            label5 = new Label();
+            btnRegister = new Button();
+            label4 = new Label();
+            label3 = new Label();
+            errorProvider1 = new ErrorProvider(components);
             ((System.ComponentModel.ISupportInitialize)pbxBack).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pbxSearch).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
-            // label4
+            // pbxBack
             // 
-            resources.ApplyResources(label4, "label4");
-            label4.Name = "label4";
+            resources.ApplyResources(pbxBack, "pbxBack");
+            pbxBack.BackColor = Color.FromArgb(99, 83, 56);
+            pbxBack.Cursor = Cursors.Hand;
+            errorProvider1.SetError(pbxBack, resources.GetString("pbxBack.Error"));
+            errorProvider1.SetIconAlignment(pbxBack, (ErrorIconAlignment)resources.GetObject("pbxBack.IconAlignment"));
+            errorProvider1.SetIconPadding(pbxBack, (int)resources.GetObject("pbxBack.IconPadding"));
+            pbxBack.Image = Properties.Resources.back_button;
+            pbxBack.Name = "pbxBack";
+            pbxBack.TabStop = false;
+            pbxBack.Click += pbxBack_Click;
+            // 
+            // lblPlayers
+            // 
+            resources.ApplyResources(lblPlayers, "lblPlayers");
+            lblPlayers.BackColor = Color.FromArgb(73, 72, 61);
+            errorProvider1.SetError(lblPlayers, resources.GetString("lblPlayers.Error"));
+            lblPlayers.FlatStyle = FlatStyle.System;
+            lblPlayers.ForeColor = Color.White;
+            errorProvider1.SetIconAlignment(lblPlayers, (ErrorIconAlignment)resources.GetObject("lblPlayers.IconAlignment"));
+            errorProvider1.SetIconPadding(lblPlayers, (int)resources.GetObject("lblPlayers.IconPadding"));
+            lblPlayers.Name = "lblPlayers";
+            // 
+            // pictureBox2
+            // 
+            resources.ApplyResources(pictureBox2, "pictureBox2");
+            errorProvider1.SetError(pictureBox2, resources.GetString("pictureBox2.Error"));
+            errorProvider1.SetIconAlignment(pictureBox2, (ErrorIconAlignment)resources.GetObject("pictureBox2.IconAlignment"));
+            errorProvider1.SetIconPadding(pictureBox2, (int)resources.GetObject("pictureBox2.IconPadding"));
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.TabStop = false;
+            // 
+            // groupBox1
+            // 
+            resources.ApplyResources(groupBox1, "groupBox1");
+            groupBox1.Controls.Add(dtpEndDate);
+            groupBox1.Controls.Add(dtpStartDate);
+            groupBox1.Controls.Add(pbxSearch);
+            groupBox1.Controls.Add(btnClear);
+            groupBox1.Controls.Add(cbxPlayers);
+            groupBox1.Controls.Add(cbxClubs);
+            groupBox1.Controls.Add(label2);
+            groupBox1.Controls.Add(label5);
+            groupBox1.Controls.Add(btnRegister);
+            groupBox1.Controls.Add(label4);
+            groupBox1.Controls.Add(label3);
+            errorProvider1.SetError(groupBox1, resources.GetString("groupBox1.Error"));
+            errorProvider1.SetIconAlignment(groupBox1, (ErrorIconAlignment)resources.GetObject("groupBox1.IconAlignment"));
+            errorProvider1.SetIconPadding(groupBox1, (int)resources.GetObject("groupBox1.IconPadding"));
+            groupBox1.Name = "groupBox1";
+            groupBox1.TabStop = false;
+            // 
+            // dtpEndDate
+            // 
+            resources.ApplyResources(dtpEndDate, "dtpEndDate");
+            errorProvider1.SetError(dtpEndDate, resources.GetString("dtpEndDate.Error"));
+            errorProvider1.SetIconAlignment(dtpEndDate, (ErrorIconAlignment)resources.GetObject("dtpEndDate.IconAlignment"));
+            errorProvider1.SetIconPadding(dtpEndDate, (int)resources.GetObject("dtpEndDate.IconPadding"));
+            dtpEndDate.Name = "dtpEndDate";
+            dtpEndDate.Value = new DateTime(2024, 5, 30, 0, 0, 0, 0);
+            dtpEndDate.Validating += cbx_Validating;
+            // 
+            // dtpStartDate
+            // 
+            resources.ApplyResources(dtpStartDate, "dtpStartDate");
+            errorProvider1.SetError(dtpStartDate, resources.GetString("dtpStartDate.Error"));
+            errorProvider1.SetIconAlignment(dtpStartDate, (ErrorIconAlignment)resources.GetObject("dtpStartDate.IconAlignment"));
+            errorProvider1.SetIconPadding(dtpStartDate, (int)resources.GetObject("dtpStartDate.IconPadding"));
+            dtpStartDate.Name = "dtpStartDate";
+            dtpStartDate.Value = new DateTime(2024, 5, 30, 0, 0, 0, 0);
+            dtpStartDate.Validating += cbx_Validating;
+            // 
+            // pbxSearch
+            // 
+            resources.ApplyResources(pbxSearch, "pbxSearch");
+            pbxSearch.BackColor = Color.White;
+            pbxSearch.Cursor = Cursors.Hand;
+            errorProvider1.SetError(pbxSearch, resources.GetString("pbxSearch.Error"));
+            errorProvider1.SetIconAlignment(pbxSearch, (ErrorIconAlignment)resources.GetObject("pbxSearch.IconAlignment"));
+            errorProvider1.SetIconPadding(pbxSearch, (int)resources.GetObject("pbxSearch.IconPadding"));
+            pbxSearch.Name = "pbxSearch";
+            pbxSearch.TabStop = false;
+            pbxSearch.Click += pbxSearch_Click;
             // 
             // btnClear
             // 
             resources.ApplyResources(btnClear, "btnClear");
             btnClear.Cursor = Cursors.Hand;
+            errorProvider1.SetError(btnClear, resources.GetString("btnClear.Error"));
             btnClear.FlatAppearance.BorderColor = Color.Black;
             btnClear.FlatAppearance.BorderSize = 2;
+            errorProvider1.SetIconAlignment(btnClear, (ErrorIconAlignment)resources.GetObject("btnClear.IconAlignment"));
+            errorProvider1.SetIconPadding(btnClear, (int)resources.GetObject("btnClear.IconPadding"));
             btnClear.Name = "btnClear";
             btnClear.UseVisualStyleBackColor = true;
+            btnClear.Click += btnClear_Click;
+            // 
+            // cbxPlayers
+            // 
+            resources.ApplyResources(cbxPlayers, "cbxPlayers");
+            cbxPlayers.Cursor = Cursors.Hand;
+            errorProvider1.SetError(cbxPlayers, resources.GetString("cbxPlayers.Error"));
+            cbxPlayers.FormattingEnabled = true;
+            errorProvider1.SetIconAlignment(cbxPlayers, (ErrorIconAlignment)resources.GetObject("cbxPlayers.IconAlignment"));
+            errorProvider1.SetIconPadding(cbxPlayers, (int)resources.GetObject("cbxPlayers.IconPadding"));
+            cbxPlayers.Name = "cbxPlayers";
+            cbxPlayers.Sorted = true;
+            cbxPlayers.Validating += cbx_Validating;
+            // 
+            // cbxClubs
+            // 
+            resources.ApplyResources(cbxClubs, "cbxClubs");
+            cbxClubs.Cursor = Cursors.Hand;
+            errorProvider1.SetError(cbxClubs, resources.GetString("cbxClubs.Error"));
+            cbxClubs.FormattingEnabled = true;
+            errorProvider1.SetIconAlignment(cbxClubs, (ErrorIconAlignment)resources.GetObject("cbxClubs.IconAlignment"));
+            errorProvider1.SetIconPadding(cbxClubs, (int)resources.GetObject("cbxClubs.IconPadding"));
+            cbxClubs.Name = "cbxClubs";
+            cbxClubs.Sorted = true;
+            cbxClubs.Validating += cbx_Validating;
+            // 
+            // label2
+            // 
+            resources.ApplyResources(label2, "label2");
+            errorProvider1.SetError(label2, resources.GetString("label2.Error"));
+            errorProvider1.SetIconAlignment(label2, (ErrorIconAlignment)resources.GetObject("label2.IconAlignment"));
+            errorProvider1.SetIconPadding(label2, (int)resources.GetObject("label2.IconPadding"));
+            label2.Name = "label2";
+            // 
+            // label5
+            // 
+            resources.ApplyResources(label5, "label5");
+            errorProvider1.SetError(label5, resources.GetString("label5.Error"));
+            errorProvider1.SetIconAlignment(label5, (ErrorIconAlignment)resources.GetObject("label5.IconAlignment"));
+            errorProvider1.SetIconPadding(label5, (int)resources.GetObject("label5.IconPadding"));
+            label5.Name = "label5";
             // 
             // btnRegister
             // 
             resources.ApplyResources(btnRegister, "btnRegister");
             btnRegister.BackColor = Color.FromArgb(192, 0, 0);
             btnRegister.Cursor = Cursors.Hand;
+            errorProvider1.SetError(btnRegister, resources.GetString("btnRegister.Error"));
             btnRegister.FlatAppearance.BorderSize = 0;
             btnRegister.ForeColor = Color.White;
+            errorProvider1.SetIconAlignment(btnRegister, (ErrorIconAlignment)resources.GetObject("btnRegister.IconAlignment"));
+            errorProvider1.SetIconPadding(btnRegister, (int)resources.GetObject("btnRegister.IconPadding"));
             btnRegister.Name = "btnRegister";
             btnRegister.UseVisualStyleBackColor = false;
+            btnRegister.Click += btnRegisterUpdate_Click;
             // 
-            // pbxBack
+            // label4
             // 
-            resources.ApplyResources(pbxBack, "pbxBack");
-            pbxBack.BackColor = Color.FromArgb(13, 91, 176);
-            pbxBack.Cursor = Cursors.Hand;
-            pbxBack.Image = Properties.Resources.back_button;
-            pbxBack.Name = "pbxBack";
-            pbxBack.TabStop = false;
-            // 
-            // label1
-            // 
-            resources.ApplyResources(label1, "label1");
-            label1.BackColor = Color.FromArgb(249, 253, 255);
-            label1.FlatStyle = FlatStyle.System;
-            label1.ForeColor = SystemColors.ActiveCaptionText;
-            label1.Name = "label1";
-            // 
-            // pictureBox2
-            // 
-            resources.ApplyResources(pictureBox2, "pictureBox2");
-            pictureBox2.Image = Properties.Resources.presentation_wallpaper;
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.TabStop = false;
-            // 
-            // cbxGenres
-            // 
-            resources.ApplyResources(cbxGenres, "cbxGenres");
-            cbxGenres.Cursor = Cursors.Hand;
-            cbxGenres.FormattingEnabled = true;
-            cbxGenres.Name = "cbxGenres";
-            cbxGenres.Sorted = true;
+            resources.ApplyResources(label4, "label4");
+            errorProvider1.SetError(label4, resources.GetString("label4.Error"));
+            errorProvider1.SetIconAlignment(label4, (ErrorIconAlignment)resources.GetObject("label4.IconAlignment"));
+            errorProvider1.SetIconPadding(label4, (int)resources.GetObject("label4.IconPadding"));
+            label4.Name = "label4";
             // 
             // label3
             // 
             resources.ApplyResources(label3, "label3");
+            errorProvider1.SetError(label3, resources.GetString("label3.Error"));
+            errorProvider1.SetIconAlignment(label3, (ErrorIconAlignment)resources.GetObject("label3.IconAlignment"));
+            errorProvider1.SetIconPadding(label3, (int)resources.GetObject("label3.IconPadding"));
             label3.Name = "label3";
             // 
-            // comboBox1
+            // errorProvider1
             // 
-            resources.ApplyResources(comboBox1, "comboBox1");
-            comboBox1.Cursor = Cursors.Hand;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Name = "comboBox1";
-            comboBox1.Sorted = true;
+            errorProvider1.ContainerControl = this;
+            resources.ApplyResources(errorProvider1, "errorProvider1");
             // 
-            // label5
-            // 
-            resources.ApplyResources(label5, "label5");
-            label5.Name = "label5";
-            // 
-            // comboBox2
-            // 
-            resources.ApplyResources(comboBox2, "comboBox2");
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Items.AddRange(new object[] { resources.GetString("comboBox2.Items"), resources.GetString("comboBox2.Items1"), resources.GetString("comboBox2.Items2"), resources.GetString("comboBox2.Items3"), resources.GetString("comboBox2.Items4"), resources.GetString("comboBox2.Items5"), resources.GetString("comboBox2.Items6"), resources.GetString("comboBox2.Items7"), resources.GetString("comboBox2.Items8"), resources.GetString("comboBox2.Items9") });
-            comboBox2.Name = "comboBox2";
-            // 
-            // comboBox3
-            // 
-            resources.ApplyResources(comboBox3, "comboBox3");
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Items.AddRange(new object[] { resources.GetString("comboBox3.Items"), resources.GetString("comboBox3.Items1"), resources.GetString("comboBox3.Items2"), resources.GetString("comboBox3.Items3"), resources.GetString("comboBox3.Items4"), resources.GetString("comboBox3.Items5"), resources.GetString("comboBox3.Items6"), resources.GetString("comboBox3.Items7"), resources.GetString("comboBox3.Items8"), resources.GetString("comboBox3.Items9") });
-            comboBox3.Name = "comboBox3";
-            // 
-            // label2
-            // 
-            resources.ApplyResources(label2, "label2");
-            label2.Name = "label2";
-            // 
-            // frmPresentations
+            // frmContracts
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            Controls.Add(comboBox3);
-            Controls.Add(label2);
-            Controls.Add(comboBox2);
-            Controls.Add(comboBox1);
-            Controls.Add(label5);
-            Controls.Add(cbxGenres);
-            Controls.Add(label3);
-            Controls.Add(label4);
-            Controls.Add(btnClear);
-            Controls.Add(btnRegister);
+            Controls.Add(groupBox1);
             Controls.Add(pbxBack);
-            Controls.Add(label1);
+            Controls.Add(lblPlayers);
             Controls.Add(pictureBox2);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "frmPresentations";
+            Name = "frmContracts";
+            Load += frmContracts_Load;
             ((System.ComponentModel.ISupportInitialize)pbxBack).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pbxSearch).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-        private Label label4;
-        private Button btnClear;
-        private Button btnRegister;
         private PictureBox pbxBack;
-        private Label label1;
+        private Label lblPlayers;
         private PictureBox pictureBox2;
-        private ComboBox cbxGenres;
-        private Label label3;
-        private ComboBox comboBox1;
-        private Label label5;
-        private ComboBox comboBox2;
-        private ComboBox comboBox3;
+        private GroupBox groupBox1;
+        private PictureBox pbxSearch;
+        private Button btnClear;
+        private ComboBox cbxPlayers;
+        private ComboBox cbxClubs;
         private Label label2;
+        private Label label5;
+        private Button btnRegister;
+        private Label label4;
+        private Label label3;
+        private ErrorProvider errorProvider1;
+        private DateTimePicker dtpEndDate;
+        private DateTimePicker dtpStartDate;
     }
 }

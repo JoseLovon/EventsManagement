@@ -10,7 +10,7 @@
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param playerName="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -28,216 +28,171 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            dgvPresentations = new DataGridView();
-            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
-            From = new DataGridViewTextBoxColumn();
-            To = new DataGridViewTextBoxColumn();
-            btnDelete = new Button();
-            btnUpdate = new Button();
-            comboBox1 = new ComboBox();
-            label5 = new Label();
+            components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSearchContracts));
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             pbxBack = new PictureBox();
-            label1 = new Label();
+            lblPlayers = new Label();
             pictureBox2 = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)dgvPresentations).BeginInit();
+            dgvContracts = new DataGridView();
+            label5 = new Label();
+            label1 = new Label();
+            cbxClubs = new ComboBox();
+            cbxPlayers = new ComboBox();
+            errorProvider1 = new ErrorProvider(components);
             ((System.ComponentModel.ISupportInitialize)pbxBack).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvContracts).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
-            // dgvPresentations
+            // pbxBack
             // 
-            dgvPresentations.BackgroundColor = Color.White;
-            dgvPresentations.BorderStyle = BorderStyle.None;
-            dgvPresentations.CellBorderStyle = DataGridViewCellBorderStyle.Raised;
-            dgvPresentations.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvPresentations.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn1, From, To });
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = SystemColors.Window;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle6.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = Color.BlanchedAlmond;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            dgvPresentations.DefaultCellStyle = dataGridViewCellStyle6;
-            dgvPresentations.GridColor = SystemColors.HighlightText;
-            dgvPresentations.Location = new Point(112, 282);
-            dgvPresentations.Name = "dgvPresentations";
-            dgvPresentations.RowHeadersWidth = 51;
-            dgvPresentations.Size = new Size(639, 163);
-            dgvPresentations.TabIndex = 66;
+            pbxBack.BackColor = Color.FromArgb(99, 83, 56);
+            pbxBack.Cursor = Cursors.Hand;
+            pbxBack.Image = Properties.Resources.back_button;
+            pbxBack.ImeMode = ImeMode.NoControl;
+            pbxBack.Location = new Point(44, 60);
+            pbxBack.Name = "pbxBack";
+            pbxBack.Size = new Size(60, 47);
+            pbxBack.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbxBack.TabIndex = 69;
+            pbxBack.TabStop = false;
             // 
-            // dataGridViewTextBoxColumn2
+            // lblPlayers
             // 
-            dataGridViewTextBoxColumn2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle4;
-            dataGridViewTextBoxColumn2.HeaderText = "Event";
-            dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            dataGridViewTextBoxColumn2.ReadOnly = true;
+            lblPlayers.AutoSize = true;
+            lblPlayers.BackColor = Color.FromArgb(73, 72, 61);
+            lblPlayers.FlatStyle = FlatStyle.System;
+            lblPlayers.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold);
+            lblPlayers.ForeColor = Color.White;
+            lblPlayers.ImeMode = ImeMode.NoControl;
+            lblPlayers.Location = new Point(399, 69);
+            lblPlayers.Name = "lblPlayers";
+            lblPlayers.Size = new Size(141, 38);
+            lblPlayers.TabIndex = 68;
+            lblPlayers.Text = "Contracts";
+            lblPlayers.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // dataGridViewTextBoxColumn1
+            // pictureBox2
             // 
-            dataGridViewTextBoxColumn1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.ForeColor = Color.Black;
-            dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle5;
-            dataGridViewTextBoxColumn1.HeaderText = "Artist";
-            dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            dataGridViewTextBoxColumn1.ReadOnly = true;
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.ImeMode = ImeMode.NoControl;
+            pictureBox2.Location = new Point(-1, -2);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(854, 188);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 67;
+            pictureBox2.TabStop = false;
             // 
-            // From
+            // dgvContracts
             // 
-            From.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
-            From.HeaderText = "From";
-            From.MinimumWidth = 6;
-            From.Name = "From";
-            From.Width = 72;
-            // 
-            // To
-            // 
-            To.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
-            To.HeaderText = "To";
-            To.MinimumWidth = 6;
-            To.Name = "To";
-            To.Width = 54;
-            // 
-            // btnDelete
-            // 
-            btnDelete.BackColor = Color.FromArgb(0, 192, 192);
-            btnDelete.Cursor = Cursors.Hand;
-            btnDelete.FlatAppearance.BorderColor = Color.Black;
-            btnDelete.FlatAppearance.BorderSize = 0;
-            btnDelete.FlatStyle = FlatStyle.Flat;
-            btnDelete.Font = new Font("Segoe UI Symbol", 9F);
-            btnDelete.ForeColor = Color.White;
-            btnDelete.ImeMode = ImeMode.NoControl;
-            btnDelete.Location = new Point(469, 500);
-            btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(135, 53);
-            btnDelete.TabIndex = 65;
-            btnDelete.Text = "Delete";
-            btnDelete.UseVisualStyleBackColor = false;
-            // 
-            // btnUpdate
-            // 
-            btnUpdate.BackColor = Color.FromArgb(192, 0, 0);
-            btnUpdate.Cursor = Cursors.Hand;
-            btnUpdate.FlatAppearance.BorderSize = 0;
-            btnUpdate.FlatStyle = FlatStyle.Flat;
-            btnUpdate.Font = new Font("Segoe UI Symbol", 9F);
-            btnUpdate.ForeColor = Color.White;
-            btnUpdate.ImeMode = ImeMode.NoControl;
-            btnUpdate.Location = new Point(298, 500);
-            btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(135, 53);
-            btnUpdate.TabIndex = 64;
-            btnUpdate.Text = "Update";
-            btnUpdate.UseVisualStyleBackColor = false;
-            // 
-            // comboBox1
-            // 
-            comboBox1.Cursor = Cursors.Hand;
-            comboBox1.FlatStyle = FlatStyle.System;
-            comboBox1.Font = new Font("Segoe UI Symbol", 9F);
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(352, 207);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(283, 28);
-            comboBox1.Sorted = true;
-            comboBox1.TabIndex = 63;
-            comboBox1.Text = " -- Select a club --";
+            dgvContracts.BackgroundColor = Color.White;
+            dgvContracts.BorderStyle = BorderStyle.None;
+            dgvContracts.CellBorderStyle = DataGridViewCellBorderStyle.Raised;
+            dgvContracts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = Color.BlanchedAlmond;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvContracts.DefaultCellStyle = dataGridViewCellStyle2;
+            dgvContracts.GridColor = SystemColors.HighlightText;
+            dgvContracts.Location = new Point(109, 375);
+            dgvContracts.Name = "dgvContracts";
+            dgvContracts.RowHeadersWidth = 51;
+            dgvContracts.Size = new Size(639, 193);
+            dgvContracts.TabIndex = 66;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.ImeMode = ImeMode.NoControl;
-            label5.Location = new Point(210, 215);
+            label5.Location = new Point(194, 242);
             label5.Name = "label5";
             label5.Size = new Size(110, 20);
-            label5.TabIndex = 62;
+            label5.TabIndex = 65;
             label5.Text = "Search by Club:";
-            // 
-            // pbxBack
-            // 
-            pbxBack.BackColor = Color.FromArgb(13, 91, 176);
-            pbxBack.Cursor = Cursors.Hand;
-            pbxBack.Image = Properties.Resources.back_button;
-            pbxBack.ImeMode = ImeMode.NoControl;
-            pbxBack.Location = new Point(25, 32);
-            pbxBack.Name = "pbxBack";
-            pbxBack.Size = new Size(60, 47);
-            pbxBack.SizeMode = PictureBoxSizeMode.StretchImage;
-            pbxBack.TabIndex = 61;
-            pbxBack.TabStop = false;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.BackColor = Color.FromArgb(249, 253, 255);
-            label1.FlatStyle = FlatStyle.System;
-            label1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold);
-            label1.ForeColor = SystemColors.ActiveCaptionText;
             label1.ImeMode = ImeMode.NoControl;
-            label1.Location = new Point(383, 41);
+            label1.Location = new Point(194, 306);
             label1.Name = "label1";
-            label1.Size = new Size(141, 38);
-            label1.TabIndex = 60;
-            label1.Text = "Contracts";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
+            label1.Size = new Size(120, 20);
+            label1.TabIndex = 71;
+            label1.Text = "Search by Player:";
             // 
-            // pictureBox2
+            // cbxClubs
             // 
-            pictureBox2.ImeMode = ImeMode.NoControl;
-            pictureBox2.Location = new Point(0, 0);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(852, 148);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 59;
-            pictureBox2.TabStop = false;
+            cbxClubs.Cursor = Cursors.Hand;
+            cbxClubs.FlatStyle = FlatStyle.System;
+            cbxClubs.Font = new Font("Segoe UI Symbol", 9F);
+            cbxClubs.FormattingEnabled = true;
+            cbxClubs.Location = new Point(335, 234);
+            cbxClubs.Name = "cbxClubs";
+            cbxClubs.Size = new Size(283, 28);
+            cbxClubs.Sorted = true;
+            cbxClubs.TabIndex = 72;
+            cbxClubs.Tag = "Club";
+            cbxClubs.SelectedIndexChanged += cbxClubs_SelectedIndexChanged;
             // 
-            // frmSearch
+            // cbxPlayers
+            // 
+            cbxPlayers.Cursor = Cursors.Hand;
+            cbxPlayers.FlatStyle = FlatStyle.System;
+            cbxPlayers.Font = new Font("Segoe UI Symbol", 9F);
+            cbxPlayers.FormattingEnabled = true;
+            cbxPlayers.Location = new Point(335, 298);
+            cbxPlayers.Name = "cbxPlayers";
+            cbxPlayers.Size = new Size(283, 28);
+            cbxPlayers.Sorted = true;
+            cbxPlayers.TabIndex = 73;
+            cbxPlayers.Tag = "Player";
+            cbxPlayers.SelectedIndexChanged += cbxPlayers_SelectedIndexChanged;
+            // 
+            // errorProvider1
+            // 
+            errorProvider1.ContainerControl = this;
+            // 
+            // frmSearchContracts
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(852, 635);
-            Controls.Add(dgvPresentations);
-            Controls.Add(btnDelete);
-            Controls.Add(btnUpdate);
-            Controls.Add(comboBox1);
-            Controls.Add(label5);
-            Controls.Add(pbxBack);
+            Controls.Add(cbxPlayers);
+            Controls.Add(cbxClubs);
             Controls.Add(label1);
+            Controls.Add(pbxBack);
+            Controls.Add(lblPlayers);
             Controls.Add(pictureBox2);
+            Controls.Add(dgvContracts);
+            Controls.Add(label5);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "frmSearch";
+            Name = "frmSearchContracts";
             Text = "frmSearch";
-            ((System.ComponentModel.ISupportInitialize)dgvPresentations).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbxBack).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvContracts).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private DataGridView dgvPresentations;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn From;
-        private DataGridViewTextBoxColumn To;
-        private Button btnDelete;
-        private Button btnUpdate;
-        private ComboBox comboBox1;
-        private Label label5;
         private PictureBox pbxBack;
-        private Label label1;
+        private Label lblPlayers;
         private PictureBox pictureBox2;
+        private DataGridView dgvContracts;
+        private Label label5;
+        private Label label1;
+        private ComboBox cbxClubs;
+        private ComboBox cbxPlayers;
+        private ErrorProvider errorProvider1;
     }
 }

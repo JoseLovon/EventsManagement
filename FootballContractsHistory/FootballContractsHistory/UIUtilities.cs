@@ -16,7 +16,6 @@ namespace FootballContractsHistory
             control.DisplayMember = displayMember;
             control.ValueMember = valueMember;
         }
-
         public static void AddEmptyRow(this DataTable dt, string emptyColumnName, string nullColumnName, object? emptyValue = null)
         {
             if(emptyValue == null)
@@ -26,7 +25,18 @@ namespace FootballContractsHistory
 
             DataRow dr = dt.NewRow();
             //dr[emptyColumnName] = string.Empty;
-            dr[emptyColumnName] = "-- Please select an option --";
+            if(nullColumnName == "Position_ID")
+            {
+                dr[emptyColumnName] = "-- Please select a position --";
+            } else if (nullColumnName == "Club_ID")
+            {
+                dr[emptyColumnName] = "-- Please select a club --";
+            }
+            else if (nullColumnName == "Player_ID")
+            {
+                dr[emptyColumnName] = "-- Please select a player --";
+            }
+
             dr[nullColumnName] = emptyValue;
             dt.Rows.InsertAt(dr, 0);
         }

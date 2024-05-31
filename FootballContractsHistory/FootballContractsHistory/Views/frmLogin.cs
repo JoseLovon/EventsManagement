@@ -1,4 +1,5 @@
 ﻿using FootballContractsHistory.Models;
+using FootballContractsHistory.Views;
 using System.ComponentModel;
 
 
@@ -8,11 +9,14 @@ namespace FootballContractsHistory
     {
         private Login? login;
         private frmMDI mdiParentForm;
-
         public frmLogin()
         {
             mdiParentForm = Application.OpenForms.OfType<frmMDI>().FirstOrDefault()!;
             InitializeComponent();
+        }
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            mdiParentForm.SetToolStrip("Enter Username and Password to login", true);
         }
         private void txt_TextChanged(object sender, EventArgs e)
         {
@@ -27,22 +31,20 @@ namespace FootballContractsHistory
                 var userLogged = login.VerifyUser(txtUsername.Text.Trim(), txtPassword.Text.Trim());
                 if (userLogged != null)
                 {
-                    DataUser data = new DataUser() { userId = userLogged.Username! };
-
+                    DataUser data = new DataUser() { userId = userLogged.UserId!, username = userLogged.Username };
+                    this.Close();
                     if (mdiParentForm != null)
                     {
-                        mdiParentForm.SetToolStrip("hola", true);
-                        frmPlayers childForm = new frmPlayers();
+                        frmMainPage childForm = new frmMainPage();
                         childForm.MdiParent = mdiParentForm;
                         childForm.WindowState = FormWindowState.Maximized;
                         childForm.Bounds = mdiParentForm.ClientRectangle;
                         childForm.Show();
                     }
-                    this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("Please enter a valid username and password");
+                    MessageBox.Show("Please enter a valid Username and Password");
                 }
             }
             catch (Exception ex)
@@ -62,11 +64,6 @@ namespace FootballContractsHistory
             }
 
             errorProvider1.SetError(textBox, errorMessage);
-        }
-
-        private void frmLogin_Load(object sender, EventArgs e)
-        {
-            mdiParentForm.SetToolStrip("Enter username and password to login", true);
         }
     }
 }

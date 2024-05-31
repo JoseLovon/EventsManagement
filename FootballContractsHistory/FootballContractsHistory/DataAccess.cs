@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -80,6 +81,7 @@ namespace FootballContractsHistory
                             users.Add(us);
                         }
                     }
+                    conn.Close();
                 }
             }
             return users;
@@ -146,9 +148,46 @@ namespace FootballContractsHistory
         }
         #endregion
         #region Player
-        public static List<Player> GetPlayers(string sql, SqlParameter[]? parameters = null)
+        public static List<Player>? GetPlayers(string sql, SqlParameter[]? parameters = null)
         {
-            List<Player> players = new List<Player>();
+            try {
+                List<Player> players = new List<Player>();
+                using (SqlConnection conn = new SqlConnection(getConnectionString()))
+                {
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    {
+                        if (parameters != null)
+                        {
+                            cmd.Parameters.AddRange(parameters);
+                        }
+                        conn.Open();
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                int playerId = reader.GetInt32(reader.GetOrdinal("Player_ID"));
+                                string player = reader.GetString(reader.GetOrdinal("Player"));
+                                int positionId = reader.GetInt32(reader.GetOrdinal("Position_ID"));
+                                string position = reader.GetString(reader.GetOrdinal("Position"));
+
+                                Player at = new Player(playerId, player, positionId, position);
+                                players.Add(at);
+                            }
+                            conn.Close();
+                            return players;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+                return null;
+            }
+        }
+        public static DataTable GetData(string sql, SqlParameter[]? parameters = null)
+        {
+            DataTable dt = new DataTable();
             using (SqlConnection conn = new SqlConnection(getConnectionString()))
             {
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
@@ -157,23 +196,13 @@ namespace FootballContractsHistory
                     {
                         cmd.Parameters.AddRange(parameters);
                     }
-                    conn.Open();
-                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
-                        while (reader.Read())
-                        {
-                            int bandId = reader.GetInt32(reader.GetOrdinal("Player_ID"));
-                            string name = reader.GetString(reader.GetOrdinal("Name"));
-                            int positionId = reader.GetInt32(reader.GetOrdinal("Position_ID"));
-                            string position = reader.GetString(reader.GetOrdinal("Position"));
-
-                            Player at = new Player(bandId, name, positionId, position);
-                            players.Add(at);
-                        }
+                        da.Fill(dt);
                     }
                 }
             }
-            return players;
+            return dt;
         }
         #endregion
         #region Contract
@@ -193,16 +222,18 @@ namespace FootballContractsHistory
                     {
                         while (reader.Read())
                         {
-                            int presentationId = reader.GetInt32(reader.GetOrdinal("Contract_ID"));
+                            int contractId = reader.GetInt32(reader.GetOrdinal("Contract_ID"));
                             int clubId = reader.GetInt32(reader.GetOrdinal("Club_ID"));
                             string clubName = reader.GetString(reader.GetOrdinal("Club"));
                             int playerId = reader.GetInt32(reader.GetOrdinal("Player_ID"));
                             string playerName = reader.GetString(reader.GetOrdinal("Player"));
+                            string positionName = reader.GetString(reader.GetOrdinal("Position"));
                             DateTime startTime = reader.GetDateTime(reader.GetOrdinal("Start_Time"));
                             DateTime endTime = reader.GetDateTime(reader.GetOrdinal("End_Time"));
 
-                            Contract p = new Contract(presentationId, clubId, clubName, 
-                                playerId, playerName, startTime, endTime);
+                            Contract p = new Contract(contractId, clubId, clubName, 
+                                playerId, playerName, positionName, startTime, endTime);
+
                             contracts.Add(p);
                         }
                     }
@@ -224,7 +255,9 @@ namespace FootballContractsHistory
                     }
                     conn.Open();
                     rowsAffected = cmd.ExecuteNonQuery();
+                    
                 }
+                conn.Close();
             }
             return rowsAffected;
         }

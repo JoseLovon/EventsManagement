@@ -27,7 +27,8 @@ namespace FootballContractsHistory.Models
 
     public class DataUser
     {
-        public string userId;
+        public int userId;
+        public string username;
 
         #region Singleton
 

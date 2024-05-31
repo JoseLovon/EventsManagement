@@ -16,6 +16,10 @@ namespace FootballContractsHistory.Models
         private string? name;
         private string? description;
 
+        public Club()
+        {
+
+        }
         public Club(int clubId, int userId, string? name, string? description)
         {
             ClubId = clubId;
@@ -39,79 +43,47 @@ namespace FootballContractsHistory.Models
         public int UserId { get => userId; set => userId = value; }
         public string? Name { get => name; set => name = value; }
         public string? Description { get => description; set => description = value; }
-
-        private Club? GetClubById(int clubId)
+        public DataTable? GetClubs()
         {
-            var getQuery = $"SELECT Club_ID, User_ID, Name, Description FROM Club " +
-                                    $"WHERE Club_ID = @ClubId ORDER BY Name";
-            
-            SqlParameter[] eventIdParam = [
-                new SqlParameter("@ClubId", clubId)
+            var getQuery = $"SELECT Club_ID, Userr_ID, Name, Description FROM " +
+                $"Club ORDER BY Name";
+
+            DataTable clubs = DataAccess.GetData(getQuery);
+
+            return clubs;
+        }
+        public List<Club>? GetClubByName(string clubName)
+        {
+            var getQuery = $"SELECT Club_ID, Userr_ID, Name, Description FROM Club " +
+                                    $"WHERE Name LIKE @ClubName ORDER BY Name";
+
+            SqlParameter[] clubNameParam = [
+                new SqlParameter("@ClubName", SqlDbType.NVarChar, 255){
+                    Value = "%" + clubName + "%"
+                }
                 ];
 
-            List<Club> events = DataAccess.GetClubs(getQuery, eventIdParam);
+            List<Club> clubs = DataAccess.GetClubs(getQuery, clubNameParam);
 
-            if (events.Count > 0)
+            if (clubs.Count > 0)
             {
-                return events[0];
+                return clubs;
             }
             else
             {
-                Console.WriteLine($"No club found with ID: {clubId}");
+                Console.WriteLine($"No club found with Name: {clubName}");
                 return null;
             }
         }
-        private List<Club>? GetClubByName(string clubName)
+        public bool CreateClub(Club newClub)
         {
-            var getQuery = $"SELECT Club_ID, User_ID, Name, Description FROM Club " +
-                                    $"WHERE Name = @ClubName ORDER BY Name";
-
-            SqlParameter[] eventIdParam = [
-                new SqlParameter("@ClubName", clubName)
-                ];
-
-            List<Club> events = DataAccess.GetClubs(getQuery, eventIdParam);
-
-            if (events.Count > 0)
-            {
-                return events;
-            }
-            else
-            {
-                Console.WriteLine($"No event found with Name: {clubName}");
-                return null;
-            }
-        }
-        //private List<Club>? GetEventByDate(DateTime selectedDate)
-        //{
-        //    var getQuery = $"SELECT ClubId, UserId, Name, Description, Event_Date FROM ClubId " +
-        //                            $"WHERE EventDate = @EventDate ORDER BY Name";
-
-        //    SqlParameter[] eventIdParam = [
-        //        new SqlParameter("@EventDate", selectedDate)
-        //        ];
-
-        //    List<Club> events = DataAccess.GetClubs(getQuery, eventIdParam);
-
-        //    if (events.Count > 0)
-        //    {
-        //        return events;
-        //    }
-        //    else
-        //    {
-        //        Console.WriteLine($"No events found with EventDate: {clubId}");
-        //        return null;
-        //    }
-        //}
-
-        private bool CreateClub(Club newEvent)
-        {
-            string insertQuery = "INSERT INTO Club (Name, Description) " +
-                "VALUES (@Name, @Description)";
+            string insertQuery = "INSERT INTO Club (Userr_ID, Name, Description) " +
+                "VALUES (@UserId, @ClubName, @Description)";
 
             SqlParameter[] insertParams = [
-            new SqlParameter("@Name", newEvent.Name),
-            new SqlParameter("@Description", newEvent.Description)
+            new SqlParameter("@UserId", newClub.UserId),
+            new SqlParameter("@ClubName", newClub.Name),
+            new SqlParameter("@Description", newClub.Description)
             ];
 
             int rowsInserted = DataAccess.ManageData(insertQuery, insertParams);
@@ -127,15 +99,15 @@ namespace FootballContractsHistory.Models
                 return false;
             }
         }
-        private bool UpdateCreate(Club clubToUpdate)
+        public bool UpdateClub(Club clubToUpdate)
         {
             // Construct the SQL UPDATE statement
-            string updateSql = "UPDATE Club SET Name = @Name, " +
+            string updateSql = "UPDATE Club SET Name = @ClubName, " +
                 "Description = @Description WHERE Club_ID = @ClubId";
 
             // Create the SqlParameter array
             SqlParameter[] updateParams = [
-            new SqlParameter("@Name", clubToUpdate.Name),
+            new SqlParameter("@ClubName", clubToUpdate.Name),
             new SqlParameter("@Description", clubToUpdate.Description),
             new SqlParameter("@ClubId", clubToUpdate.ClubId)
             ];
@@ -155,7 +127,7 @@ namespace FootballContractsHistory.Models
                 return false;
             }
         }
-        private bool DeleteClub(int clubId)
+        public bool DeleteClub(int clubId)
         {
             string deleteQuery = "DELETE FROM Club WHERE Club_ID = @ClubId";
 
