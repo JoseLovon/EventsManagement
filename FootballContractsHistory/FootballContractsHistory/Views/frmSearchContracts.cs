@@ -19,75 +19,35 @@ namespace FootballContractsHistory.Views
         private List<Contract> contracts;
         public frmSearchContracts()
         {
+            mdiParentForm = Application.OpenForms.OfType<frmMDI>().FirstOrDefault()!;
             InitializeComponent();
         }
         private void frmSearchContracts_Load(object sender, EventArgs e)
         {
-            mdiParentForm.SetToolStrip("Ready...", true);
+            LoadClubs();
+            LoadPlayers();
+            mdiParentForm.SetToolStrip("Ready to search contracts", true);
         }
-        private void pbxBack_Click(object sender, EventArgs e)
+        private void LoadClubs()
         {
-            this.Close();
-        }
-        private void txt_Validating(object sender, CancelEventArgs e)
-        {
-            string errorMessage = string.Empty;
+            DataTable dtClubs = Club.GetClubs();
+            dtClubs.AddEmptyRow("Club", "Club_ID");
 
-            TextBox textBox = (TextBox)sender;
-
-            if (textBox.Text == string.Empty)
+            Invoke((MethodInvoker)delegate
             {
-                errorMessage = $"{textBox.Tag} is required.";
-            }
+                cbxClubs.Bind("Club", "Club_ID", dtClubs);
+            });
 
-            errorProvider1.SetError(textBox, errorMessage);
         }
-        private void dgvPlayers_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void LoadPlayers()
         {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow selectedRow = dgvContracts.Rows[e.RowIndex];
+            DataTable dtPlayers = Player.GetPlayers();
+            dtPlayers.AddEmptyRow("Player", "Player_ID");
 
-                if (e.ColumnIndex == dgvContracts.Columns["Update"].Index)
-                {
-                    UpdateContract(selectedRow);
-                }
-                else if (e.ColumnIndex == dgvContracts.Columns["Delete"].Index)
-                {
-                    DeleteContract(selectedRow);
-                }
-            }
-        }
-        private void UpdateContract(DataGridViewRow row)
-        {
-            contractSearched = (Contract)row.DataBoundItem;
-            this.Close();
-        }
-
-        private void DeleteContract(DataGridViewRow row)
-        {
-            try
+            Invoke((MethodInvoker)delegate
             {
-                int id = Convert.ToInt32(row.Cells["ContractId"].Value);
-
-                var response = Contract.DeleteContract(id);
-                if (response)
-                {
-                    mdiParentForm.SetToolStrip("Contract deleted successfully.", true);
-                }
-                else
-                {
-                    mdiParentForm.SetToolStrip("Error deleting contract.", true);
-                }
-                contracts.RemoveAt(row.Index);
-                dgvContracts.DataSource = null;
-                personalizeDataGridView();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                mdiParentForm.SetToolStrip("Error deleting contract.", true);
-            }
+                cbxPlayers.Bind("Player", "Player_ID", dtPlayers);
+            });
         }
         private void personalizeDataGridView()
         {
@@ -100,34 +60,20 @@ namespace FootballContractsHistory.Views
             dgvContracts.Columns["ClubName"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvContracts.Columns["PlayerName"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvContracts.Columns["PositionName"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            mdiParentForm.SetToolStrip("Contracts searched successfully..", true);
-
-            DataGridViewButtonColumn updateColumn = new DataGridViewButtonColumn();
-            updateColumn.Text = "Update";
-            updateColumn.Name = "Update";
-            updateColumn.UseColumnTextForButtonValue = true;
-
-            dgvContracts.Columns.Add(updateColumn);
-            DataGridViewButtonColumn deleteColumn = new DataGridViewButtonColumn();
-            deleteColumn.Text = "Delete";
-            deleteColumn.Name = "Delete";
-            deleteColumn.UseColumnTextForButtonValue = true;
-            dgvContracts.Columns.Add(deleteColumn);
+            mdiParentForm.SetToolStrip("Contracts searched successfully.", true);
         }
 
-        private void cbxClubs_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbxClubs_SelectionChangeCommitted(object sender, EventArgs e)
         {
             try
             {
-                if (cbxClubs.SelectedIndex != 0 || cbxPlayers.SelectedIndex != 0)
+                if (cbxClubs.SelectedIndex != -1 && cbxClubs.SelectedIndex != 0)
                 {
                     dgvContracts.Columns.Clear();
-                    contracts = Contract.GetContractsByClub_Player(cbxClubs.SelectedText, cbxPlayers.SelectedText)!;
+                    contracts = Contract.GetContractsByClub_Player(cbxClubs.GetItemText(cbxClubs.SelectedItem),
+                        (cbxPlayers.SelectedIndex != -1 && cbxPlayers.SelectedIndex != 0) ? cbxPlayers.GetItemText(cbxPlayers.SelectedItem) : null)!;
                     if (contracts != null && contracts.Count > 0)
                     {
-
-                        cbxClubs.SelectedIndex = 0;
-                        cbxPlayers.SelectedIndex = 0;
                         personalizeDataGridView();
                     }
                     else
@@ -137,10 +83,8 @@ namespace FootballContractsHistory.Views
                 }
                 else
                 {
-                    mdiParentForm.SetToolStrip("Please select the Club or Player fields.", false);
+                    mdiParentForm.SetToolStrip("Please select a Club or Player.", false);
                 }
-                cbxClubs.SelectedIndex = 0;
-                cbxPlayers.SelectedIndex = 0;
             }
             catch (Exception ex)
             {
@@ -148,19 +92,21 @@ namespace FootballContractsHistory.Views
                 MessageBox.Show("Something went wrong. Please try again later.");
             }
         }
-        private void cbxPlayers_SelectedIndexChanged(object sender, EventArgs e)
+        private void pbxBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void cbxPlayers_SelectionChangeCommitted(object sender, EventArgs e)
         {
             try
             {
-                if (cbxClubs.SelectedIndex != 0 || cbxPlayers.SelectedIndex != 0)
+                if (cbxPlayers.SelectedIndex != -1 && cbxPlayers.SelectedIndex != 0)
                 {
                     dgvContracts.Columns.Clear();
-                    contracts = Contract.GetContractsByClub_Player(cbxClubs.SelectedText, cbxPlayers.SelectedText)!;
+                    contracts = Contract.GetContractsByClub_Player((cbxClubs.SelectedIndex != -1 && cbxClubs.SelectedIndex != 0) ? cbxClubs.GetItemText(cbxClubs.SelectedItem):null,
+                       cbxPlayers.GetItemText(cbxPlayers.SelectedItem));
                     if (contracts != null && contracts.Count > 0)
                     {
-
-                        cbxClubs.SelectedIndex = 0;
-                        cbxPlayers.SelectedIndex = 0;
                         personalizeDataGridView();
                     }
                     else
@@ -170,10 +116,8 @@ namespace FootballContractsHistory.Views
                 }
                 else
                 {
-                    mdiParentForm.SetToolStrip("Please select the Club or Player fields.", false);
+                    mdiParentForm.SetToolStrip("Please select a Club or Player.", false);
                 }
-                cbxClubs.SelectedIndex = 0;
-                cbxPlayers.SelectedIndex = 0;
             }
             catch (Exception ex)
             {

@@ -29,16 +29,31 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
+            errorProvider1 = new ErrorProvider(components);
+            pictureBox1 = new PictureBox();
             panel1 = new Panel();
             label5 = new Label();
             btnLogin = new Button();
             txtUsername = new TextBox();
             txtPassword = new TextBox();
-            errorProvider1 = new ErrorProvider(components);
-            panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
+            // 
+            // errorProvider1
+            // 
+            errorProvider1.ContainerControl = this;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.img_login;
+            pictureBox1.Location = new Point(0, 0);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(827, 638);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 2;
+            pictureBox1.TabStop = false;
             // 
             // panel1
             // 
@@ -47,10 +62,10 @@
             panel1.Controls.Add(btnLogin);
             panel1.Controls.Add(txtUsername);
             panel1.Controls.Add(txtPassword);
-            panel1.Location = new Point(271, 145);
+            panel1.Location = new Point(272, 152);
             panel1.Name = "panel1";
-            panel1.Size = new Size(336, 314);
-            panel1.TabIndex = 1;
+            panel1.Size = new Size(340, 309);
+            panel1.TabIndex = 3;
             // 
             // label5
             // 
@@ -92,8 +107,7 @@
             txtUsername.Size = new Size(223, 36);
             txtUsername.TabIndex = 1;
             txtUsername.Tag = "Username";
-            txtUsername.TextChanged += txt_TextChanged;
-            txtUsername.Validating += txt_Validating;
+            txtUsername.KeyPress += txtUsername_KeyPress;
             // 
             // txtPassword
             // 
@@ -106,36 +120,39 @@
             txtPassword.Size = new Size(223, 35);
             txtPassword.TabIndex = 2;
             txtPassword.Tag = "Password";
-            txtPassword.TextChanged += txt_TextChanged;
-            txtPassword.Validating += txt_Validating;
-            // 
-            // errorProvider1
-            // 
-            errorProvider1.ContainerControl = this;
+            txtPassword.UseSystemPasswordChar = true;
+            txtPassword.KeyPress += txtPassword_KeyPress;
             // 
             // frmLogin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            ClientSize = new Size(852, 635);
+            ClientSize = new Size(827, 635);
+            ControlBox = false;
             Controls.Add(panel1);
+            Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.None;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "frmLogin";
+            ShowInTaskbar = false;
+            StartPosition = FormStartPosition.Manual;
             Text = "Login";
             Load += frmLogin_Load;
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
+        private ErrorProvider errorProvider1;
         private Panel panel1;
+        private Label label5;
+        private Button btnLogin;
         private TextBox txtUsername;
         private TextBox txtPassword;
-        private Button btnLogin;
-        private Label label5;
-        private ErrorProvider errorProvider1;
+        private PictureBox pictureBox1;
     }
 }

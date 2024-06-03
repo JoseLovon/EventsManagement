@@ -13,6 +13,7 @@ namespace FootballContractsHistory
         {
             mdiParentForm = Application.OpenForms.OfType<frmMDI>().FirstOrDefault()!;
             InitializeComponent();
+            txtPassword.UseSystemPasswordChar = true;
         }
         private void frmLogin_Load(object sender, EventArgs e)
         {
@@ -35,10 +36,11 @@ namespace FootballContractsHistory
                     this.Close();
                     if (mdiParentForm != null)
                     {
+                        mdiParentForm.SetEnableMenuToolStrip(true);
                         frmMainPage childForm = new frmMainPage();
+                        childForm.Activate();
                         childForm.MdiParent = mdiParentForm;
-                        childForm.WindowState = FormWindowState.Maximized;
-                        childForm.Bounds = mdiParentForm.ClientRectangle;
+                        childForm.ShowInTaskbar = false;
                         childForm.Show();
                     }
                 }
@@ -64,6 +66,22 @@ namespace FootballContractsHistory
             }
 
             errorProvider1.SetError(textBox, errorMessage);
+        }
+
+        private void txtUsername_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

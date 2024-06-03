@@ -1,3 +1,5 @@
+using FootballContractsHistory.Views;
+
 namespace FootballContractsHistory
 {
     internal static class Program
@@ -11,8 +13,7 @@ namespace FootballContractsHistory
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            frmMDI mdiParentForm = new frmMDI();
-            Application.Run(mdiParentForm);
+            Application.Run(new frmSplash());
         }
     }
 }

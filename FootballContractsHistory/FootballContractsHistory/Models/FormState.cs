@@ -8,7 +8,10 @@ namespace FootballContractsHistory.Models
 {
     public enum FormState
     {
+        Add,
         Register,
-        Update
+        Update,
+        Delete,
+        View
     }
 }

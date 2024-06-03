@@ -50,15 +50,12 @@ C:\src\Spring Term 2024\Database Programming\Projects\Project\FootballContractsH
 C:\src\Spring Term 2024\Database Programming\Projects\Project\FootballContractsHistory\FootballContractsHistory\bin\Debug\net8.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\src\Spring Term 2024\Database Programming\Projects\Project\FootballContractsHistory\FootballContractsHistory\obj\Debug\net8.0-windows\FootballContractsHistory.csproj.AssemblyReference.cache
 C:\src\Spring Term 2024\Database Programming\Projects\Project\FootballContractsHistory\FootballContractsHistory\obj\Debug\net8.0-windows\FootballContractsHistory.Properties.Resources.resources
-C:\src\Spring Term 2024\Database Programming\Projects\Project\FootballContractsHistory\FootballContractsHistory\obj\Debug\net8.0-windows\FootballContractsHistory.frmClubs.resources
 C:\src\Spring Term 2024\Database Programming\Projects\Project\FootballContractsHistory\FootballContractsHistory\obj\Debug\net8.0-windows\FootballContractsHistory.frmContracts.resources
 C:\src\Spring Term 2024\Database Programming\Projects\Project\FootballContractsHistory\FootballContractsHistory\obj\Debug\net8.0-windows\FootballContractsHistory.frmLogin.resources
 C:\src\Spring Term 2024\Database Programming\Projects\Project\FootballContractsHistory\FootballContractsHistory\obj\Debug\net8.0-windows\FootballContractsHistory.Views.frmMainPage.resources
 C:\src\Spring Term 2024\Database Programming\Projects\Project\FootballContractsHistory\FootballContractsHistory\obj\Debug\net8.0-windows\FootballContractsHistory.frmMDI.resources
 C:\src\Spring Term 2024\Database Programming\Projects\Project\FootballContractsHistory\FootballContractsHistory\obj\Debug\net8.0-windows\FootballContractsHistory.frmPlayers.resources
-C:\src\Spring Term 2024\Database Programming\Projects\Project\FootballContractsHistory\FootballContractsHistory\obj\Debug\net8.0-windows\FootballContractsHistory.frmSearchClubs.resources
 C:\src\Spring Term 2024\Database Programming\Projects\Project\FootballContractsHistory\FootballContractsHistory\obj\Debug\net8.0-windows\FootballContractsHistory.Views.frmSearchContracts.resources
-C:\src\Spring Term 2024\Database Programming\Projects\Project\FootballContractsHistory\FootballContractsHistory\obj\Debug\net8.0-windows\FootballContractsHistory.frmSearchPlayers.resources
 C:\src\Spring Term 2024\Database Programming\Projects\Project\FootballContractsHistory\FootballContractsHistory\obj\Debug\net8.0-windows\FootballContractsHistory.frmContracts.en.resources
 C:\src\Spring Term 2024\Database Programming\Projects\Project\FootballContractsHistory\FootballContractsHistory\obj\Debug\net8.0-windows\FootballContractsHistory.csproj.GenerateResource.cache
 C:\src\Spring Term 2024\Database Programming\Projects\Project\FootballContractsHistory\FootballContractsHistory\obj\Debug\net8.0-windows\FootballContractsHistory.GeneratedMSBuildEditorConfig.editorconfig
@@ -74,3 +71,7 @@ C:\src\Spring Term 2024\Database Programming\Projects\Project\FootballContractsH
 C:\src\Spring Term 2024\Database Programming\Projects\Project\FootballContractsHistory\FootballContractsHistory\obj\Debug\net8.0-windows\FootballContractsHistory.genruntimeconfig.cache
 C:\src\Spring Term 2024\Database Programming\Projects\Project\FootballContractsHistory\FootballContractsHistory\obj\Debug\net8.0-windows\ref\FootballContractsHistory.dll
 C:\src\Spring Term 2024\Database Programming\Projects\Project\FootballContractsHistory\FootballContractsHistory\obj\Debug\net8.0-windows\FootballContractsHistory.frmViewContracts.resources
+C:\src\Spring Term 2024\Database Programming\Projects\Project\FootballContractsHistory\FootballContractsHistory\obj\Debug\net8.0-windows\FootballContractsHistory.Views.frmSplash.resources
+C:\src\Spring Term 2024\Database Programming\Projects\Project\FootballContractsHistory\FootballContractsHistory\obj\Debug\net8.0-windows\FootballContractsHistory.Views.frmAbout.resources
+C:\src\Spring Term 2024\Database Programming\Projects\Project\FootballContractsHistory\FootballContractsHistory\obj\Debug\net8.0-windows\FootballContractsHistory.Views.frmClub.resources
+C:\src\Spring Term 2024\Database Programming\Projects\Project\FootballContractsHistory\FootballContractsHistory\obj\Debug\net8.0-windows\FootballContractsHistory.Views.frmSearchClub.resources

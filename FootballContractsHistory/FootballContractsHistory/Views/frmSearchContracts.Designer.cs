@@ -30,7 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSearchContracts));
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             pbxBack = new PictureBox();
             lblPlayers = new Label();
             pictureBox2 = new PictureBox();
@@ -58,6 +58,7 @@
             pbxBack.SizeMode = PictureBoxSizeMode.StretchImage;
             pbxBack.TabIndex = 69;
             pbxBack.TabStop = false;
+            pbxBack.Click += pbxBack_Click;
             // 
             // lblPlayers
             // 
@@ -67,7 +68,7 @@
             lblPlayers.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold);
             lblPlayers.ForeColor = Color.White;
             lblPlayers.ImeMode = ImeMode.NoControl;
-            lblPlayers.Location = new Point(399, 69);
+            lblPlayers.Location = new Point(388, 69);
             lblPlayers.Name = "lblPlayers";
             lblPlayers.Size = new Size(141, 38);
             lblPlayers.TabIndex = 68;
@@ -76,11 +77,12 @@
             // 
             // pictureBox2
             // 
+            pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
             pictureBox2.ImeMode = ImeMode.NoControl;
             pictureBox2.Location = new Point(-1, -2);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(854, 188);
+            pictureBox2.Size = new Size(828, 188);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 67;
             pictureBox2.TabStop = false;
@@ -91,26 +93,26 @@
             dgvContracts.BorderStyle = BorderStyle.None;
             dgvContracts.CellBorderStyle = DataGridViewCellBorderStyle.Raised;
             dgvContracts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = Color.BlanchedAlmond;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dgvContracts.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = Color.BlanchedAlmond;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvContracts.DefaultCellStyle = dataGridViewCellStyle1;
             dgvContracts.GridColor = SystemColors.HighlightText;
-            dgvContracts.Location = new Point(109, 375);
+            dgvContracts.Location = new Point(44, 328);
             dgvContracts.Name = "dgvContracts";
             dgvContracts.RowHeadersWidth = 51;
-            dgvContracts.Size = new Size(639, 193);
+            dgvContracts.Size = new Size(726, 266);
             dgvContracts.TabIndex = 66;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.ImeMode = ImeMode.NoControl;
-            label5.Location = new Point(194, 242);
+            label5.Location = new Point(196, 221);
             label5.Name = "label5";
             label5.Size = new Size(110, 20);
             label5.TabIndex = 65;
@@ -120,7 +122,7 @@
             // 
             label1.AutoSize = true;
             label1.ImeMode = ImeMode.NoControl;
-            label1.Location = new Point(194, 306);
+            label1.Location = new Point(196, 275);
             label1.Name = "label1";
             label1.Size = new Size(120, 20);
             label1.TabIndex = 71;
@@ -132,13 +134,12 @@
             cbxClubs.FlatStyle = FlatStyle.System;
             cbxClubs.Font = new Font("Segoe UI Symbol", 9F);
             cbxClubs.FormattingEnabled = true;
-            cbxClubs.Location = new Point(335, 234);
+            cbxClubs.Location = new Point(337, 213);
             cbxClubs.Name = "cbxClubs";
             cbxClubs.Size = new Size(283, 28);
-            cbxClubs.Sorted = true;
-            cbxClubs.TabIndex = 72;
+            cbxClubs.TabIndex = 1;
             cbxClubs.Tag = "Club";
-            cbxClubs.SelectedIndexChanged += cbxClubs_SelectedIndexChanged;
+            cbxClubs.SelectionChangeCommitted += cbxClubs_SelectionChangeCommitted;
             // 
             // cbxPlayers
             // 
@@ -146,13 +147,12 @@
             cbxPlayers.FlatStyle = FlatStyle.System;
             cbxPlayers.Font = new Font("Segoe UI Symbol", 9F);
             cbxPlayers.FormattingEnabled = true;
-            cbxPlayers.Location = new Point(335, 298);
+            cbxPlayers.Location = new Point(337, 267);
             cbxPlayers.Name = "cbxPlayers";
             cbxPlayers.Size = new Size(283, 28);
-            cbxPlayers.Sorted = true;
-            cbxPlayers.TabIndex = 73;
+            cbxPlayers.TabIndex = 2;
             cbxPlayers.Tag = "Player";
-            cbxPlayers.SelectedIndexChanged += cbxPlayers_SelectedIndexChanged;
+            cbxPlayers.SelectionChangeCommitted += cbxPlayers_SelectionChangeCommitted;
             // 
             // errorProvider1
             // 
@@ -163,7 +163,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(852, 635);
+            ClientSize = new Size(827, 635);
             Controls.Add(cbxPlayers);
             Controls.Add(cbxClubs);
             Controls.Add(label1);
@@ -173,8 +173,13 @@
             Controls.Add(dgvContracts);
             Controls.Add(label5);
             FormBorderStyle = FormBorderStyle.None;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "frmSearchContracts";
+            StartPosition = FormStartPosition.Manual;
+            Tag = "searchContracts";
             Text = "frmSearch";
+            Load += frmSearchContracts_Load;
             ((System.ComponentModel.ISupportInitialize)pbxBack).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvContracts).EndInit();

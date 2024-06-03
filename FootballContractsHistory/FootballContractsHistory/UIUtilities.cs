@@ -36,6 +36,10 @@ namespace FootballContractsHistory
             {
                 dr[emptyColumnName] = "-- Please select a player --";
             }
+            else if (nullColumnName == "Contract_ID")
+            {
+                dr[emptyColumnName] = "-- Please select a contract --";
+            }
 
             dr[nullColumnName] = emptyValue;
             dt.Rows.InsertAt(dr, 0);

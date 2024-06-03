@@ -53,18 +53,139 @@ namespace FootballContractsHistory.Models
         public string? PositionName { get => positionName; set => positionName = value; }
         public DateTime StartDate { get => startTime; set => startTime = value; }
         public DateTime EndDate { get => endTime; set => endTime = value; }
+        public static DataTable? GetContractsToLoad()
+        {
+            string sql =
+                $@"SELECT 
+	                Contract_ID
+	                , Name
+                    , Club
+                    , Player
+                    , Position
+                    , Start_Date
+                    , End_Date
+                    , Creation_Date
+	                , NextContractID
+	                , PreviousContractID
+	                , RowNumber
+	                , (SELECT TOP(1) Contract_ID FROM Contract ORDER BY Contract_ID) AS FirstContractID
+	                , (SELECT TOP(1) Contract_ID FROM Contract ORDER BY Contract_ID DESC) AS LastContractID
+                FROM
+                (
+	                SELECT 
+		                C.Contract_ID
+		                , (CL.Name + ' - ' + P.Name) AS Name
+                        , CL.Club_ID
+                        , CL.Name AS Club
+                        , P.Player_ID
+                        , P.Name AS Player
+                        , PS.Position_ID
+                        , PS.Name AS Position
+                        , C.Start_Date
+                        , C.End_Date
+                        , C.Creation_Date
+		                , LEAD(C.Contract_ID) OVER(ORDER BY C.Contract_ID) AS NextContractID 
+		                , LAG(C.Contract_ID) OVER(ORDER BY C.Contract_ID) AS PreviousContractID
+		                , ROW_NUMBER() OVER(ORDER BY C.Contract_ID) AS RowNumber
+	                FROM Contract C INNER JOIN Club CL ON CL.Club_ID = C.Club_ID 
+                    INNER JOIN Player P ON P.Player_ID = C.Player_ID
+                    INNER JOIN Position PS ON PS.Position_ID = P.Position_ID
+                ) AS Contracts;";
 
+            DataTable Players = DataAccess.GetData(sql);
+
+            return Players;
+        }
+        public static DataSet? GetContractsToLoadById(int contractId)
+        {
+            string sqlDetails = @"SELECT C.Contract_ID, (CL.Name + ' - ' + P.Name) AS Name, 
+                CL.Club_ID, CL.Name AS Club, P.Player_ID, P.Name AS Player, C.Start_Date, 
+                C.End_Date, P.Creation_Date FROM Contract C INNER JOIN Club CL 
+                ON CL.Club_ID = C.Club_ID INNER JOIN Player P ON P.Player_ID = C.Player_ID 
+                WHERE C.Contract_ID = @ContractId ORDER BY C.Contract_ID;";
+
+            string sqlContract = $@"
+                SELECT 
+	                Contract_ID
+	                , Name
+                    , Club_ID
+                    , Club
+                    , Player_ID
+                    , Player
+                    , Start_Date
+                    , End_Date
+                    , Creation_Date
+	                , NextContractID
+	                , PreviousContractID
+	                , RowNumber
+	                , (SELECT TOP(1) Contract_ID FROM Contract ORDER BY Contract_ID) AS FirstContractID
+	                , (SELECT TOP(1) Contract_ID FROM Contract ORDER BY Contract_ID DESC) AS LastContractID
+                FROM
+                (
+	                SELECT 
+		                C.Contract_ID
+		                , (CL.Name + ' - ' + P.Name) AS Name
+                        , CL.Club_ID
+                        , CL.Name AS Club
+                        , P.Player_ID
+                        , P.Name AS Player
+                        , C.Start_Date
+                        , C.End_Date
+                        , C.Creation_Date
+		                , LEAD(C.Contract_ID) OVER(ORDER BY C.Contract_ID) AS NextContractID 
+		                , LAG(C.Contract_ID) OVER(ORDER BY C.Contract_ID) AS PreviousContractID
+		                , ROW_NUMBER() OVER(ORDER BY C.Contract_ID) AS RowNumber
+	                FROM Contract C INNER JOIN Club CL ON CL.Club_ID = C.Club_ID 
+                INNER JOIN Player P ON P.Player_ID = C.Player_ID
+                ) AS Contracts
+                WHERE Contract_ID = @ContractId;";
+
+            SqlParameter[] contractIdParam = [
+                new SqlParameter("@ContractId", contractId)
+                ];
+
+            string[] sqlQueries = new string[] { sqlDetails, sqlContract };
+
+            DataSet dsPlayerInfo = DataAccess.GetData(contractIdParam, sqlQueries);
+
+            return dsPlayerInfo;
+        }
+        public static int GetFirstContract()
+        {
+            var sql = "SELECT TOP 1 Contract_ID FROM Contract ORDER BY Contract_ID";
+
+            int player = Convert.ToInt32(DataAccess.ExecuteScalar(sql));
+
+            if (player > 0)
+            {
+                return player;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        public static DataTable GetContracts()
+        {
+            var getQuery = @"SELECT Contract_ID, (CL.Name + ' - ' + P.Name) AS Name
+                FROM Contract C INNER JOIN Club CL ON CL.Club_ID = C.Club_ID
+                INNER JOIN Player P ON P.Player_ID = C.Player_ID";
+
+            DataTable dtPlayers = DataAccess.GetData(getQuery);
+
+            return dtPlayers;
+        }
         public static List<Contract>? GetContractsByClub_Player(string clubName, string playerName)
         {
-            var getQuery = @$"SELECT C.Contract_ID, C.Club_ID, CL.Name AS Club, 
+            var getQuery = @"SELECT C.Contract_ID, C.Club_ID, CL.Name AS Club, 
                 P.Player_ID, P.Name AS Player, PS.Name AS Position, CL.Start_Date, CL.End_Date  
                 FROM Contract C INNER JOIN Club CL ON CL.Club_ID = C.Club_ID 
                 INNER JOIN Player P ON P.Player_ID = C.Player_ID
                 INNER JOIN Position PS ON PS.Position_ID = P.Position_ID
                 WHERE (@PlayerName IS NULL OR P.Name LIKE @PlayerName) 
-                AND (@ClubName IS NULL OR CL.Name LIKE @ClubName)";
+                OR (@ClubName IS NULL OR CL.Name LIKE @ClubName)";
 
-            SqlParameter[] playerNameParam = [
+            SqlParameter[] contractParam = [
                 new SqlParameter("@ClubName", SqlDbType.NVarChar, 255){
                 Value = (clubName == null) ? DBNull.Value : "%" + clubName + "%"
                 },
@@ -73,7 +194,7 @@ namespace FootballContractsHistory.Models
                 }
                 ];
 
-            List<Contract> contracts = DataAccess.GetContracts(getQuery, playerNameParam);
+            List<Contract> contracts = DataAccess.GetContracts(getQuery, contractParam);
 
             if (contracts.Count > 0)
             {
@@ -93,8 +214,8 @@ namespace FootballContractsHistory.Models
             SqlParameter[] insertParams = [
             new SqlParameter("@ClubId", newContract.ClubId),
             new SqlParameter("@PlayerId", newContract.playerId),
-            new SqlParameter("@StartDate", newContract.StartDate.ToString("dd:MM:yyyy")),
-            new SqlParameter("@EndDate", newContract.EndDate.ToString("dd:MM:yyyy"))
+            new SqlParameter("@StartDate", newContract.StartDate.Date),
+            new SqlParameter("@EndDate", newContract.EndDate.Date)
             ];
 
             int rowsInserted = DataAccess.ManageData(insertQuery, insertParams);
@@ -122,8 +243,8 @@ namespace FootballContractsHistory.Models
             new SqlParameter("@ContractId", contractToUpdate.ContractId),
             new SqlParameter("@ClubId", contractToUpdate.ClubId),
             new SqlParameter("@PlayerId", contractToUpdate.PlayerId),
-            new SqlParameter("@StartDate", contractToUpdate.StartDate.ToString("HH:mm:ss")),
-            new SqlParameter("@EndDate", contractToUpdate.EndDate.ToString("HH:mm:ss"))
+            new SqlParameter("@StartDate", contractToUpdate.StartDate.Date),
+            new SqlParameter("@EndDate", contractToUpdate.EndDate.Date)
             ];
 
             // Call the UpdateData method

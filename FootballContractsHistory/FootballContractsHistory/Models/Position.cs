@@ -24,7 +24,7 @@ namespace FootballContractsHistory.Models
         public int PositionId { get => positionId; set => positionId = value; }
         public string? Name { get => name; set => name = value; }
 
-        public DataTable GetPositions()
+        public static DataTable GetPositions()
         {
             var getQuery = $"SELECT Position_ID, Name FROM Position ORDER BY Name";
 

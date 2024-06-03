@@ -41,6 +41,10 @@ namespace FootballContractsHistory.Models
 
             return instance;
         }
+        public static void ResetInstance()
+        {
+            instance = null;
+        }
         #endregion
 
         public DataUser()

@@ -42,6 +42,7 @@
             pbxContractLogo = new PictureBox();
             pbxLogoutLogo = new PictureBox();
             pictureBox5 = new PictureBox();
+            pbxAbout = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pbxClubs).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbxPlayers).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbxContracts).BeginInit();
@@ -51,13 +52,14 @@
             ((System.ComponentModel.ISupportInitialize)pbxContractLogo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbxLogoutLogo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbxAbout).BeginInit();
             SuspendLayout();
             // 
             // pbxClubs
             // 
             pbxClubs.BackColor = Color.White;
             pbxClubs.Cursor = Cursors.Hand;
-            pbxClubs.Location = new Point(155, 111);
+            pbxClubs.Location = new Point(150, 122);
             pbxClubs.Name = "pbxClubs";
             pbxClubs.Size = new Size(201, 187);
             pbxClubs.TabIndex = 0;
@@ -71,7 +73,7 @@
             // 
             pbxPlayers.BackColor = Color.White;
             pbxPlayers.Cursor = Cursors.Hand;
-            pbxPlayers.Location = new Point(486, 111);
+            pbxPlayers.Location = new Point(481, 122);
             pbxPlayers.Name = "pbxPlayers";
             pbxPlayers.Size = new Size(201, 187);
             pbxPlayers.TabIndex = 1;
@@ -85,7 +87,7 @@
             // 
             pbxContracts.BackColor = Color.White;
             pbxContracts.Cursor = Cursors.Hand;
-            pbxContracts.Location = new Point(155, 372);
+            pbxContracts.Location = new Point(150, 383);
             pbxContracts.Name = "pbxContracts";
             pbxContracts.Size = new Size(201, 187);
             pbxContracts.TabIndex = 2;
@@ -99,7 +101,7 @@
             // 
             pbxLogout.BackColor = Color.White;
             pbxLogout.Cursor = Cursors.Hand;
-            pbxLogout.Location = new Point(486, 372);
+            pbxLogout.Location = new Point(481, 383);
             pbxLogout.Name = "pbxLogout";
             pbxLogout.Size = new Size(201, 187);
             pbxLogout.TabIndex = 3;
@@ -114,7 +116,7 @@
             label1.AutoSize = true;
             label1.BackColor = Color.White;
             label1.Font = new Font("Segoe UI Symbol", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(208, 243);
+            label1.Location = new Point(203, 254);
             label1.Name = "label1";
             label1.Size = new Size(90, 38);
             label1.TabIndex = 1;
@@ -125,7 +127,7 @@
             label2.AutoSize = true;
             label2.BackColor = Color.White;
             label2.Font = new Font("Segoe UI Symbol", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(533, 243);
+            label2.Location = new Point(528, 254);
             label2.Name = "label2";
             label2.Size = new Size(112, 38);
             label2.TabIndex = 4;
@@ -136,7 +138,7 @@
             label3.AutoSize = true;
             label3.BackColor = Color.White;
             label3.Font = new Font("Segoe UI Symbol", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(184, 505);
+            label3.Location = new Point(179, 516);
             label3.Name = "label3";
             label3.Size = new Size(142, 38);
             label3.TabIndex = 5;
@@ -147,7 +149,7 @@
             label4.AutoSize = true;
             label4.BackColor = Color.White;
             label4.Font = new Font("Segoe UI Symbol", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(536, 505);
+            label4.Location = new Point(531, 516);
             label4.Name = "label4";
             label4.Size = new Size(109, 38);
             label4.TabIndex = 6;
@@ -157,7 +159,7 @@
             // 
             pbxClubLogo.Cursor = Cursors.Hand;
             pbxClubLogo.Image = (Image)resources.GetObject("pbxClubLogo.Image");
-            pbxClubLogo.Location = new Point(199, 139);
+            pbxClubLogo.Location = new Point(194, 150);
             pbxClubLogo.Name = "pbxClubLogo";
             pbxClubLogo.Size = new Size(114, 89);
             pbxClubLogo.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -172,7 +174,7 @@
             // 
             pbxPlayerLogo.Cursor = Cursors.Hand;
             pbxPlayerLogo.Image = (Image)resources.GetObject("pbxPlayerLogo.Image");
-            pbxPlayerLogo.Location = new Point(531, 139);
+            pbxPlayerLogo.Location = new Point(526, 150);
             pbxPlayerLogo.Name = "pbxPlayerLogo";
             pbxPlayerLogo.Size = new Size(114, 89);
             pbxPlayerLogo.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -187,7 +189,7 @@
             // 
             pbxContractLogo.Cursor = Cursors.Hand;
             pbxContractLogo.Image = (Image)resources.GetObject("pbxContractLogo.Image");
-            pbxContractLogo.Location = new Point(199, 401);
+            pbxContractLogo.Location = new Point(194, 412);
             pbxContractLogo.Name = "pbxContractLogo";
             pbxContractLogo.Size = new Size(114, 89);
             pbxContractLogo.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -202,7 +204,7 @@
             // 
             pbxLogoutLogo.Cursor = Cursors.Hand;
             pbxLogoutLogo.Image = (Image)resources.GetObject("pbxLogoutLogo.Image");
-            pbxLogoutLogo.Location = new Point(533, 401);
+            pbxLogoutLogo.Location = new Point(528, 412);
             pbxLogoutLogo.Name = "pbxLogoutLogo";
             pbxLogoutLogo.Size = new Size(114, 89);
             pbxLogoutLogo.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -215,19 +217,35 @@
             // 
             // pictureBox5
             // 
+            pictureBox5.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             pictureBox5.BackColor = Color.FromArgb(192, 0, 0);
             pictureBox5.Location = new Point(-1, -1);
             pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(855, 67);
+            pictureBox5.Size = new Size(828, 67);
             pictureBox5.TabIndex = 11;
             pictureBox5.TabStop = false;
+            // 
+            // pbxAbout
+            // 
+            pbxAbout.BackColor = Color.White;
+            pbxAbout.Cursor = Cursors.Hand;
+            pbxAbout.Image = Properties.Resources.ic_about;
+            pbxAbout.Location = new Point(12, 83);
+            pbxAbout.Name = "pbxAbout";
+            pbxAbout.Size = new Size(45, 42);
+            pbxAbout.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbxAbout.TabIndex = 12;
+            pbxAbout.TabStop = false;
+            pbxAbout.Click += pbxAbout_Click;
             // 
             // frmMainPage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
-            ClientSize = new Size(858, 635);
+            ClientSize = new Size(827, 635);
+            ControlBox = false;
+            Controls.Add(pbxAbout);
             Controls.Add(pictureBox5);
             Controls.Add(pbxLogoutLogo);
             Controls.Add(pbxContractLogo);
@@ -242,8 +260,11 @@
             Controls.Add(pbxPlayers);
             Controls.Add(pbxClubs);
             FormBorderStyle = FormBorderStyle.None;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "frmMainPage";
-            StartPosition = FormStartPosition.CenterParent;
+            ShowInTaskbar = false;
+            StartPosition = FormStartPosition.Manual;
             Text = "frmMainPage";
             Load += frmMainPage_Load;
             ((System.ComponentModel.ISupportInitialize)pbxClubs).EndInit();
@@ -255,6 +276,7 @@
             ((System.ComponentModel.ISupportInitialize)pbxContractLogo).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbxLogoutLogo).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbxAbout).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -274,5 +296,6 @@
         private PictureBox pbxContractLogo;
         private PictureBox pbxLogoutLogo;
         private PictureBox pictureBox5;
+        private PictureBox pbxAbout;
     }
 }

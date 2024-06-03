@@ -1,6 +1,6 @@
-﻿namespace FootballContractsHistory
+﻿namespace FootballContractsHistory.Views
 {
-    partial class frmSearchClubs
+    partial class frmSearchClub
     {
         /// <summary>
         /// Required designer variable.
@@ -10,7 +10,7 @@
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
-        /// <param playerName="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -28,25 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSearchClubs));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSearchClub));
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            errorProvider1 = new ErrorProvider(components);
             pbxBack = new PictureBox();
-            lblPlayers = new Label();
+            lblClubs = new Label();
             pictureBox2 = new PictureBox();
-            txtName = new TextBox();
-            dgvClubs = new DataGridView();
             label5 = new Label();
-            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
+            dgvClubs = new DataGridView();
+            txtName = new TextBox();
             ((System.ComponentModel.ISupportInitialize)pbxBack).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvClubs).BeginInit();
             SuspendLayout();
-            // 
-            // errorProvider1
-            // 
-            errorProvider1.ContainerControl = this;
             // 
             // pbxBack
             // 
@@ -54,51 +47,50 @@
             pbxBack.Cursor = Cursors.Hand;
             pbxBack.Image = Properties.Resources.back_button;
             pbxBack.ImeMode = ImeMode.NoControl;
-            pbxBack.Location = new Point(45, 61);
+            pbxBack.Location = new Point(71, 51);
             pbxBack.Name = "pbxBack";
-            pbxBack.Size = new Size(60, 47);
+            pbxBack.Size = new Size(55, 47);
             pbxBack.SizeMode = PictureBoxSizeMode.StretchImage;
-            pbxBack.TabIndex = 63;
+            pbxBack.TabIndex = 81;
             pbxBack.TabStop = false;
             pbxBack.Click += pbxBack_Click;
             // 
-            // lblPlayers
+            // lblClubs
             // 
-            lblPlayers.AutoSize = true;
-            lblPlayers.BackColor = Color.FromArgb(73, 72, 61);
-            lblPlayers.FlatStyle = FlatStyle.System;
-            lblPlayers.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold);
-            lblPlayers.ForeColor = Color.White;
-            lblPlayers.ImeMode = ImeMode.NoControl;
-            lblPlayers.Location = new Point(388, 70);
-            lblPlayers.Name = "lblPlayers";
-            lblPlayers.Size = new Size(88, 38);
-            lblPlayers.TabIndex = 62;
-            lblPlayers.Text = "Clubs";
-            lblPlayers.TextAlign = ContentAlignment.MiddleCenter;
+            lblClubs.AutoSize = true;
+            lblClubs.BackColor = Color.FromArgb(73, 72, 61);
+            lblClubs.FlatStyle = FlatStyle.System;
+            lblClubs.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold);
+            lblClubs.ForeColor = Color.White;
+            lblClubs.ImeMode = ImeMode.NoControl;
+            lblClubs.Location = new Point(386, 60);
+            lblClubs.Name = "lblClubs";
+            lblClubs.Size = new Size(88, 38);
+            lblClubs.TabIndex = 80;
+            lblClubs.Text = "Clubs";
+            lblClubs.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // pictureBox2
             // 
+            pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
             pictureBox2.ImeMode = ImeMode.NoControl;
-            pictureBox2.Location = new Point(0, -1);
+            pictureBox2.Location = new Point(-1, 0);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(854, 188);
+            pictureBox2.Size = new Size(829, 180);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 61;
+            pictureBox2.TabIndex = 79;
             pictureBox2.TabStop = false;
             // 
-            // txtName
+            // label5
             // 
-            txtName.BackColor = SystemColors.ButtonHighlight;
-            txtName.Font = new Font("Segoe UI Symbol", 9F);
-            txtName.Location = new Point(388, 243);
-            txtName.Multiline = true;
-            txtName.Name = "txtName";
-            txtName.Size = new Size(283, 31);
-            txtName.TabIndex = 1;
-            txtName.Tag = "Name";
-            txtName.KeyPress += txtName_KeyPress;
+            label5.AutoSize = true;
+            label5.ImeMode = ImeMode.NoControl;
+            label5.Location = new Point(167, 216);
+            label5.Name = "label5";
+            label5.Size = new Size(120, 20);
+            label5.TabIndex = 83;
+            label5.Text = "Search by Name:";
             // 
             // dgvClubs
             // 
@@ -115,40 +107,43 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvClubs.DefaultCellStyle = dataGridViewCellStyle1;
             dgvClubs.GridColor = SystemColors.HighlightText;
-            dgvClubs.Location = new Point(123, 332);
+            dgvClubs.Location = new Point(49, 272);
             dgvClubs.Name = "dgvClubs";
             dgvClubs.RowHeadersWidth = 51;
-            dgvClubs.Size = new Size(639, 163);
-            dgvClubs.TabIndex = 59;
-            dgvClubs.CellClick += dgvClubs_CellClick;
+            dgvClubs.Size = new Size(735, 259);
+            dgvClubs.TabIndex = 84;
             // 
-            // label5
+            // txtName
             // 
-            label5.AutoSize = true;
-            label5.ImeMode = ImeMode.NoControl;
-            label5.Location = new Point(186, 254);
-            label5.Name = "label5";
-            label5.Size = new Size(120, 20);
-            label5.TabIndex = 58;
-            label5.Text = "Search by Name:";
+            txtName.BackColor = SystemColors.ButtonHighlight;
+            txtName.Font = new Font("Segoe UI Symbol", 9F);
+            txtName.Location = new Point(332, 205);
+            txtName.Multiline = true;
+            txtName.Name = "txtName";
+            txtName.Size = new Size(283, 31);
+            txtName.TabIndex = 85;
+            txtName.Tag = "Name";
+            txtName.KeyPress += txtName_KeyPress;
             // 
-            // frmSearchClubs
+            // frmSearchClub
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(852, 635);
-            Controls.Add(pbxBack);
-            Controls.Add(lblPlayers);
-            Controls.Add(pictureBox2);
+            ClientSize = new Size(827, 635);
             Controls.Add(txtName);
             Controls.Add(dgvClubs);
             Controls.Add(label5);
+            Controls.Add(pbxBack);
+            Controls.Add(lblClubs);
+            Controls.Add(pictureBox2);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "frmSearchClubs";
-            Text = "SearchEvent";
-            Load += frmSearchClubs_Load;
-            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Name = "frmSearchClub";
+            StartPosition = FormStartPosition.Manual;
+            Tag = "searchClub";
+            Text = "frmSearchClub";
             ((System.ComponentModel.ISupportInitialize)pbxBack).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvClubs).EndInit();
@@ -157,12 +152,12 @@
         }
 
         #endregion
-        private ErrorProvider errorProvider1;
+
         private PictureBox pbxBack;
-        private Label lblPlayers;
+        private Label lblClubs;
         private PictureBox pictureBox2;
-        private TextBox txtName;
-        private DataGridView dgvClubs;
         private Label label5;
+        private DataGridView dgvClubs;
+        private TextBox txtName;
     }
 }

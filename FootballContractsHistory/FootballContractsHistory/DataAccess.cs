@@ -28,15 +28,19 @@ namespace FootballContractsHistory
             }
             return dt;
         }
-        public static DataSet GetData(params string[] sqlQueries)
+        public static DataSet GetData(SqlParameter[]? parameters = null, params string[] sqlQueries)
         {
-            string sqlQuery = string.Join(",", sqlQueries);
-
+            string sqlQuery = string.Join(";", sqlQueries);
             DataSet ds = new DataSet();
+
             using (SqlConnection conn = new SqlConnection(getConnectionString()))
             {
                 using (SqlCommand cmd = new SqlCommand(sqlQuery, conn))
                 {
+                    if (parameters != null)
+                    {
+                        cmd.Parameters.AddRange(parameters);
+                    }
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
                         da.Fill(ds);
@@ -45,7 +49,7 @@ namespace FootballContractsHistory
             }
             return ds;
         }
-        public static object ExecuteScalar(string sqlQuery)
+        public static object ExecuteScalar(string sqlQuery, SqlParameter[]? parameters = null)
         {
             using (SqlConnection connection = new SqlConnection(getConnectionString()))
             {
@@ -53,7 +57,16 @@ namespace FootballContractsHistory
                 {
                     connection.Open();
 
-                    return command.ExecuteScalar();
+                    if (parameters != null)
+                    {
+                        command.Parameters.AddRange(parameters);
+                    }
+
+                    object returnValue = command.ExecuteScalar();
+
+                    connection.Close();
+
+                    return returnValue;
                 }
             }
         }
@@ -105,11 +118,11 @@ namespace FootballContractsHistory
                         while (reader.Read())
                         {
                             int clubId = reader.GetInt32(reader.GetOrdinal("Club_ID"));
-                            int userId = reader.GetInt32(reader.GetOrdinal("Userr_ID"));
                             string name = reader.GetString(reader.GetOrdinal("Name"));
                             string description = reader.GetString(reader.GetOrdinal("Description"));
+                            string creation_date = reader.GetDateTime(reader.GetOrdinal("Creation_Date")).ToShortDateString();
 
-                            Club ev = new Club(clubId, userId, name, description);
+                            Club ev = new Club(clubId, name, description, creation_date);
                             clubs.Add(ev);
                         }
                     }

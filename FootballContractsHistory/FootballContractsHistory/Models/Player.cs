@@ -46,14 +46,122 @@ namespace FootballContractsHistory.Models
         public string? PlayerName { get => playerName; set => playerName = value; }
         public int? PositionId { get => positionId; set => positionId = value; }
         public string? PositionName { get => positionName; set => positionName = value; }
-        public DataTable? GetPlayers()
+        public static DataTable? GetPlayersToLoad()
         {
-            var getQuery = $"SELECT Player_ID, Name FROM Player ORDER BY Name";
+            string sql =
+                $@"SELECT 
+	                Player_ID
+	                , Name
+                    , Position_ID
+                    , Position
+                    , Creation_Date
+	                , NextPlayerID
+	                , PreviousPlayerID
+	                , RowNumber
+	                , (SELECT TOP(1) Player_ID FROM Player ORDER BY Name) AS FirstPlayerID
+	                , (SELECT TOP(1) Player_ID FROM Player ORDER BY Name DESC) AS LastPlayerID
+                FROM
+                (
+	                SELECT 
+		                P.Player_ID
+		                , P.Name
+                        , PS.Position_ID
+                        , PS.Name as Position
+                        , P.Creation_Date
+		                , LEAD(P.Player_ID) OVER(ORDER BY P.Name) AS NextPlayerID 
+		                , LAG(P.Player_ID) OVER(ORDER BY P.Name) AS PreviousPlayerID
+		                , ROW_NUMBER() OVER(ORDER BY P.Name) AS RowNumber
+	                FROM Player P INNER JOIN Position PS ON 
+                PS.Position_ID = P.Position_ID
+                ) AS Players;";
 
-            DataTable players = DataAccess.GetData(getQuery);
+            DataTable Players = DataAccess.GetData(sql);
 
-            return players;
+            return Players;
+        }
+        public static DataSet? GetPlayersToLoadById(int PlayerId)
+        {
+            string sqlDetails = @"SELECT P.Player_ID, P.Name, PS.Position_ID, PS.Name as Position, 
+                P.Creation_Date FROM Player P INNER JOIN Position PS ON 
+                PS.Position_ID = P.Position_ID WHERE Player_ID = @PlayerId ORDER BY P.Name;";
 
+            string sqlPlayerPosition = $@"
+                SELECT 
+	                Player_ID
+		            , Name
+                    , Position_ID 
+                    , Position
+                    , Creation_Date
+	                , NextPlayerID
+	                , PreviousPlayerID
+	                , RowNumber
+	                , (SELECT TOP(1) Player_ID FROM Player ORDER BY Name) AS FirstPlayerID
+	                , (SELECT TOP(1) Player_ID FROM Player ORDER BY Name DESC) AS LastPlayerID
+                FROM
+                (
+	                SELECT 
+		                P.Player_ID
+		                , P.Name
+                        , PS.Position_ID
+                        , PS.Name as Position
+                        , P.Creation_Date
+		                , LEAD(P.Player_ID) OVER(ORDER BY P.Name) AS NextPlayerID 
+		                , LAG(P.Player_ID) OVER(ORDER BY P.Name) AS PreviousPlayerID
+		                , ROW_NUMBER() OVER(ORDER BY P.Name) AS RowNumber
+	                FROM Player P INNER JOIN Position PS ON 
+                PS.Position_ID = P.Position_ID
+                ) AS Players
+                WHERE Player_ID = @PlayerId;";
+
+            SqlParameter[] PlayerIdParam = [
+                new SqlParameter("@PlayerId", PlayerId)
+                ];
+
+            string[] sqlQueries = new string[] { sqlDetails, sqlPlayerPosition };
+
+            DataSet dsPlayerInfo = DataAccess.GetData(PlayerIdParam, sqlQueries);
+
+            return dsPlayerInfo;
+        }
+        public static int GetFirstPlayer()
+        {
+            var sql = "SELECT TOP 1 Player_ID FROM Player ORDER BY Name";
+
+            int player = Convert.ToInt32(DataAccess.ExecuteScalar(sql));
+
+            if (player > 0)
+            {
+                return player;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        public static int VerifyPlayerContract(int playerId, DateTime startDate, DateTime endDate)
+        {
+            var sql = @"SELECT COUNT(*) FROM Player P INNER JOIN Contract C 
+                ON C.Player_ID = P.Player_ID WHERE ((C.Start_Date >= @StartDate 
+                AND C.End_Date >= @StartDate) OR (C.Start_Date >= @EndDate AND 
+                C.End_Date >= @EndDate)) AND P.Player_ID = @PlayerId";
+
+            SqlParameter[] playerParam = [
+                new SqlParameter("@PlayerId", playerId),
+                new SqlParameter("@StartDate", startDate.Date),
+                new SqlParameter("@EndDate", endDate.Date)
+            ];
+
+            int contractPlayer = Convert.ToInt32(DataAccess.ExecuteScalar(sql, playerParam));
+
+            return contractPlayer;
+        }
+        public static DataTable GetPlayers()
+        {
+            var getQuery = $"SELECT Player_ID, Name AS Player FROM Player ORDER BY Name";
+
+            DataTable dtPlayers = DataAccess.GetData(getQuery);
+
+            return dtPlayers;
         }
         public Player? GetPlayerById(int playerId)
         {
@@ -124,7 +232,7 @@ namespace FootballContractsHistory.Models
             }
         }
 
-        public bool CreatePlayer(Player newPlayer)
+        public static bool CreatePlayer(Player newPlayer)
         {
             string insertQuery = "INSERT INTO Player (Name, Position_ID) " +
                 "VALUES (@PlayerName, @PositionId)";
@@ -147,7 +255,7 @@ namespace FootballContractsHistory.Models
                 return false;
             }
         }
-        public bool UpdatePlayer(Player playerToUpdate)
+        public static bool UpdatePlayer(Player playerToUpdate)
         {
             string updateSql = "UPDATE Player SET Name = @PlayerName, " +
                 "Position_ID = @PositionId WHERE Player_ID = @PlayerId";
@@ -171,7 +279,7 @@ namespace FootballContractsHistory.Models
                 return false;
             }
         }
-        public bool DeletePlayer(int playerId)
+        public static bool DeletePlayer(int playerId)
         {
             string deleteQuery = "DELETE FROM Player WHERE Player_ID = @PlayerId";
 

@@ -3,40 +3,12 @@
   "WorkspaceRootPath": "C:\\src\\Spring Term 2024\\Database Programming\\Projects\\Project\\FootballContractsHistory\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BB044B74-6A30-447F-87E3-DC24F13D05E2}|FootballContractsHistory\\FootballContractsHistory.csproj|c:\\src\\spring term 2024\\database programming\\projects\\project\\footballcontractshistory\\footballcontractshistory\\views\\frmcontracts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BB044B74-6A30-447F-87E3-DC24F13D05E2}|FootballContractsHistory\\FootballContractsHistory.csproj|solutionrelative:footballcontractshistory\\views\\frmcontracts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BB044B74-6A30-447F-87E3-DC24F13D05E2}|FootballContractsHistory\\FootballContractsHistory.csproj|c:\\src\\spring term 2024\\database programming\\projects\\project\\footballcontractshistory\\footballcontractshistory\\views\\frmcontracts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{BB044B74-6A30-447F-87E3-DC24F13D05E2}|FootballContractsHistory\\FootballContractsHistory.csproj|solutionrelative:footballcontractshistory\\views\\frmcontracts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{BB044B74-6A30-447F-87E3-DC24F13D05E2}|FootballContractsHistory\\FootballContractsHistory.csproj|c:\\src\\spring term 2024\\database programming\\projects\\project\\footballcontractshistory\\footballcontractshistory\\models\\contract.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB044B74-6A30-447F-87E3-DC24F13D05E2}|FootballContractsHistory\\FootballContractsHistory.csproj|solutionrelative:footballcontractshistory\\models\\contract.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BB044B74-6A30-447F-87E3-DC24F13D05E2}|FootballContractsHistory\\FootballContractsHistory.csproj|c:\\src\\spring term 2024\\database programming\\projects\\project\\footballcontractshistory\\footballcontractshistory\\views\\frmsearchcontracts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BB044B74-6A30-447F-87E3-DC24F13D05E2}|FootballContractsHistory\\FootballContractsHistory.csproj|solutionrelative:footballcontractshistory\\views\\frmsearchcontracts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BB044B74-6A30-447F-87E3-DC24F13D05E2}|FootballContractsHistory\\FootballContractsHistory.csproj|c:\\src\\spring term 2024\\database programming\\projects\\project\\footballcontractshistory\\footballcontractshistory\\views\\frmplayers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BB044B74-6A30-447F-87E3-DC24F13D05E2}|FootballContractsHistory\\FootballContractsHistory.csproj|solutionrelative:footballcontractshistory\\views\\frmplayers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BB044B74-6A30-447F-87E3-DC24F13D05E2}|FootballContractsHistory\\FootballContractsHistory.csproj|c:\\src\\spring term 2024\\database programming\\projects\\project\\footballcontractshistory\\footballcontractshistory\\views\\frmplayers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{BB044B74-6A30-447F-87E3-DC24F13D05E2}|FootballContractsHistory\\FootballContractsHistory.csproj|solutionrelative:footballcontractshistory\\views\\frmplayers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BB044B74-6A30-447F-87E3-DC24F13D05E2}|FootballContractsHistory\\FootballContractsHistory.csproj|c:\\src\\spring term 2024\\database programming\\projects\\project\\footballcontractshistory\\footballcontractshistory\\views\\frmclubs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BB044B74-6A30-447F-87E3-DC24F13D05E2}|FootballContractsHistory\\FootballContractsHistory.csproj|solutionrelative:footballcontractshistory\\views\\frmclubs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BB044B74-6A30-447F-87E3-DC24F13D05E2}|FootballContractsHistory\\FootballContractsHistory.csproj|c:\\src\\spring term 2024\\database programming\\projects\\project\\footballcontractshistory\\footballcontractshistory\\views\\frmclubs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{BB044B74-6A30-447F-87E3-DC24F13D05E2}|FootballContractsHistory\\FootballContractsHistory.csproj|solutionrelative:footballcontractshistory\\views\\frmclubs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BB044B74-6A30-447F-87E3-DC24F13D05E2}|FootballContractsHistory\\FootballContractsHistory.csproj|c:\\src\\spring term 2024\\database programming\\projects\\project\\footballcontractshistory\\footballcontractshistory\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BB044B74-6A30-447F-87E3-DC24F13D05E2}|FootballContractsHistory\\FootballContractsHistory.csproj|solutionrelative:footballcontractshistory\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BB044B74-6A30-447F-87E3-DC24F13D05E2}|FootballContractsHistory\\FootballContractsHistory.csproj|c:\\src\\spring term 2024\\database programming\\projects\\project\\footballcontractshistory\\footballcontractshistory\\models\\contract.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BB044B74-6A30-447F-87E3-DC24F13D05E2}|FootballContractsHistory\\FootballContractsHistory.csproj|solutionrelative:footballcontractshistory\\models\\contract.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BB044B74-6A30-447F-87E3-DC24F13D05E2}|FootballContractsHistory\\FootballContractsHistory.csproj|c:\\src\\spring term 2024\\database programming\\projects\\project\\footballcontractshistory\\footballcontractshistory\\dataaccess.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -54,146 +26,58 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "frmPlayers.cs",
-              "DocumentMoniker": "C:\\src\\Spring Term 2024\\Database Programming\\Projects\\Project\\FootballContractsHistory\\FootballContractsHistory\\Views\\frmPlayers.cs",
-              "RelativeDocumentMoniker": "FootballContractsHistory\\Views\\frmPlayers.cs",
-              "ToolTip": "C:\\src\\Spring Term 2024\\Database Programming\\Projects\\Project\\FootballContractsHistory\\FootballContractsHistory\\Views\\frmPlayers.cs",
-              "RelativeToolTip": "FootballContractsHistory\\Views\\frmPlayers.cs",
-              "ViewState": "AQIAAEgAAAAAAAAAAAAowFYAAAA5AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-30T18:24:46.352Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "frmPlayers.cs [Design]",
-              "DocumentMoniker": "C:\\src\\Spring Term 2024\\Database Programming\\Projects\\Project\\FootballContractsHistory\\FootballContractsHistory\\Views\\frmPlayers.cs",
-              "RelativeDocumentMoniker": "FootballContractsHistory\\Views\\frmPlayers.cs",
-              "ToolTip": "C:\\src\\Spring Term 2024\\Database Programming\\Projects\\Project\\FootballContractsHistory\\FootballContractsHistory\\Views\\frmPlayers.cs [Design]",
-              "RelativeToolTip": "FootballContractsHistory\\Views\\frmPlayers.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-30T18:24:45.013Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "frmClubs.cs",
-              "DocumentMoniker": "C:\\src\\Spring Term 2024\\Database Programming\\Projects\\Project\\FootballContractsHistory\\FootballContractsHistory\\Views\\frmClubs.cs",
-              "RelativeDocumentMoniker": "FootballContractsHistory\\Views\\frmClubs.cs",
-              "ToolTip": "C:\\src\\Spring Term 2024\\Database Programming\\Projects\\Project\\FootballContractsHistory\\FootballContractsHistory\\Views\\frmClubs.cs",
-              "RelativeToolTip": "FootballContractsHistory\\Views\\frmClubs.cs",
-              "ViewState": "AQIAAF0AAAAAAAAAAAAowAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-30T18:24:37.32Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "frmClubs.cs [Design]",
-              "DocumentMoniker": "C:\\src\\Spring Term 2024\\Database Programming\\Projects\\Project\\FootballContractsHistory\\FootballContractsHistory\\Views\\frmClubs.cs",
-              "RelativeDocumentMoniker": "FootballContractsHistory\\Views\\frmClubs.cs",
-              "ToolTip": "C:\\src\\Spring Term 2024\\Database Programming\\Projects\\Project\\FootballContractsHistory\\FootballContractsHistory\\Views\\frmClubs.cs [Design]",
-              "RelativeToolTip": "FootballContractsHistory\\Views\\frmClubs.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-30T18:24:35.376Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "frmContracts.cs",
-              "DocumentMoniker": "C:\\src\\Spring Term 2024\\Database Programming\\Projects\\Project\\FootballContractsHistory\\FootballContractsHistory\\Views\\frmContracts.cs",
-              "RelativeDocumentMoniker": "FootballContractsHistory\\Views\\frmContracts.cs",
-              "ToolTip": "C:\\src\\Spring Term 2024\\Database Programming\\Projects\\Project\\FootballContractsHistory\\FootballContractsHistory\\Views\\frmContracts.cs",
-              "RelativeToolTip": "FootballContractsHistory\\Views\\frmContracts.cs",
-              "ViewState": "AQIAAMAAAAAAAAAAAAAvwMoAAAAgAAAA",
+              "Title": "Contract.cs",
+              "DocumentMoniker": "C:\\src\\Spring Term 2024\\Database Programming\\Projects\\Project\\FootballContractsHistory\\FootballContractsHistory\\Models\\Contract.cs",
+              "RelativeDocumentMoniker": "FootballContractsHistory\\Models\\Contract.cs",
+              "ToolTip": "C:\\src\\Spring Term 2024\\Database Programming\\Projects\\Project\\FootballContractsHistory\\FootballContractsHistory\\Models\\Contract.cs",
+              "RelativeToolTip": "FootballContractsHistory\\Models\\Contract.cs",
+              "ViewState": "AQIAALEAAAAAAAAAAIA7wLoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-30T18:23:29.725Z",
+              "WhenOpened": "2024-06-03T03:31:42.407Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\src\\Spring Term 2024\\Database Programming\\Projects\\Project\\FootballContractsHistory\\FootballContractsHistory\\Program.cs",
-              "RelativeDocumentMoniker": "FootballContractsHistory\\Program.cs",
-              "ToolTip": "C:\\src\\Spring Term 2024\\Database Programming\\Projects\\Project\\FootballContractsHistory\\FootballContractsHistory\\Program.cs",
-              "RelativeToolTip": "FootballContractsHistory\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-30T18:23:17.094Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "frmContracts.cs [Design - English]",
-              "DocumentMoniker": "C:\\src\\Spring Term 2024\\Database Programming\\Projects\\Project\\FootballContractsHistory\\FootballContractsHistory\\Views\\frmContracts.cs",
-              "RelativeDocumentMoniker": "FootballContractsHistory\\Views\\frmContracts.cs",
-              "ToolTip": "C:\\src\\Spring Term 2024\\Database Programming\\Projects\\Project\\FootballContractsHistory\\FootballContractsHistory\\Views\\frmContracts.cs [Design - English]",
-              "RelativeToolTip": "FootballContractsHistory\\Views\\frmContracts.cs [Design - English]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-30T18:23:06.657Z",
-              "EditorCaption": " [Design - English]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 2,
               "Title": "DataAccess.cs",
               "DocumentMoniker": "C:\\src\\Spring Term 2024\\Database Programming\\Projects\\Project\\FootballContractsHistory\\FootballContractsHistory\\DataAccess.cs",
               "RelativeDocumentMoniker": "FootballContractsHistory\\DataAccess.cs",
               "ToolTip": "C:\\src\\Spring Term 2024\\Database Programming\\Projects\\Project\\FootballContractsHistory\\FootballContractsHistory\\DataAccess.cs",
               "RelativeToolTip": "FootballContractsHistory\\DataAccess.cs",
-              "ViewState": "AQIAANkAAAAAAAAAAAAlwOkAAAA1AAAA",
+              "ViewState": "AQIAAN8AAAAAAAAAAAApwOkAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-30T18:21:47.226Z",
+              "WhenOpened": "2024-06-03T03:08:02.869Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 1,
+              "Title": "frmSearchContracts.cs",
+              "DocumentMoniker": "C:\\src\\Spring Term 2024\\Database Programming\\Projects\\Project\\FootballContractsHistory\\FootballContractsHistory\\Views\\frmSearchContracts.cs",
+              "RelativeDocumentMoniker": "FootballContractsHistory\\Views\\frmSearchContracts.cs",
+              "ToolTip": "C:\\src\\Spring Term 2024\\Database Programming\\Projects\\Project\\FootballContractsHistory\\FootballContractsHistory\\Views\\frmSearchContracts.cs",
+              "RelativeToolTip": "FootballContractsHistory\\Views\\frmSearchContracts.cs",
+              "ViewState": "AQIAAD4AAAAAAAAAAAAgwEgAAABCAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T03:11:32.835Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "frmSearchContracts.cs [Design]",
               "DocumentMoniker": "C:\\src\\Spring Term 2024\\Database Programming\\Projects\\Project\\FootballContractsHistory\\FootballContractsHistory\\Views\\frmSearchContracts.cs",
               "RelativeDocumentMoniker": "FootballContractsHistory\\Views\\frmSearchContracts.cs",
               "ToolTip": "C:\\src\\Spring Term 2024\\Database Programming\\Projects\\Project\\FootballContractsHistory\\FootballContractsHistory\\Views\\frmSearchContracts.cs [Design]",
               "RelativeToolTip": "FootballContractsHistory\\Views\\frmSearchContracts.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-30T18:05:58.08Z",
+              "WhenOpened": "2024-06-03T03:11:23.317Z",
               "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "frmSearchContracts.cs",
-              "DocumentMoniker": "C:\\src\\Spring Term 2024\\Database Programming\\Projects\\Project\\FootballContractsHistory\\FootballContractsHistory\\Views\\frmSearchContracts.cs",
-              "RelativeDocumentMoniker": "FootballContractsHistory\\Views\\frmSearchContracts.cs",
-              "ToolTip": "C:\\src\\Spring Term 2024\\Database Programming\\Projects\\Project\\FootballContractsHistory\\FootballContractsHistory\\Views\\frmSearchContracts.cs",
-              "RelativeToolTip": "FootballContractsHistory\\Views\\frmSearchContracts.cs",
-              "ViewState": "AQIAAGsAAAAAAAAAAAAqwHwAAABCAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-30T18:03:39.653Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Contract.cs",
-              "DocumentMoniker": "C:\\src\\Spring Term 2024\\Database Programming\\Projects\\Project\\FootballContractsHistory\\FootballContractsHistory\\Models\\Contract.cs",
-              "RelativeDocumentMoniker": "FootballContractsHistory\\Models\\Contract.cs",
-              "ToolTip": "C:\\src\\Spring Term 2024\\Database Programming\\Projects\\Project\\FootballContractsHistory\\FootballContractsHistory\\Models\\Contract.cs",
-              "RelativeToolTip": "FootballContractsHistory\\Models\\Contract.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAawBUAAAAXAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-30T17:46:05.349Z",
-              "EditorCaption": ""
             }
           ]
         }
