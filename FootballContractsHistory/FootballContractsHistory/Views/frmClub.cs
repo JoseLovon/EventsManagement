@@ -304,7 +304,8 @@ namespace FootballContractsHistory.Views
                         }
                     }
                 }
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
@@ -332,6 +333,7 @@ namespace FootballContractsHistory.Views
         private void pbxBack_Click(object sender, EventArgs e)
         {
             this.Close();
+            mdiParentForm.SetToolStrip("", true);
         }
         private void txt_Validating(object sender, CancelEventArgs e)
         {
@@ -342,19 +344,35 @@ namespace FootballContractsHistory.Views
             if (textBox.Text == string.Empty)
             {
                 errorMessage = $"{textBox.Tag} is required.";
-            }
+                mdiParentForm.SetToolStrip("Please provide the Name and Description.", false);
 
+            }
             errorProvider1.SetError(textBox, errorMessage);
-            mdiParentForm.SetToolStrip("Please provide the Name and Description.", false);
 
         }
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show($"Are you sure you want to delete the Club {txtName.Text}?", "Warning", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            try
             {
-                DeleteClub();
+                var response = Club.VerifyClubToDelete(Convert.ToInt32(txtId.Text));
+                if (response == 0)
+                {
+                    if (MessageBox.Show($"Are you sure you want to delete the Club {txtName.Text}?", "Warning", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        DeleteClub();
+                    }
+                    LoadFirstClub();
+                }
+                else
+                {
+                    MessageBox.Show("Unable to delete this club, it is vinculated to a contract.",
+                        "Error",MessageBoxButtons.OK,MessageBoxIcon.Stop);
+                }
             }
-            LoadFirstClub();
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
+            }
         }
         private void LoadFirstClub()
         {

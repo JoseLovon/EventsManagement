@@ -315,8 +315,9 @@
             cbxPosition.Name = "cbxPosition";
             cbxPosition.Size = new Size(283, 28);
             cbxPosition.Sorted = true;
-            cbxPosition.TabIndex = 2;
+            cbxPosition.TabIndex = 3;
             cbxPosition.Tag = "Position";
+            cbxPosition.Validating += cbx_Validating;
             // 
             // label3
             // 
@@ -337,8 +338,9 @@
             txtPlayer.Name = "txtPlayer";
             txtPlayer.PlaceholderText = "Enter Player";
             txtPlayer.Size = new Size(283, 31);
-            txtPlayer.TabIndex = 1;
+            txtPlayer.TabIndex = 2;
             txtPlayer.Tag = "Player";
+            txtPlayer.Validating += txt_Validating;
             // 
             // cbxPlayers
             // 

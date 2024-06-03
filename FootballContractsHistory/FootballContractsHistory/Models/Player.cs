@@ -140,10 +140,10 @@ namespace FootballContractsHistory.Models
         }
         public static int VerifyPlayerContract(int playerId, DateTime startDate, DateTime endDate)
         {
-            var sql = @"SELECT COUNT(*) FROM Player P INNER JOIN Contract C 
-                ON C.Player_ID = P.Player_ID WHERE ((C.Start_Date >= @StartDate 
-                AND C.End_Date >= @StartDate) OR (C.Start_Date >= @EndDate AND 
-                C.End_Date >= @EndDate)) AND P.Player_ID = @PlayerId";
+            var sql = @"SELECT COUNT(*) FROM Player P INNER JOIN Contract C ON C.Player_ID = P.Player_ID
+            WHERE ((C.Start_Date <= @StartDate AND C.End_Date >= @StartDate)
+            OR (C.Start_Date <= @EndDate AND C.End_Date >= @EndDate))
+            AND P.Player_ID = @PlayerId;";
 
             SqlParameter[] playerParam = [
                 new SqlParameter("@PlayerId", playerId),
@@ -154,6 +154,19 @@ namespace FootballContractsHistory.Models
             int contractPlayer = Convert.ToInt32(DataAccess.ExecuteScalar(sql, playerParam));
 
             return contractPlayer;
+        }
+        public static int VerifyPlayerToDelete(int playerId)
+        {
+            var sql = @"SELECT COUNT(*) FROM Player P INNER JOIN Contract C ON 
+            P.Player_ID = C.Player_ID WHERE P.Player_ID = @PlayerId";
+
+            SqlParameter[] playerParam = [
+                new SqlParameter("@PlayerId", playerId)
+            ];
+
+            int player = Convert.ToInt32(DataAccess.ExecuteScalar(sql, playerParam));
+
+            return player;
         }
         public static DataTable GetPlayers()
         {

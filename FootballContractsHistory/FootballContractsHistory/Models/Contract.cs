@@ -18,7 +18,7 @@ namespace FootballContractsHistory.Models
         private string? positionName;
         private DateTime startTime;
         private DateTime endTime;
-
+        private string creationDate;
         public Contract(int contractId, int clubId, string? clubName, int playerId, string? playerName, string? positionName, DateTime startDate, DateTime endDate)
         {
             ContractId = contractId;
@@ -29,6 +29,18 @@ namespace FootballContractsHistory.Models
             PositionName = positionName;
             StartDate = startDate;
             EndDate = endDate;
+        }
+        public Contract(int contractId, int clubId, string? clubName, int playerId, string? playerName, string? positionName, DateTime startDate, DateTime endDate, string creationDate)
+        {
+            ContractId = contractId;
+            ClubId = clubId;
+            ClubName = clubName;
+            PlayerId = playerId;
+            PlayerName = playerName;
+            PositionName = positionName;
+            StartDate = startDate;
+            EndDate = endDate;
+            CreationDate = creationDate;
         }
         public Contract(int contractId, int clubId, int playerId, DateTime startDate, DateTime endDate)
         {
@@ -53,6 +65,7 @@ namespace FootballContractsHistory.Models
         public string? PositionName { get => positionName; set => positionName = value; }
         public DateTime StartDate { get => startTime; set => startTime = value; }
         public DateTime EndDate { get => endTime; set => endTime = value; }
+        public string CreationDate { get => creationDate; set => creationDate = value; }
         public static DataTable? GetContractsToLoad()
         {
             string sql =
@@ -100,7 +113,7 @@ namespace FootballContractsHistory.Models
         {
             string sqlDetails = @"SELECT C.Contract_ID, (CL.Name + ' - ' + P.Name) AS Name, 
                 CL.Club_ID, CL.Name AS Club, P.Player_ID, P.Name AS Player, C.Start_Date, 
-                C.End_Date, P.Creation_Date FROM Contract C INNER JOIN Club CL 
+                C.End_Date, C.Creation_Date FROM Contract C INNER JOIN Club CL 
                 ON CL.Club_ID = C.Club_ID INNER JOIN Player P ON P.Player_ID = C.Player_ID 
                 WHERE C.Contract_ID = @ContractId ORDER BY C.Contract_ID;";
 
@@ -177,14 +190,26 @@ namespace FootballContractsHistory.Models
         }
         public static List<Contract>? GetContractsByClub_Player(string clubName, string playerName)
         {
-            var getQuery = @"SELECT C.Contract_ID, C.Club_ID, CL.Name AS Club, 
-                P.Player_ID, P.Name AS Player, PS.Name AS Position, CL.Start_Date, CL.End_Date  
-                FROM Contract C INNER JOIN Club CL ON CL.Club_ID = C.Club_ID 
+            var getQuery = String.Empty;
+            if (clubName != null && playerName != null)
+            {
+                getQuery = @"SELECT C.Contract_ID, C.Club_ID, CL.Name AS Club, 
+                P.Player_ID, P.Name AS Player, PS.Name AS Position, C.Start_Date, C.End_Date,
+                C.Creation_Date FROM Contract C INNER JOIN Club CL ON CL.Club_ID = C.Club_ID 
                 INNER JOIN Player P ON P.Player_ID = C.Player_ID
                 INNER JOIN Position PS ON PS.Position_ID = P.Position_ID
-                WHERE (@PlayerName IS NULL OR P.Name LIKE @PlayerName) 
-                OR (@ClubName IS NULL OR CL.Name LIKE @ClubName)";
-
+                WHERE (@PlayerName IS NOT NULL AND P.Name LIKE @PlayerName) 
+                AND (@ClubName IS NOT NULL AND CL.Name LIKE @ClubName)";
+            } else if (playerName == null || clubName == null)
+            {
+                getQuery = @"SELECT C.Contract_ID, C.Club_ID, CL.Name AS Club, 
+                P.Player_ID, P.Name AS Player, PS.Name AS Position, C.Start_Date, C.End_Date,
+                C.Creation_Date FROM Contract C INNER JOIN Club CL ON CL.Club_ID = C.Club_ID 
+                INNER JOIN Player P ON P.Player_ID = C.Player_ID
+                INNER JOIN Position PS ON PS.Position_ID = P.Position_ID
+                WHERE (@PlayerName IS NOT NULL AND P.Name LIKE @PlayerName) 
+                OR (@ClubName IS NOT NULL AND CL.Name LIKE @ClubName)";
+            } 
             SqlParameter[] contractParam = [
                 new SqlParameter("@ClubName", SqlDbType.NVarChar, 255){
                 Value = (clubName == null) ? DBNull.Value : "%" + clubName + "%"

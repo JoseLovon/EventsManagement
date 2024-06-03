@@ -304,6 +304,7 @@
             txtName.Size = new Size(283, 34);
             txtName.TabIndex = 1;
             txtName.Tag = "Club Name";
+            txtName.Validating += txt_Validating;
             // 
             // txtDescription
             // 
@@ -315,6 +316,7 @@
             txtDescription.Size = new Size(283, 76);
             txtDescription.TabIndex = 2;
             txtDescription.Tag = "Description";
+            txtDescription.Validating += txt_Validating;
             // 
             // label2
             // 

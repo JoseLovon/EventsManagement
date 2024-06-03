@@ -168,6 +168,19 @@ namespace FootballContractsHistory.Models
                 return 0;
             }
         }
+        public static int VerifyClubToDelete(int clubId)
+        {
+            var sql = @"SELECT COUNT(*) FROM Club CL INNER JOIN Contract C ON 
+            CL.Club_ID = C.Club_ID WHERE CL.Club_ID = @ClubId";
+
+            SqlParameter[] playerParam = [
+                new SqlParameter("@ClubId", clubId)
+            ];
+
+            int club = Convert.ToInt32(DataAccess.ExecuteScalar(sql, playerParam));
+
+            return club;
+        }
         public static DataTable GetClubs()
         {
             var getQuery = $"SELECT Club_ID, Name AS Club FROM Club ORDER BY Name";

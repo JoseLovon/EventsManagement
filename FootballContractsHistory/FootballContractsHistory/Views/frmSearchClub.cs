@@ -28,6 +28,7 @@ namespace FootballContractsHistory.Views
         private void pbxBack_Click(object sender, EventArgs e)
         {
             this.Close();
+            mdiParentForm.SetToolStrip("", true);
         }
         private void txtName_KeyPress(object sender, KeyPressEventArgs e)
         {

@@ -35,9 +35,6 @@
             toolTip = new ToolTip(components);
             menuStrip = new MenuStrip();
             fileMenu = new ToolStripMenuItem();
-            toolStripSeparator3 = new ToolStripSeparator();
-            toolStripSeparator4 = new ToolStripSeparator();
-            toolStripSeparator5 = new ToolStripSeparator();
             exitToolStripMenuItem = new ToolStripMenuItem();
             maintenanceToolStripMenuItem = new ToolStripMenuItem();
             clubsToolStripMenuItem = new ToolStripMenuItem();
@@ -82,31 +79,16 @@
             // 
             // fileMenu
             // 
-            fileMenu.DropDownItems.AddRange(new ToolStripItem[] { toolStripSeparator3, toolStripSeparator4, toolStripSeparator5, exitToolStripMenuItem });
+            fileMenu.DropDownItems.AddRange(new ToolStripItem[] { exitToolStripMenuItem });
             fileMenu.ImageTransparentColor = SystemColors.ActiveBorder;
             fileMenu.Name = "fileMenu";
             fileMenu.Size = new Size(46, 24);
             fileMenu.Text = "&File";
             // 
-            // toolStripSeparator3
-            // 
-            toolStripSeparator3.Name = "toolStripSeparator3";
-            toolStripSeparator3.Size = new Size(113, 6);
-            // 
-            // toolStripSeparator4
-            // 
-            toolStripSeparator4.Name = "toolStripSeparator4";
-            toolStripSeparator4.Size = new Size(113, 6);
-            // 
-            // toolStripSeparator5
-            // 
-            toolStripSeparator5.Name = "toolStripSeparator5";
-            toolStripSeparator5.Size = new Size(113, 6);
-            // 
             // exitToolStripMenuItem
             // 
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new Size(116, 26);
+            exitToolStripMenuItem.Size = new Size(224, 26);
             exitToolStripMenuItem.Text = "E&xit";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
@@ -122,7 +104,7 @@
             // 
             clubsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { registerUpdateDeleteToolStripMenuItem, searchToolStripMenuItem });
             clubsToolStripMenuItem.Name = "clubsToolStripMenuItem";
-            clubsToolStripMenuItem.Size = new Size(224, 26);
+            clubsToolStripMenuItem.Size = new Size(154, 26);
             clubsToolStripMenuItem.Tag = "";
             clubsToolStripMenuItem.Text = "Clubs";
             // 
@@ -145,7 +127,7 @@
             // playersToolStripMenuItem
             // 
             playersToolStripMenuItem.Name = "playersToolStripMenuItem";
-            playersToolStripMenuItem.Size = new Size(224, 26);
+            playersToolStripMenuItem.Size = new Size(154, 26);
             playersToolStripMenuItem.Tag = "players";
             playersToolStripMenuItem.Text = "Players";
             playersToolStripMenuItem.Click += ShowNewForm;
@@ -154,7 +136,7 @@
             // 
             contractsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { registerUpdateDeleteToolStripMenuItem1, searchToolStripMenuItem1 });
             contractsToolStripMenuItem.Name = "contractsToolStripMenuItem";
-            contractsToolStripMenuItem.Size = new Size(224, 26);
+            contractsToolStripMenuItem.Size = new Size(154, 26);
             contractsToolStripMenuItem.Tag = "";
             contractsToolStripMenuItem.Text = "Contracts";
             // 
@@ -214,9 +196,6 @@
         private System.Windows.Forms.ToolTip toolTip;
         private MenuStrip menuStrip;
         private ToolStripMenuItem fileMenu;
-        private ToolStripSeparator toolStripSeparator3;
-        private ToolStripSeparator toolStripSeparator4;
-        private ToolStripSeparator toolStripSeparator5;
         private ToolStripMenuItem exitToolStripMenuItem;
         private ToolStripMenuItem maintenanceToolStripMenuItem;
         private ToolStripMenuItem clubsToolStripMenuItem;

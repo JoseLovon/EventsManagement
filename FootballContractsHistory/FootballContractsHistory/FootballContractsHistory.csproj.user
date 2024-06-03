@@ -31,8 +31,5 @@
     <Compile Update="Views\frmSplash.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Views\frmViewContracts.cs">
-      <SubType>Form</SubType>
-    </Compile>
   </ItemGroup>
 </Project>

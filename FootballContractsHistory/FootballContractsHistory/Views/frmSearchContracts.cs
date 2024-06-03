@@ -60,6 +60,9 @@ namespace FootballContractsHistory.Views
             dgvContracts.Columns["ClubName"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvContracts.Columns["PlayerName"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvContracts.Columns["PositionName"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvContracts.Columns["StartDate"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvContracts.Columns["EndDate"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvContracts.Columns["CreationDate"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             mdiParentForm.SetToolStrip("Contracts searched successfully.", true);
         }
 
@@ -95,6 +98,7 @@ namespace FootballContractsHistory.Views
         private void pbxBack_Click(object sender, EventArgs e)
         {
             this.Close();
+            mdiParentForm.SetToolStrip("", true);
         }
         private void cbxPlayers_SelectionChangeCommitted(object sender, EventArgs e)
         {

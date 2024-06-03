@@ -175,10 +175,11 @@ namespace FootballContractsHistory
                     {
                         MessageBox.Show("Error creating contract.");
                     }
-                } else
+                }
+                else
                 {
                     MessageBox.Show("These dates cross with the dates of the actual contract " +
-                        "of this player.","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                        "of this player.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -187,21 +188,32 @@ namespace FootballContractsHistory
             if (cbxClubs.SelectedIndex != -1 && cbxClubs.SelectedIndex != 0 &&
                 cbxPlayers.SelectedIndex != -1 && cbxPlayers.SelectedIndex != 0)
             {
-                if (dtpStartDate.Value < DateTime.Now)
+                if (dtpStartDate.Value > DateTime.Now)
                 {
-                    Contract c = new Contract(Convert.ToInt32(txtId.Text), Convert.ToInt32(cbxClubs.SelectedValue),
-                    Convert.ToInt32(cbxPlayers.SelectedValue), dtpStartDate.Value, dtpEndDate.Value);
-                    var response = Contract.UpdateContract(c);
-                    if (response)
+                    var status = Player.VerifyPlayerContract(Convert.ToInt32(cbxPlayers.SelectedValue),
+                    dtpStartDate.Value, dtpEndDate.Value);
+
+                    if (status == 0)
                     {
-                        //SetState(FormState.Register);
-                        MessageBox.Show("Contract updated successfully.");
-                        LoadContracts();
-                        LoadFirstContract();
+                        Contract c = new Contract(Convert.ToInt32(txtId.Text), Convert.ToInt32(cbxClubs.SelectedValue),
+                    Convert.ToInt32(cbxPlayers.SelectedValue), dtpStartDate.Value, dtpEndDate.Value);
+                        var response = Contract.UpdateContract(c);
+                        if (response)
+                        {
+                            //SetState(FormState.Register);
+                            MessageBox.Show("Contract updated successfully.");
+                            LoadContracts();
+                            LoadFirstContract();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error updating contract.");
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Error updating contract.");
+                        MessageBox.Show("These dates cross with the dates of the actual contract " +
+                            "of this player.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
@@ -368,6 +380,7 @@ namespace FootballContractsHistory
         private void pbxBack_Click(object sender, EventArgs e)
         {
             this.Close();
+            mdiParentForm.SetToolStrip("", true);
         }
         private void cbx_Validating(object sender, CancelEventArgs e)
         {
@@ -378,6 +391,7 @@ namespace FootballContractsHistory
             if (combobox.SelectedIndex == -1 || combobox.SelectedIndex == 0)
             {
                 errorMessage = $"{combobox.Tag} is required.";
+                mdiParentForm.SetToolStrip("Please provide the Club, Player, Start Date and End Date.", false);
             }
 
             errorProvider1.SetError(combobox, errorMessage);
@@ -391,10 +405,10 @@ namespace FootballContractsHistory
             if (textBox.Text == string.Empty)
             {
                 errorMessage = $"{textBox.Tag} is required.";
-            }
+                mdiParentForm.SetToolStrip("Please provide the Club, Player, Start Date and End Date.", false);
 
+            }
             errorProvider1.SetError(textBox, errorMessage);
-            mdiParentForm.SetToolStrip("Please provide the Club, Player, Start Date and End Date.", false);
         }
         private void btnDelete_Click(object sender, EventArgs e)
         {

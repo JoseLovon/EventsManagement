@@ -335,6 +335,7 @@ namespace FootballContractsHistory
         private void pbxBack_Click(object sender, EventArgs e)
         {
             this.Close();
+            mdiParentForm.SetToolStrip("", true);
         }
         private void txt_Validating(object sender, CancelEventArgs e)
         {
@@ -345,19 +346,44 @@ namespace FootballContractsHistory
             if (textBox.Text == string.Empty)
             {
                 errorMessage = $"{textBox.Tag} is required.";
+                mdiParentForm.SetToolStrip("Please provide the Name and Description.", false);
+            }
+            errorProvider1.SetError(textBox, errorMessage);
+        }
+        private void cbx_Validating(object sender, CancelEventArgs e)
+        {
+            string errorMessage = string.Empty;
+
+            ComboBox combobox = (ComboBox)sender;
+
+            if (combobox.SelectedIndex == -1 || combobox.SelectedIndex == 0)
+            {
+                errorMessage = $"{combobox.Tag} is required.";
             }
 
-            errorProvider1.SetError(textBox, errorMessage);
-            mdiParentForm.SetToolStrip("Please provide the Name and Description.", false);
-
+            errorProvider1.SetError(combobox, errorMessage);
         }
         private void btnDelete_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show($"Are you sure you want to delete the Player {txtPlayer.Text}?", "Warning", MessageBoxButtons.YesNo) == DialogResult.Yes)
+        {   try
             {
-                DeletePlayer();
+                var response = Player.VerifyPlayerToDelete(Convert.ToInt32(txtId.Text));
+                if (response == 0)
+                {
+                    if (MessageBox.Show($"Are you sure you want to delete the Player {txtPlayer.Text}?", "Warning", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        DeletePlayer();
+                    }
+                    LoadFirstPlayer();
+                }
+                else
+                {
+                    MessageBox.Show("Unable to delete this player, he is vinculated to a contract.",
+                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                }
+            } catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.GetType().ToString());
             }
-            LoadFirstPlayer();
         }
         private void LoadFirstPlayer()
         {

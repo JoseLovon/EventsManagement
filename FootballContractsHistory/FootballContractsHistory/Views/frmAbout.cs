@@ -24,7 +24,7 @@ namespace FootballContractsHistory.Views
         private void pbxBack_Click(object sender, EventArgs e)
         {
             this.Close();
-            mdiParentForm.SetToolStrip($"Welcome {DataUser.GetInstance().username}", true);
+            mdiParentForm.SetToolStrip("", true);
 
         }
     }

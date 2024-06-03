@@ -241,11 +241,12 @@ namespace FootballContractsHistory
                             int playerId = reader.GetInt32(reader.GetOrdinal("Player_ID"));
                             string playerName = reader.GetString(reader.GetOrdinal("Player"));
                             string positionName = reader.GetString(reader.GetOrdinal("Position"));
-                            DateTime startTime = reader.GetDateTime(reader.GetOrdinal("Start_Time"));
-                            DateTime endTime = reader.GetDateTime(reader.GetOrdinal("End_Time"));
+                            DateTime startDate = reader.GetDateTime(reader.GetOrdinal("Start_Date"));
+                            DateTime endDate = reader.GetDateTime(reader.GetOrdinal("End_Date")); 
+                            string creationDate = reader.GetDateTime(reader.GetOrdinal("Creation_Date")).ToString();
 
                             Contract p = new Contract(contractId, clubId, clubName, 
-                                playerId, playerName, positionName, startTime, endTime);
+                                playerId, playerName, positionName, startDate, endDate, creationDate);
 
                             contracts.Add(p);
                         }

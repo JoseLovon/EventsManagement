@@ -70,7 +70,6 @@ C:\src\Spring Term 2024\Database Programming\Projects\Project\FootballContractsH
 C:\src\Spring Term 2024\Database Programming\Projects\Project\FootballContractsHistory\FootballContractsHistory\obj\Debug\net8.0-windows\FootballContractsHistory.pdb
 C:\src\Spring Term 2024\Database Programming\Projects\Project\FootballContractsHistory\FootballContractsHistory\obj\Debug\net8.0-windows\FootballContractsHistory.genruntimeconfig.cache
 C:\src\Spring Term 2024\Database Programming\Projects\Project\FootballContractsHistory\FootballContractsHistory\obj\Debug\net8.0-windows\ref\FootballContractsHistory.dll
-C:\src\Spring Term 2024\Database Programming\Projects\Project\FootballContractsHistory\FootballContractsHistory\obj\Debug\net8.0-windows\FootballContractsHistory.frmViewContracts.resources
 C:\src\Spring Term 2024\Database Programming\Projects\Project\FootballContractsHistory\FootballContractsHistory\obj\Debug\net8.0-windows\FootballContractsHistory.Views.frmSplash.resources
 C:\src\Spring Term 2024\Database Programming\Projects\Project\FootballContractsHistory\FootballContractsHistory\obj\Debug\net8.0-windows\FootballContractsHistory.Views.frmAbout.resources
 C:\src\Spring Term 2024\Database Programming\Projects\Project\FootballContractsHistory\FootballContractsHistory\obj\Debug\net8.0-windows\FootballContractsHistory.Views.frmClub.resources

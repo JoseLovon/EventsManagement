@@ -32,7 +32,7 @@ namespace FootballContractsHistory
                 var userLogged = login.VerifyUser(txtUsername.Text.Trim(), txtPassword.Text.Trim());
                 if (userLogged != null)
                 {
-                    DataUser data = new DataUser() { userId = userLogged.UserId!, username = userLogged.Username };
+                    DataUser data = new DataUser() { userId = userLogged.UserId!, username = userLogged.Username! };
                     this.Close();
                     if (mdiParentForm != null)
                     {
@@ -42,6 +42,7 @@ namespace FootballContractsHistory
                         childForm.MdiParent = mdiParentForm;
                         childForm.ShowInTaskbar = false;
                         childForm.Show();
+                        mdiParentForm.SetToolStrip($"Welcome {DataUser.GetInstance().username}.", true);
                     }
                 }
                 else
