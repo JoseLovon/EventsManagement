@@ -26,11 +26,9 @@ GO
 
 CREATE TABLE Club (
     Club_ID INT IDENTITY(1,1) PRIMARY KEY,
-    Userr_ID INT NOT NULL,
     Name NVARCHAR(100) NOT NULL,
     Description NVARCHAR(255),
     Creation_Date DATETIME NOT NULL DEFAULT GETDATE()
-    FOREIGN KEY (Userr_ID) REFERENCES Userr(Userr_ID)
 );
 GO
 
@@ -84,14 +82,14 @@ INSERT INTO Player (Position_ID, Name) VALUES
 (3	,'Neymar Jr.'),
 (5	,'Robert Lewandowski')
 
-INSERT INTO Club (Userr_ID, Name, Description) VALUES
-(1	,'Real Madrid FC',	'Spain Club'),
-(2	,'Bayern Munich',	'German Club'),
-(1	,'Chelsea',	'English Club'),
-(1	,'Juventus',	'Italian Club'),
-(2	,'Arsenal',	'English Club'),
-(1	,'Manchester City',	'English Club'),
-(1	,'Liverpool',	'English Club'),
-(1	,'Betis',	'Spain Club')
+INSERT INTO Club (Name, Description) VALUES
+('Real Madrid FC',	'Spain Club'),
+('Bayern Munich',	'German Club'),
+('Chelsea',	'English Club'),
+('Juventus',	'Italian Club'),
+('Arsenal',	'English Club'),
+('Manchester City',	'English Club'),
+('Liverpool',	'English Club'),
+('Betis',	'Spain Club')
 
 
