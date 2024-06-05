@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_LastSelectedProfileId>C:\src\Spring Term 2024\Database Programming\Projects\Project\FootballContractsHistory\FootballContractsHistory\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Update="Views\frmAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\frmClub.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\frmMainPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\frmPlayers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\frmMDI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\frmContracts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\frmSearchClub.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\frmSearchContracts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\frmSplash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>
