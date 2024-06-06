@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FDPI8pKO4qpgtuTSOdqFvwQCRMbpbA57ZFE+73flFrwyIEUI76NooJL3eObKBr2Rhh5Cf3mALRN/eMZJ8Rdraw==",
+  "dgSpecHash": "qBC2iL3fe+jQq8saznBKatY1v6/Kvo/RQv+o66S/urVbdIg0vRxctxz2StVunzggzVqmWz9jYBcz5VxTigofjg==",
   "success": true,
-  "projectFilePath": "D:\\DBProgrammingProject\\FootballContractsHistory\\FootballContractsHistory\\FootballContractsHistory.csproj",
+  "projectFilePath": "C:\\FootballContractsHistory\\FootballContractsHistory\\FootballContractsHistory\\FootballContractsHistory.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\joslu\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\joslu\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

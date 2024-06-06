@@ -21,7 +21,7 @@ namespace FootballContractsHistory.Views
         private void frmSplash_Load(object sender, EventArgs e)
         {
             Assembly assembly = Assembly.GetExecutingAssembly();
-            lblApplicationName.Text = assembly.GetCustomAttribute<AssemblyTitleAttribute>().Title;
+            lblApplicationName.Text = assembly.GetName().Name;
             lblVersion.Text = assembly.GetName().Version.ToString();
 
             timer.Interval = 5000;

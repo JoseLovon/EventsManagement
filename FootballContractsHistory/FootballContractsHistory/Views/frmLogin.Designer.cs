@@ -32,10 +32,10 @@
             errorProvider1 = new ErrorProvider(components);
             pictureBox1 = new PictureBox();
             panel1 = new Panel();
+            txtPassword = new TextBox();
             label5 = new Label();
             btnLogin = new Button();
             txtUsername = new TextBox();
-            txtPassword = new TextBox();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
@@ -58,14 +58,24 @@
             // panel1
             // 
             panel1.BackColor = Color.WhiteSmoke;
+            panel1.Controls.Add(txtPassword);
             panel1.Controls.Add(label5);
             panel1.Controls.Add(btnLogin);
             panel1.Controls.Add(txtUsername);
-            panel1.Controls.Add(txtPassword);
             panel1.Location = new Point(272, 152);
             panel1.Name = "panel1";
             panel1.Size = new Size(340, 309);
             panel1.TabIndex = 3;
+            // 
+            // txtPassword
+            // 
+            txtPassword.BackColor = SystemColors.ButtonHighlight;
+            txtPassword.Location = new Point(60, 148);
+            txtPassword.Name = "txtPassword";
+            txtPassword.PlaceholderText = "Password";
+            txtPassword.Size = new Size(223, 27);
+            txtPassword.TabIndex = 2;
+            txtPassword.UseSystemPasswordChar = true;
             // 
             // label5
             // 
@@ -109,20 +119,6 @@
             txtUsername.Tag = "Username";
             txtUsername.KeyPress += txtUsername_KeyPress;
             // 
-            // txtPassword
-            // 
-            txtPassword.BackColor = SystemColors.ButtonHighlight;
-            txtPassword.Font = new Font("Segoe UI Symbol", 9F);
-            txtPassword.Location = new Point(60, 144);
-            txtPassword.Multiline = true;
-            txtPassword.Name = "txtPassword";
-            txtPassword.PlaceholderText = "Password";
-            txtPassword.Size = new Size(223, 35);
-            txtPassword.TabIndex = 2;
-            txtPassword.Tag = "Password";
-            txtPassword.UseSystemPasswordChar = true;
-            txtPassword.KeyPress += txtPassword_KeyPress;
-            // 
             // frmLogin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -152,7 +148,7 @@
         private Label label5;
         private Button btnLogin;
         private TextBox txtUsername;
-        private TextBox txtPassword;
         private PictureBox pictureBox1;
+        private TextBox txtPassword;
     }
 }

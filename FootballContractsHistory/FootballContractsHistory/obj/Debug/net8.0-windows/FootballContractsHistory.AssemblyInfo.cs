@@ -11,10 +11,10 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("FootballContractsHistory")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("Football Contracts History")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+08e30d91c515986cf77bc51e9535144013d6350c")]
 [assembly: System.Reflection.AssemblyProductAttribute("FootballContractsHistory")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FootballContractsHistory")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

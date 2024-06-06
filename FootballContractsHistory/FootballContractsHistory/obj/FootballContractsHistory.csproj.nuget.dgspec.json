@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\DBProgrammingProject\\FootballContractsHistory\\FootballContractsHistory\\FootballContractsHistory.csproj": {}
+    "C:\\FootballContractsHistory\\FootballContractsHistory\\FootballContractsHistory\\FootballContractsHistory.csproj": {}
   },
   "projects": {
-    "D:\\DBProgrammingProject\\FootballContractsHistory\\FootballContractsHistory\\FootballContractsHistory.csproj": {
+    "C:\\FootballContractsHistory\\FootballContractsHistory\\FootballContractsHistory\\FootballContractsHistory.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\DBProgrammingProject\\FootballContractsHistory\\FootballContractsHistory\\FootballContractsHistory.csproj",
+        "projectUniqueName": "C:\\FootballContractsHistory\\FootballContractsHistory\\FootballContractsHistory\\FootballContractsHistory.csproj",
         "projectName": "FootballContractsHistory",
-        "projectPath": "D:\\DBProgrammingProject\\FootballContractsHistory\\FootballContractsHistory\\FootballContractsHistory.csproj",
+        "projectPath": "C:\\FootballContractsHistory\\FootballContractsHistory\\FootballContractsHistory\\FootballContractsHistory.csproj",
         "packagesPath": "C:\\Users\\joslu\\.nuget\\packages\\",
-        "outputPath": "D:\\DBProgrammingProject\\FootballContractsHistory\\FootballContractsHistory\\obj\\",
+        "outputPath": "C:\\FootballContractsHistory\\FootballContractsHistory\\FootballContractsHistory\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v8.0": {
-      "FootballContractsHistory/1.0.0": {
+      "FootballContractsHistory/1.0": {
         "dependencies": {
           "System.Data.SqlClient": "4.8.6"
         },
@@ -97,7 +97,7 @@
     }
   },
   "libraries": {
-    "FootballContractsHistory/1.0.0": {
+    "FootballContractsHistory/1.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -7,8 +7,9 @@
 		<UseWindowsForms>true</UseWindowsForms>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Title>Football Contract History</Title>
-		<Version>$(VersionPrefix)</Version>
+		<Version>1.0</Version>
 		<ApplicationIcon>Images\icon.ico</ApplicationIcon>
+		<Authors>Football Contracts History</Authors>
 	</PropertyGroup>
 
 	<ItemGroup>
