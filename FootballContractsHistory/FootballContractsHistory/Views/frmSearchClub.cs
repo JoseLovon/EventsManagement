@@ -69,9 +69,14 @@ namespace FootballContractsHistory.Views
         {
             dgvClubs.Columns.Clear();
             dgvClubs.DataSource = clubs;
+
             dgvClubs.Columns["ClubId"].Visible = false;
+
+            dgvClubs.Columns["ClubId"].HeaderText = "Club #";
+
             dgvClubs.Columns["Name"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvClubs.Columns["Description"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            
             mdiParentForm.SetToolStrip("Clubs searched successfully.", true);
         }
     }

@@ -54,15 +54,24 @@ namespace FootballContractsHistory.Views
             //dgvPlayers.RowHeadersVisible = false;
             dgvContracts.Columns.Clear();
             dgvContracts.DataSource = contracts;
+
             dgvContracts.Columns["ContractId"].Visible = false;
             dgvContracts.Columns["ClubId"].Visible = false;
             dgvContracts.Columns["PlayerId"].Visible = false;
+
+            dgvContracts.Columns["ClubName"].HeaderText = "Club";
+            dgvContracts.Columns["PlayerName"].HeaderText = "Player";
+            dgvContracts.Columns["PositionName"].HeaderText = "Position";
+            dgvContracts.Columns["StartDate"].HeaderText = "Start Date";
+            dgvContracts.Columns["EndDate"].HeaderText = "End Date";
+
             dgvContracts.Columns["ClubName"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvContracts.Columns["PlayerName"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvContracts.Columns["PositionName"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvContracts.Columns["StartDate"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvContracts.Columns["EndDate"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvContracts.Columns["CreationDate"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            
             mdiParentForm.SetToolStrip("Contracts searched successfully.", true);
         }
 
