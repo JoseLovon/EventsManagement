@@ -293,8 +293,15 @@ namespace FootballContractsHistory
                             checkBox.Checked = false;
                             break;
                         case ComboBox combo:
-                            if (combo.Tag.ToString() != "search")
+                            if(currentContractId > 0)
+                            {
+                                if (combo.Tag.ToString() != "search")
+                                    combo.SelectedIndex = 0;
+                            } else
+                            {
                                 combo.SelectedIndex = 0;
+                                
+                            }
                             break;
                         case GroupBox groupBox:
                             ClearControls(groupBox.Controls);
@@ -358,7 +365,11 @@ namespace FootballContractsHistory
             {
                 SetState(FormState.Update);
             }
-
+            else
+            {
+                ClearControls(groupBox1.Controls);
+                SetState(FormState.Register);
+            }
             btnPrevious.Enabled = previousContractId is not null;
             btnNext.Enabled = nextContractId is not null;
 
@@ -368,8 +379,13 @@ namespace FootballContractsHistory
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            ClearControls(groupBox1.Controls);
-            SetState(FormState.Register);
+            mdiParentForm.SetToolStrip("Ready...", true);
+            SetState(FormState.Add);
+            DisplayCurrentContract();
+        }
+        private void DisplayCurrentContract()
+        {
+            PopulateFields();
         }
         private void pbxBack_Click(object sender, EventArgs e)
         {

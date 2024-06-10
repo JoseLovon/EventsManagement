@@ -41,9 +41,10 @@
             registerUpdateDeleteToolStripMenuItem = new ToolStripMenuItem();
             searchToolStripMenuItem = new ToolStripMenuItem();
             playersToolStripMenuItem = new ToolStripMenuItem();
+            registerUpdateDeleteToolStripMenuItem2 = new ToolStripMenuItem();
+            browseClubsByPlayerToolStripMenuItem = new ToolStripMenuItem();
             contractsToolStripMenuItem = new ToolStripMenuItem();
             registerUpdateDeleteToolStripMenuItem1 = new ToolStripMenuItem();
-            searchToolStripMenuItem1 = new ToolStripMenuItem();
             aboutToolStripMenuItem = new ToolStripMenuItem();
             statusStrip.SuspendLayout();
             menuStrip.SuspendLayout();
@@ -88,7 +89,7 @@
             // exitToolStripMenuItem
             // 
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new Size(224, 26);
+            exitToolStripMenuItem.Size = new Size(116, 26);
             exitToolStripMenuItem.Text = "E&xit";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
@@ -104,7 +105,7 @@
             // 
             clubsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { registerUpdateDeleteToolStripMenuItem, searchToolStripMenuItem });
             clubsToolStripMenuItem.Name = "clubsToolStripMenuItem";
-            clubsToolStripMenuItem.Size = new Size(154, 26);
+            clubsToolStripMenuItem.Size = new Size(224, 26);
             clubsToolStripMenuItem.Tag = "";
             clubsToolStripMenuItem.Text = "Clubs";
             // 
@@ -120,23 +121,39 @@
             // 
             searchToolStripMenuItem.Name = "searchToolStripMenuItem";
             searchToolStripMenuItem.Size = new Size(253, 26);
-            searchToolStripMenuItem.Tag = "searchClub";
-            searchToolStripMenuItem.Text = "Search";
+            searchToolStripMenuItem.Tag = "browseClub";
+            searchToolStripMenuItem.Text = "Browse Players by Club";
             searchToolStripMenuItem.Click += ShowNewForm;
             // 
             // playersToolStripMenuItem
             // 
+            playersToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { registerUpdateDeleteToolStripMenuItem2, browseClubsByPlayerToolStripMenuItem });
             playersToolStripMenuItem.Name = "playersToolStripMenuItem";
-            playersToolStripMenuItem.Size = new Size(154, 26);
-            playersToolStripMenuItem.Tag = "players";
+            playersToolStripMenuItem.Size = new Size(224, 26);
+            playersToolStripMenuItem.Tag = "";
             playersToolStripMenuItem.Text = "Players";
-            playersToolStripMenuItem.Click += ShowNewForm;
+            // 
+            // registerUpdateDeleteToolStripMenuItem2
+            // 
+            registerUpdateDeleteToolStripMenuItem2.Name = "registerUpdateDeleteToolStripMenuItem2";
+            registerUpdateDeleteToolStripMenuItem2.Size = new Size(253, 26);
+            registerUpdateDeleteToolStripMenuItem2.Tag = "players";
+            registerUpdateDeleteToolStripMenuItem2.Text = "Register, Update, Delete";
+            registerUpdateDeleteToolStripMenuItem2.Click += ShowNewForm;
+            // 
+            // browseClubsByPlayerToolStripMenuItem
+            // 
+            browseClubsByPlayerToolStripMenuItem.Name = "browseClubsByPlayerToolStripMenuItem";
+            browseClubsByPlayerToolStripMenuItem.Size = new Size(253, 26);
+            browseClubsByPlayerToolStripMenuItem.Tag = "browsePlayer";
+            browseClubsByPlayerToolStripMenuItem.Text = "Browse Clubs by Player";
+            browseClubsByPlayerToolStripMenuItem.Click += ShowNewForm;
             // 
             // contractsToolStripMenuItem
             // 
-            contractsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { registerUpdateDeleteToolStripMenuItem1, searchToolStripMenuItem1 });
+            contractsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { registerUpdateDeleteToolStripMenuItem1 });
             contractsToolStripMenuItem.Name = "contractsToolStripMenuItem";
-            contractsToolStripMenuItem.Size = new Size(154, 26);
+            contractsToolStripMenuItem.Size = new Size(224, 26);
             contractsToolStripMenuItem.Tag = "";
             contractsToolStripMenuItem.Text = "Contracts";
             // 
@@ -147,14 +164,6 @@
             registerUpdateDeleteToolStripMenuItem1.Tag = "contracts";
             registerUpdateDeleteToolStripMenuItem1.Text = "Register, Update, Delete";
             registerUpdateDeleteToolStripMenuItem1.Click += ShowNewForm;
-            // 
-            // searchToolStripMenuItem1
-            // 
-            searchToolStripMenuItem1.Name = "searchToolStripMenuItem1";
-            searchToolStripMenuItem1.Size = new Size(253, 26);
-            searchToolStripMenuItem1.Tag = "searchContracts";
-            searchToolStripMenuItem1.Text = "Search";
-            searchToolStripMenuItem1.Click += ShowNewForm;
             // 
             // aboutToolStripMenuItem
             // 
@@ -205,7 +214,8 @@
         private ToolStripMenuItem registerUpdateDeleteToolStripMenuItem;
         private ToolStripMenuItem searchToolStripMenuItem;
         private ToolStripMenuItem registerUpdateDeleteToolStripMenuItem1;
-        private ToolStripMenuItem searchToolStripMenuItem1;
+        private ToolStripMenuItem registerUpdateDeleteToolStripMenuItem2;
+        private ToolStripMenuItem browseClubsByPlayerToolStripMenuItem;
     }
 }
 

@@ -42,6 +42,26 @@ namespace FootballContractsHistory.Models
             EndDate = endDate;
             CreationDate = creationDate;
         }
+        public Contract(int contractId, int clubId, string? clubName, string? positionName, DateTime startDate, DateTime endDate, string creationDate)
+        {
+            ContractId = contractId;
+            ClubId = clubId;
+            ClubName = clubName;
+            PositionName = positionName;
+            StartDate = startDate;
+            EndDate = endDate;
+            CreationDate = creationDate;
+        }
+        public Contract(int contractId, int playerId, string? playerName, string? positionName, DateTime startDate, DateTime endDate, string creationDate, string? clubName = null)
+        {
+            ContractId = contractId;
+            PlayerId = playerId;
+            PlayerName = playerName;
+            PositionName = positionName;
+            StartDate = startDate;
+            EndDate = endDate;
+            CreationDate = creationDate;
+        }
         public Contract(int contractId, int clubId, int playerId, DateTime startDate, DateTime endDate)
         {
             ContractId = contractId;
@@ -193,22 +213,20 @@ namespace FootballContractsHistory.Models
             var getQuery = String.Empty;
             if (clubName != null && playerName != null)
             {
-                getQuery = @"SELECT C.Contract_ID, C.Club_ID, CL.Name AS Club, 
-                P.Player_ID, P.Name AS Player, PS.Name AS Position, C.Start_Date, C.End_Date,
+                getQuery = @"SELECT C.Contract_ID, P.Player_ID, P.Name AS 
+                Player, PS.Name AS Position, C.Start_Date, C.End_Date,
                 C.Creation_Date FROM Contract C INNER JOIN Club CL ON CL.Club_ID = C.Club_ID 
                 INNER JOIN Player P ON P.Player_ID = C.Player_ID
                 INNER JOIN Position PS ON PS.Position_ID = P.Position_ID
-                WHERE (@PlayerName IS NOT NULL AND P.Name LIKE @PlayerName) 
-                AND (@ClubName IS NOT NULL AND CL.Name LIKE @ClubName)";
+                WHERE CL.Name LIKE @ClubName";
             } else if (playerName == null || clubName == null)
             {
                 getQuery = @"SELECT C.Contract_ID, C.Club_ID, CL.Name AS Club, 
-                P.Player_ID, P.Name AS Player, PS.Name AS Position, C.Start_Date, C.End_Date,
+                PS.Name AS Position, C.Start_Date, C.End_Date,
                 C.Creation_Date FROM Contract C INNER JOIN Club CL ON CL.Club_ID = C.Club_ID 
                 INNER JOIN Player P ON P.Player_ID = C.Player_ID
                 INNER JOIN Position PS ON PS.Position_ID = P.Position_ID
-                WHERE (@PlayerName IS NOT NULL AND P.Name LIKE @PlayerName) 
-                OR (@ClubName IS NOT NULL AND CL.Name LIKE @ClubName)";
+                WHERE P.Name LIKE @PlayerName";
             } 
             SqlParameter[] contractParam = [
                 new SqlParameter("@ClubName", SqlDbType.NVarChar, 255){
@@ -220,6 +238,61 @@ namespace FootballContractsHistory.Models
                 ];
 
             List<Contract> contracts = DataAccess.GetContracts(getQuery, contractParam);
+
+            if (contracts.Count > 0)
+            {
+                return contracts;
+            }
+            else
+            {
+                Console.WriteLine($"No contracts found");
+                return null;
+            }
+        }
+        public static List<Contract>? GetPlayersByClub(string clubName)
+        {
+
+            string getQuery = @"SELECT C.Contract_ID, P.Player_ID, P.Name AS 
+            Player, PS.Name AS Position, C.Start_Date, C.End_Date, C.Creation_Date 
+            FROM Contract C INNER JOIN Club CL ON CL.Club_ID = C.Club_ID 
+            INNER JOIN Player P ON P.Player_ID = C.Player_ID
+            INNER JOIN Position PS ON PS.Position_ID = P.Position_ID
+            WHERE CL.Name LIKE @ClubName";
+
+            SqlParameter[] contractParam = [
+                new SqlParameter("@ClubName", SqlDbType.NVarChar, 255){
+                Value = "%" + clubName + "%"
+                }
+                ];
+
+            List<Contract> contracts = DataAccess.GetPlayersByClub(getQuery, contractParam);
+
+            if (contracts.Count > 0)
+            {
+                return contracts;
+            }
+            else
+            {
+                Console.WriteLine($"No contracts found");
+                return null;
+            }
+        }
+        public static List<Contract>? GetClubsByPlayer(string playerName)
+        {
+            string getQuery = @"SELECT C.Contract_ID, C.Club_ID, CL.Name AS 
+            Club, PS.Name AS Position, C.Start_Date, C.End_Date, C.Creation_Date 
+            FROM Contract C INNER JOIN Club CL ON CL.Club_ID = C.Club_ID 
+            INNER JOIN Player P ON P.Player_ID = C.Player_ID
+            INNER JOIN Position PS ON PS.Position_ID = P.Position_ID
+            WHERE P.Name LIKE @PlayerName";
+
+            SqlParameter[] contractParam = [
+                new SqlParameter("@PlayerName", SqlDbType.NVarChar, 255){
+                Value = "%" + playerName + "%"
+                }
+                ];
+
+            List<Contract> contracts = DataAccess.GetClubsByPlayer(getQuery, contractParam);
 
             if (contracts.Count > 0)
             {

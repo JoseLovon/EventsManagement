@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Football Contracts History")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+858be7e4c0019d231a1ff87e58288656dc4a5d56")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+ab0c38b53861e6c0c3f6c26c8d1b4114db296f54")]
 [assembly: System.Reflection.AssemblyProductAttribute("FootballContractsHistory")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FootballContractsHistory")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

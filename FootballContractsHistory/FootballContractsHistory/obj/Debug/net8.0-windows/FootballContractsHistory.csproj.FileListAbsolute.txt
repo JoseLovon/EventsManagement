@@ -96,7 +96,6 @@ C:\FootballContractsHistory\FootballContractsHistory\FootballContractsHistory\ob
 C:\FootballContractsHistory\FootballContractsHistory\FootballContractsHistory\obj\Debug\net8.0-windows\FootballContractsHistory.Views.frmMainPage.resources
 C:\FootballContractsHistory\FootballContractsHistory\FootballContractsHistory\obj\Debug\net8.0-windows\FootballContractsHistory.frmMDI.resources
 C:\FootballContractsHistory\FootballContractsHistory\FootballContractsHistory\obj\Debug\net8.0-windows\FootballContractsHistory.frmPlayers.resources
-C:\FootballContractsHistory\FootballContractsHistory\FootballContractsHistory\obj\Debug\net8.0-windows\FootballContractsHistory.Views.frmSearchClub.resources
 C:\FootballContractsHistory\FootballContractsHistory\FootballContractsHistory\obj\Debug\net8.0-windows\FootballContractsHistory.Views.frmSearchContracts.resources
 C:\FootballContractsHistory\FootballContractsHistory\FootballContractsHistory\obj\Debug\net8.0-windows\FootballContractsHistory.Views.frmSplash.resources
 C:\FootballContractsHistory\FootballContractsHistory\FootballContractsHistory\obj\Debug\net8.0-windows\FootballContractsHistory.frmContracts.en.resources
@@ -113,3 +112,5 @@ C:\FootballContractsHistory\FootballContractsHistory\FootballContractsHistory\ob
 C:\FootballContractsHistory\FootballContractsHistory\FootballContractsHistory\obj\Debug\net8.0-windows\FootballContractsHistory.pdb
 C:\FootballContractsHistory\FootballContractsHistory\FootballContractsHistory\obj\Debug\net8.0-windows\FootballContractsHistory.genruntimeconfig.cache
 C:\FootballContractsHistory\FootballContractsHistory\FootballContractsHistory\obj\Debug\net8.0-windows\ref\FootballContractsHistory.dll
+C:\FootballContractsHistory\FootballContractsHistory\FootballContractsHistory\obj\Debug\net8.0-windows\FootballContractsHistory.Views.frmBrowseClub.resources
+C:\FootballContractsHistory\FootballContractsHistory\FootballContractsHistory\obj\Debug\net8.0-windows\FootballContractsHistory.Views.frmBrowsePlayer.resources

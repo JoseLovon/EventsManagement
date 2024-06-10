@@ -199,7 +199,7 @@
             btnClear.Name = "btnClear";
             btnClear.Size = new Size(135, 53);
             btnClear.TabIndex = 69;
-            btnClear.Text = "Clear";
+            btnClear.Text = "Cancel";
             btnClear.UseVisualStyleBackColor = true;
             btnClear.Click += btnClear_Click;
             // 

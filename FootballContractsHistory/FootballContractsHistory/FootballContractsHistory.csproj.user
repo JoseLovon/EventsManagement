@@ -7,6 +7,9 @@
     <Compile Update="Views\frmAbout.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\frmBrowsePlayer.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\frmClub.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -25,7 +28,7 @@
     <Compile Update="Views\frmContracts.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Views\frmSearchClub.cs">
+    <Compile Update="Views\frmBrowseClub.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\frmSearchContracts.cs">

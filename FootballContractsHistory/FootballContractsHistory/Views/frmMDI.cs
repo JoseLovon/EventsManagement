@@ -32,9 +32,13 @@ namespace FootballContractsHistory
                     childForm = new frmClub();
                     this.SetToolStrip("Welcome to Clubs Maintenance", true);
                     break;
-                case "searchClub":
-                    childForm = new frmSearchClub();
-                    this.SetToolStrip("Welcome to Search Clubs", true);
+                case "browseClub":
+                    childForm = new frmBrowseClub();
+                    this.SetToolStrip("Welcome to Search Players by Club", true);
+                    break;
+                case "browsePlayer":
+                    childForm = new frmBrowsePlayer();
+                    this.SetToolStrip("Welcome to Search Clubs by Player", true);
                     break;
                 case "players":
                     childForm = new frmPlayers();
@@ -44,10 +48,7 @@ namespace FootballContractsHistory
                     childForm = new frmContracts();
                     this.SetToolStrip("Welcome to Contracts Maintenance", true);
                     break;
-                case "searchContracts":
-                    childForm = new frmSearchContracts();
-                    this.SetToolStrip("Welcome to Search Contracts", true);
-                    break;
+                
             }
 
             if (childForm != null)

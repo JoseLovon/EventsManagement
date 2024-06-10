@@ -197,21 +197,17 @@ namespace FootballContractsHistory.Models
         }
         public static bool UpdateClub(Club clubToUpdate)
         {
-            // Construct the SQL UPDATE statement
             string updateSql = "UPDATE Club SET Name = @ClubName, " +
                 "Description = @Description WHERE Club_ID = @ClubId";
 
-            // Create the SqlParameter array
             SqlParameter[] updateParams = [
             new SqlParameter("@ClubName", clubToUpdate.Name),
             new SqlParameter("@Description", clubToUpdate.Description),
             new SqlParameter("@ClubId", clubToUpdate.ClubId)
             ];
 
-            // Call the UpdateData method
             int rowsUpdated = DataAccess.ManageData(updateSql, updateParams);
 
-            // Check the number of rows updated
             if (rowsUpdated > 0)
             {
                 Console.WriteLine("Club updated successfully.");

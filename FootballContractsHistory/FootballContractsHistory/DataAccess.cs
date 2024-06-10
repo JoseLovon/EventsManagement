@@ -255,6 +255,72 @@ namespace FootballContractsHistory
             }
             return contracts;
         }
+        public static List<Contract> GetPlayersByClub(string sql, SqlParameter[]? parameters = null)
+        {
+            List<Contract> contracts = new List<Contract>();
+            using (SqlConnection conn = new SqlConnection(getConnectionString()))
+            {
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    if (parameters != null)
+                    {
+                        cmd.Parameters.AddRange(parameters);
+                    }
+                    conn.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            int contractId = reader.GetInt32(reader.GetOrdinal("Contract_ID"));
+                            int playerId = reader.GetInt32(reader.GetOrdinal("Player_ID"));
+                            string playerName = reader.GetString(reader.GetOrdinal("Player"));
+                            string positionName = reader.GetString(reader.GetOrdinal("Position"));
+                            DateTime startDate = reader.GetDateTime(reader.GetOrdinal("Start_Date"));
+                            DateTime endDate = reader.GetDateTime(reader.GetOrdinal("End_Date"));
+                            string creationDate = reader.GetDateTime(reader.GetOrdinal("Creation_Date")).ToString();
+
+                            Contract p = new Contract(contractId, playerId, playerName, positionName, startDate, endDate, creationDate,null);
+
+                            contracts.Add(p);
+                        }
+                    }
+                }
+            }
+            return contracts;
+        }
+        public static List<Contract> GetClubsByPlayer(string sql, SqlParameter[]? parameters = null)
+        {
+            List<Contract> contracts = new List<Contract>();
+            using (SqlConnection conn = new SqlConnection(getConnectionString()))
+            {
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    if (parameters != null)
+                    {
+                        cmd.Parameters.AddRange(parameters);
+                    }
+                    conn.Open();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            int contractId = reader.GetInt32(reader.GetOrdinal("Contract_ID"));
+                            int clubId = reader.GetInt32(reader.GetOrdinal("Club_ID"));
+                            string clubName = reader.GetString(reader.GetOrdinal("Club"));
+                            string positionName = reader.GetString(reader.GetOrdinal("Position"));
+                            DateTime startDate = reader.GetDateTime(reader.GetOrdinal("Start_Date"));
+                            DateTime endDate = reader.GetDateTime(reader.GetOrdinal("End_Date"));
+                            string creationDate = reader.GetDateTime(reader.GetOrdinal("Creation_Date")).ToString();
+
+                            Contract p = new Contract(contractId, clubId, clubName, positionName, startDate, endDate, creationDate);
+
+                            contracts.Add(p);
+                        }
+                    }
+                }
+            }
+            return contracts;
+        }
         #endregion
         public static int ManageData(string sql, SqlParameter[]? parameters = null)
         {
