@@ -1,0 +1,13 @@
+C:\FootballContractsHistory\FootballContractsHistory\FootballContractsHistory\bin\Release\net8.0-windows\app.publish\FootballContractsHistory.exe
+C:\FootballContractsHistory\FootballContractsHistory\FootballContractsHistory\bin\Release\net8.0-windows\app.publish\FootballContractsHistory.dll
+C:\FootballContractsHistory\FootballContractsHistory\FootballContractsHistory\bin\Release\net8.0-windows\app.publish\FootballContractsHistory.deps.json
+C:\FootballContractsHistory\FootballContractsHistory\FootballContractsHistory\bin\Release\net8.0-windows\app.publish\FootballContractsHistory.runtimeconfig.json
+C:\FootballContractsHistory\FootballContractsHistory\FootballContractsHistory\bin\Release\net8.0-windows\app.publish\FootballContractsHistory.dll.config
+C:\FootballContractsHistory\FootballContractsHistory\FootballContractsHistory\bin\Release\net8.0-windows\app.publish\FootballContractsHistory.pdb
+C:\FootballContractsHistory\FootballContractsHistory\FootballContractsHistory\bin\Release\net8.0-windows\app.publish\en\FootballContractsHistory.resources.dll
+C:\FootballContractsHistory\FootballContractsHistory\FootballContractsHistory\bin\Release\net8.0-windows\app.publish\System.Data.SqlClient.dll
+C:\FootballContractsHistory\FootballContractsHistory\FootballContractsHistory\bin\Release\net8.0-windows\app.publish\runtimes\win-arm64\native\sni.dll
+C:\FootballContractsHistory\FootballContractsHistory\FootballContractsHistory\bin\Release\net8.0-windows\app.publish\runtimes\win-x64\native\sni.dll
+C:\FootballContractsHistory\FootballContractsHistory\FootballContractsHistory\bin\Release\net8.0-windows\app.publish\runtimes\win-x86\native\sni.dll
+C:\FootballContractsHistory\FootballContractsHistory\FootballContractsHistory\bin\Release\net8.0-windows\app.publish\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\FootballContractsHistory\FootballContractsHistory\FootballContractsHistory\bin\Release\net8.0-windows\app.publish\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
